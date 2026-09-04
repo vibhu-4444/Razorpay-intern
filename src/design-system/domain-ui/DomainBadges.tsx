@@ -44,7 +44,6 @@ export interface ConfidenceIndicatorProps {
 export const ConfidenceIndicator: React.FC<ConfidenceIndicatorProps> = ({
   confidencePercentage,
   expectedRecoveryPercentage,
-  size = 'md',
 }) => {
   return (
     <div className="flex flex-col gap-1">

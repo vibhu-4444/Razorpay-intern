@@ -13,7 +13,7 @@ export const CaseDetailView: React.FC<CaseDetailViewProps> = ({
   onBack,
   onOpenDecisionCenter,
 }) => {
-  const { payment, customer, diagnosis, recommendedAction } = recoveryCase;
+  const { payment, customer, diagnosis } = recoveryCase;
 
   return (
     <div className="flex flex-col space-y-space-lg">

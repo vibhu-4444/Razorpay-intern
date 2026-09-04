@@ -12,13 +12,16 @@ export class RazorpayTestProvider implements PaymentProvider {
   public readonly id = 'RAZORPAY_SANDBOX';
   public readonly name = 'Razorpay Testnet Gateway Adapter';
   public readonly isSimulator = false;
-
-  private keyId: string;
+  public readonly keyId: string;
   private keySecret: string;
 
   constructor(keyId = 'rzp_test_mockKey123', keySecret = 'mockSecret456') {
     this.keyId = keyId;
     this.keySecret = keySecret;
+  }
+
+  public getSecretPreview(): string {
+    return `${this.keySecret.slice(0, 4)}***`;
   }
 
   public async getPayment(paymentId: string): Promise<Payment | null> {
@@ -51,7 +54,7 @@ export class RazorpayTestProvider implements PaymentProvider {
     };
   }
 
-  public async retryPayment(request: RetryPaymentRequest): Promise<ProviderRetryResult> {
+  public async retryPayment(_request: RetryPaymentRequest): Promise<ProviderRetryResult> {
     // Hinglish Comment:
     // Razorpay sandbox API call ko safely emulate/wrap kiya gaya hai.
     // Real secrets client-side leak nahi hote, aur environment parameters se read hote hain.
@@ -67,7 +70,7 @@ export class RazorpayTestProvider implements PaymentProvider {
     };
   }
 
-  public async getPaymentStatus(paymentId: string): Promise<PaymentStatus> {
+  public async getPaymentStatus(_paymentId: string): Promise<PaymentStatus> {
     return 'CAPTURED';
   }
 }

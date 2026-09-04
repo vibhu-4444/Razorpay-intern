@@ -120,7 +120,7 @@ export class RecoveryService {
       throw new Error(`Evaluation failed for case ${caseId}`);
     }
 
-    const { action, policyDecision } = evaluation;
+    const { policyDecision } = evaluation;
 
     // Check: Policy Decision Gate
     if (!policyDecision.allowed) {
