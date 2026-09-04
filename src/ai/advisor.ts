@@ -27,7 +27,9 @@ export class AIAdvisor {
 
     switch (failureCategory) {
       case 'BANK_DECLINE':
-      case 'GATEWAY_TIMEOUT': {
+      case 'GATEWAY_TIMEOUT':
+      case 'NETWORK_TIMEOUT':
+      case 'PROVIDER_ERROR': {
         return {
           prescribedAction: 'RETRY_PAYMENT',
           channel: 'FALLBACK_GATEWAY_SWITCH',
