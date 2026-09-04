@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import { PageHeader } from '../design-system';
 import { RecoveryCase } from '../domain/recovery-case';
+import { RecoveryService, defaultRecoveryService } from '../services/recovery-service';
 
 interface ExceptionsViewProps {
   cases: RecoveryCase[];
+  recoveryService?: RecoveryService;
   onSelectCase: (id: string) => void;
   onOpenDecisionCenter: (id: string) => void;
 }
 
 export const ExceptionsView: React.FC<ExceptionsViewProps> = ({
   cases,
+  recoveryService = defaultRecoveryService,
   onSelectCase,
   onOpenDecisionCenter,
 }) => {
+  const [triageMessage, setTriageMessage] = useState<string | null>(null);
+  const [isProcessing, setIsProcessing] = useState(false);
+
   const exceptionCases = cases.filter(
-    c => c.status === 'NEEDS_REVIEW' || c.status === 'BLOCKED' || c.riskLevel === 'HIGH'
+    c => c.status === 'NEEDS_REVIEW' || c.status === 'BLOCKED' || c.status === 'ESCALATED' || c.riskLevel === 'HIGH'
   );
 
   const [selectedCaseId, setSelectedCaseId] = useState<string>(
@@ -22,6 +28,27 @@ export const ExceptionsView: React.FC<ExceptionsViewProps> = ({
   );
 
   const activeCase = cases.find(c => c.id === selectedCaseId) ?? exceptionCases[0] ?? cases[0];
+
+  const needsReviewCount = cases.filter(c => c.status === 'NEEDS_REVIEW' || c.status === 'ESCALATED').length;
+  const policyBlockedCount = cases.filter(c => c.status === 'BLOCKED').length;
+  const lowConfidenceCount = cases.filter(c => (c.diagnosis?.confidencePercentage ?? 100) < 60).length;
+  const providerFailureCount = cases.filter(c => 
+    c.payment.failure?.category === 'NETWORK_TIMEOUT' || c.status === 'ESCALATED'
+  ).length;
+
+  const handleTriage = async (action: 'APPROVE_AND_EXECUTE' | 'ROUTE_TO_REVIEW' | 'DISMISS') => {
+    if (!activeCase) return;
+    setIsProcessing(true);
+    setTriageMessage(null);
+    try {
+      const res = await recoveryService.triageCase(activeCase.id, action);
+      setTriageMessage('message' in res ? res.message : `Action executed: ${action}`);
+    } catch (err: unknown) {
+      setTriageMessage(err instanceof Error ? err.message : 'Triage error');
+    } finally {
+      setIsProcessing(false);
+    }
+  };
 
   return (
     <div className="flex flex-col space-y-space-lg">
@@ -49,7 +76,7 @@ export const ExceptionsView: React.FC<ExceptionsViewProps> = ({
               <span className="text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold">
                 Needs Review
               </span>
-              <div className="text-2xl font-bold text-on-surface font-mono mt-1">12</div>
+              <div className="text-2xl font-bold text-on-surface font-mono mt-1">{needsReviewCount}</div>
             </div>
             <div className="w-9 h-9 rounded-lg bg-secondary-container/40 flex items-center justify-center text-primary">
               <span className="material-symbols-outlined text-[20px]">assignment_late</span>
@@ -71,7 +98,7 @@ export const ExceptionsView: React.FC<ExceptionsViewProps> = ({
               <span className="text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold">
                 Policy Blocked
               </span>
-              <div className="text-2xl font-bold text-error font-mono mt-1">27</div>
+              <div className="text-2xl font-bold text-error font-mono mt-1">{policyBlockedCount}</div>
             </div>
             <div className="w-9 h-9 rounded-lg bg-error-container text-on-error-container flex items-center justify-center">
               <span className="material-symbols-outlined text-[20px]">shield_lock</span>
@@ -93,7 +120,7 @@ export const ExceptionsView: React.FC<ExceptionsViewProps> = ({
               <span className="text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold">
                 Low Confidence
               </span>
-              <div className="text-2xl font-bold text-tertiary font-mono mt-1">8</div>
+              <div className="text-2xl font-bold text-tertiary font-mono mt-1">{lowConfidenceCount}</div>
             </div>
             <div className="w-9 h-9 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
               <span className="material-symbols-outlined text-[20px]">psychology_alt</span>
@@ -115,7 +142,7 @@ export const ExceptionsView: React.FC<ExceptionsViewProps> = ({
               <span className="text-[11px] uppercase tracking-wider text-on-surface-variant font-semibold">
                 Provider Failure
               </span>
-              <div className="text-2xl font-bold text-secondary font-mono mt-1">5</div>
+              <div className="text-2xl font-bold text-secondary font-mono mt-1">{providerFailureCount}</div>
             </div>
             <div className="w-9 h-9 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center">
               <span className="material-symbols-outlined text-[20px]">cloud_sync</span>
@@ -248,20 +275,58 @@ export const ExceptionsView: React.FC<ExceptionsViewProps> = ({
               </p>
             </div>
 
+            {/* Triage Feedback Banner */}
+            {triageMessage && (
+              <div className="p-2.5 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs flex items-center justify-between">
+                <span>{triageMessage}</span>
+                <button onClick={() => setTriageMessage(null)} className="text-emerald-950 font-bold ml-2">✕</button>
+              </div>
+            )}
+
             {/* Triage Decision Actions */}
-            <div className="space-y-2 pt-2">
-              <button
-                onClick={() => onOpenDecisionCenter(activeCase.id)}
-                className="w-full py-2 px-3 rounded-lg bg-primary text-on-primary text-xs font-semibold shadow-xs hover:bg-primary-container transition-colors flex items-center justify-center gap-1.5"
-              >
-                <span className="material-symbols-outlined text-[16px]">verified</span>
-                <span>Inspect Guardrails & Clear</span>
-              </button>
+            <div className="space-y-2 pt-1">
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => handleTriage('APPROVE_AND_EXECUTE')}
+                  disabled={isProcessing}
+                  className="py-2 px-3 rounded-lg bg-emerald-600 text-white text-xs font-semibold shadow-xs hover:bg-emerald-700 transition-colors flex items-center justify-center gap-1.5 disabled:opacity-50"
+                >
+                  <span className="material-symbols-outlined text-[15px]">check_circle</span>
+                  <span>Clear & Execute</span>
+                </button>
+                <button
+                  onClick={() => handleTriage('ROUTE_TO_REVIEW')}
+                  disabled={isProcessing}
+                  className="py-2 px-3 rounded-lg bg-surface-container-lowest border border-amber-300 text-amber-900 text-xs font-semibold hover:bg-amber-50 transition-colors flex items-center justify-center gap-1.5 disabled:opacity-50"
+                >
+                  <span className="material-symbols-outlined text-[15px]">assignment_turned_in</span>
+                  <span>Route to Review</span>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => onOpenDecisionCenter(activeCase.id)}
+                  className="py-2 px-3 rounded-lg bg-primary text-on-primary text-xs font-semibold shadow-xs hover:bg-primary-container transition-colors flex items-center justify-center gap-1.5"
+                >
+                  <span className="material-symbols-outlined text-[15px]">shield</span>
+                  <span>Decision Center</span>
+                </button>
+                <button
+                  onClick={() => handleTriage('DISMISS')}
+                  disabled={isProcessing}
+                  className="py-2 px-3 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-on-surface-variant text-xs font-medium hover:bg-surface-container-low transition-colors flex items-center justify-center gap-1.5 disabled:opacity-50"
+                >
+                  <span className="material-symbols-outlined text-[15px]">close</span>
+                  <span>Dismiss Case</span>
+                </button>
+              </div>
+
               <button
                 onClick={() => onSelectCase(activeCase.id)}
-                className="w-full py-2 px-3 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-on-surface text-xs font-medium hover:bg-surface-container-low transition-colors"
+                className="w-full py-2 px-3 rounded-lg bg-surface-container-low border border-outline-variant/30 text-on-surface text-xs font-medium hover:bg-surface-container transition-colors"
               >
-                View Full Forensic Dossier
+                View Forensic Dossier →
               </button>
             </div>
           </section>
