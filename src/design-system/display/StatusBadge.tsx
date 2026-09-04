@@ -24,7 +24,7 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({
         </span>
       );
 
-    case 'EXECUTED':
+    case 'EXECUTING':
     case 'DIAGNOSED':
     case 'ELIGIBLE':
     case 'APPROVED':

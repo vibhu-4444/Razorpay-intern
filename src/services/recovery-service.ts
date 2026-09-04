@@ -274,6 +274,7 @@ export class RecoveryService {
       recentAttemptsInWindow: recoveryCase.payment.attemptCount || 1,
       secondsSinceLastFailure: Math.max(secondsSinceFailure, 45), // allow sandbox demo to pass cooldown
       seenIdempotencyKeys: this.seenIdempotencyKeys,
+      aiConfidence: (advisory.modelConfidencePercentage / 100),
     });
 
     logger.policyDecision(
@@ -285,7 +286,7 @@ export class RecoveryService {
     
     // Bounded transition: if case was OPEN, move to READY or NEEDS_REVIEW based on policy
     if (recoveryCase.status === 'OPEN' || recoveryCase.status === 'ANALYZING') {
-      if (!policyDecision.allowed && policyDecision.blockingRule === 'AI_CONFIDENCE_THRESHOLD') {
+      if (!policyDecision.allowed && (policyDecision.blockingRule === 'Minimum AI Confidence Gate' || policyDecision.requiresHumanReview)) {
         recoveryCase.status = 'NEEDS_REVIEW';
       } else if (policyDecision.allowed) {
         recoveryCase.status = 'READY';
@@ -312,18 +313,11 @@ export class RecoveryService {
       throw new Error(`Case ${caseId} not found.`);
     }
 
-    // Step 0: State Transition Pre-Check
-    if (!canTransitionCase(recoveryCase.status, 'EXECUTING')) {
-      throw new Error(
-        `Invalid state transition: Cannot transition case ${caseId} from ${recoveryCase.status} to EXECUTING.`
-      );
-    }
-
     const idempotencyKey = customIdempotencyKey ?? 
       recoveryCase.recommendedAction?.parameters.idempotencyKey ?? 
       `idmp_${caseId}_${Date.now()}`;
 
-    // Step 0b: Idempotency Cache Check - Prevent duplicate network dispatches
+    // Step 0: Idempotency Cache Check - Prevent duplicate network dispatches & short-circuit replay
     if (this.executedCache.has(idempotencyKey)) {
       logger.executionAttempt(`Idempotency hit: Returning cached execution result for key ${idempotencyKey}`);
       
@@ -338,6 +332,13 @@ export class RecoveryService {
 
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       return this.executedCache.get(idempotencyKey)!;
+    }
+
+    // Step 0b: State Transition Pre-Check (only for new dispatches)
+    if (!canTransitionCase(recoveryCase.status, 'EXECUTING')) {
+      throw new Error(
+        `Invalid state transition: Cannot transition case ${caseId} from ${recoveryCase.status} to EXECUTING.`
+      );
     }
 
     // Step 1: Re-evaluate policy to guarantee invariants at execution time

@@ -61,6 +61,10 @@ export class AuditService {
     return this.auditEvents.filter(e => e.caseId === caseId);
   }
 
+  public getEventsByCase(caseId: string): AuditEvent[] {
+    return this.getEventsForCase(caseId);
+  }
+
   public getAllEvents(): AuditEvent[] {
     return [...this.auditEvents];
   }

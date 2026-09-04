@@ -78,6 +78,8 @@ export class PolicyEngine {
       blockingReason = failedChecks.map(f => `${f.ruleName}: ${f.details}`).join(' | ');
     }
 
+    const blockingRule = failedChecks.length > 0 ? failedChecks[0].ruleName : undefined;
+
     return {
       allowed,
       requiresHumanReview,
@@ -85,6 +87,7 @@ export class PolicyEngine {
       totalChecks: ruleResults.length,
       ruleResults,
       blockingReason,
+      blockingRule,
       evaluatedAt: new Date().toISOString(),
       evaluatedBy: this.kernelIdentifier,
       policySetVersion: this.policySetVersion,

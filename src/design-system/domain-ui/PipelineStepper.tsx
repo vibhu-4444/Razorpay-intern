@@ -1,7 +1,19 @@
 import React from 'react';
 import { PIPELINE_FUNNEL } from '../../data/historical-stats';
 
-export const PipelineStepper: React.FC = () => {
+export interface PipelineStepData {
+  step: string;
+  title: string;
+  count: number;
+  conversionRate: number;
+  color: string;
+}
+
+interface PipelineStepperProps {
+  steps?: PipelineStepData[];
+}
+
+export const PipelineStepper: React.FC<PipelineStepperProps> = ({ steps = PIPELINE_FUNNEL }) => {
   return (
     <div className="bg-surface-container-lowest p-space-lg rounded-xl border border-outline-variant/30 shadow-xs">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-space-base">
@@ -21,8 +33,8 @@ export const PipelineStepper: React.FC = () => {
 
       {/* 6-col Step Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-space-sm">
-        {PIPELINE_FUNNEL.map((step, idx) => {
-          const isFinal = idx === PIPELINE_FUNNEL.length - 1;
+        {steps.map((step, idx) => {
+          const isFinal = idx === steps.length - 1;
           return (
             <div
               key={step.step}

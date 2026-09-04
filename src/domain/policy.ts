@@ -30,6 +30,7 @@ export interface PolicyDecision {
   totalChecks: number;               // e.g. 6
   ruleResults: InvariantCheckResult[];
   blockingReason?: string;
+  blockingRule?: string;
   evaluatedAt: string;               // ISO Timestamp
   evaluatedBy: string;               // e.g. "REVIVE_POLICY_KERNEL_v2"
   policySetVersion: string;          // e.g. "POL-REV-2024-Q4.active"

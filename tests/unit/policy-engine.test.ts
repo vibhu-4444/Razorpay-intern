@@ -161,8 +161,8 @@ describe('REVIVE Deterministic Policy Engine', () => {
     });
 
     expect(decisionAllowed.allowed).toBe(true);
-    expect(decisionAllowed.checksPassed).toBe(6);
-    expect(decisionAllowed.totalChecks).toBe(6);
+    expect(decisionAllowed.checksPassed).toBe(8);
+    expect(decisionAllowed.totalChecks).toBe(8);
     expect(decisionAllowed.blockingReason).toBeUndefined();
 
     // Violating retry ceiling
@@ -176,7 +176,7 @@ describe('REVIVE Deterministic Policy Engine', () => {
     });
 
     expect(decisionBlocked.allowed).toBe(false);
-    expect(decisionBlocked.checksPassed).toBe(5);
+    expect(decisionBlocked.checksPassed).toBe(7);
     expect(decisionBlocked.blockingReason).toBeDefined();
   });
 });

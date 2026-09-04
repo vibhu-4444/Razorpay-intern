@@ -53,10 +53,15 @@ export class SimulatorProvider implements PaymentProvider {
    *    rehti hai. System blindly dubara retry nahi karta taaki customer ko do baar charge na pade.
    */
   public async retryPayment(request: RetryPaymentRequest): Promise<ProviderRetryResult> {
-    // 1. Idempotency Check: Return existing result if already executed
+    // 1. Idempotency Check: Reject duplicate dispatch to prevent double charging
     if (this.executedResultsByIdempotency.has(request.idempotencyKey)) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      return this.executedResultsByIdempotency.get(request.idempotencyKey)!;
+      return {
+        success: false,
+        gatewayReferenceNumber: `sim_${Date.now()}`,
+        statusCode: 'DUPLICATE_IDEMPOTENCY_KEY',
+        rawMessage: `Idempotency conflict: A payment retry with key '${request.idempotencyKey}' was already processed. Duplicate execution rejected.`,
+        executionLatencyMs: 5,
+      };
     }
 
     const payment = this.paymentsStore.get(request.paymentId);

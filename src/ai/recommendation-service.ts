@@ -41,7 +41,7 @@ export class RecoveryRecommendationService implements IRecoveryRecommendationSer
    */
   public async recommendAction(
     payment: Payment,
-    customer: Customer,
+    _customer: Customer,
     diagnosis: StructuredDiagnosis
   ): Promise<RecoveryRecommendation> {
     // Low confidence guard: automatically route to human review

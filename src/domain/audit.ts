@@ -9,6 +9,7 @@ export type AuditActor =
   | 'SYSTEM_WEBHOOK'
   | 'AI_MODEL_ENGINE'
   | 'POLICY_ARBITER'
+  | 'IDEMPOTENCY_ARBITER'
   | 'PAYMENT_GATEWAY'
   | 'HUMAN_OPERATOR';
 
