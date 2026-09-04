@@ -13,6 +13,8 @@ export type PaymentStatus =
   | 'FAILED'
   | 'RETRYING'
   | 'CAPTURED'
+  | 'RECOVERED'
+  | 'EXPIRED'
   | 'CANCELLED';
 
 export type PaymentMethodType = 'card' | 'upi' | 'netbanking' | 'emandate';
@@ -26,15 +28,22 @@ export interface PaymentMethodInfo {
   expiryYear?: number;
 }
 
+export type FailureCategory =
+  | 'INSUFFICIENT_FUNDS'
+  | 'BANK_DECLINE'
+  | 'EXPIRED_PAYMENT_METHOD'
+  | 'NETWORK_TIMEOUT'
+  | 'PROVIDER_ERROR'
+  | 'DUPLICATE_ATTEMPT'
+  | 'UNKNOWN'
+  | 'CARD_EXPIRED'
+  | 'GATEWAY_TIMEOUT'
+  | 'VELOCITY_LIMIT'
+  | 'TECHNICAL_ERROR';
+
 export interface PaymentFailureInfo {
   code: string;               // e.g. "E05_ISSUER_TIMEOUT", "INSUFFICIENT_FUNDS", "BANK_DECLINE"
-  category: 
-    | 'BANK_DECLINE'
-    | 'INSUFFICIENT_FUNDS'
-    | 'GATEWAY_TIMEOUT'
-    | 'CARD_EXPIRED'
-    | 'VELOCITY_LIMIT'
-    | 'TECHNICAL_ERROR';
+  category: FailureCategory;
   description: string;
   gatewayRrn?: string;        // Retrieval Reference Number from bank/gateway
   failedAt: string;           // ISO timestamp

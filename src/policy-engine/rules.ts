@@ -2,6 +2,7 @@
  * REVIVE Deterministic Policy Engine: Rules & Invariants
  * 
  * Mathematical and business invariants that cannot be altered or bypassed by AI models.
+ * Enforces strict precedence: Security/Validity -> Eligibility -> Duplicate -> Limits -> Confidence.
  */
 
 import { Payment } from '../domain/payment';
@@ -13,6 +14,7 @@ export interface PolicyEvaluationContext {
   payment: Payment;
   customer: Customer;
   action: RecoveryAction;
+  aiConfidence?: number;              // 0.0 - 1.0
   recentAttemptsInWindow: number;     // Past 24h attempts for this customer
   secondsSinceLastFailure: number;
   seenIdempotencyKeys: Set<string>;
@@ -23,7 +25,32 @@ export const POLICY_RULES = {
   MIN_COOLDOWN_SECONDS: 30,
   MAX_DAILY_CUSTOMER_INTERVENTIONS: 5,
   MAX_AUTONOMOUS_AMOUNT_INR: 50000,
+  MIN_AUTONOMOUS_CONFIDENCE: 0.60,
 };
+
+/**
+ * Check 0: Payment State & Validity Gate
+ * 
+ * Hinglish Comment:
+ * Agar payment pehle se hi CAPTURED ya CANCELLED state mein hai,
+ * toh recovery action execute karna financial fraud ya double-debit ho sakta hai.
+ * Sabse pehla check payment status validity ka hona mandatory hai.
+ */
+export function checkPaymentStateEligibility(ctx: PolicyEvaluationContext): InvariantCheckResult {
+  const eligibleStatuses = ['FAILED', 'RETRYING', 'PENDING', 'INITIATED'];
+  const passed = eligibleStatuses.includes(ctx.payment.status);
+  return {
+    ruleId: 'POL_INV_00',
+    ruleName: 'Payment State Validity Gate',
+    category: 'IDEMPOTENCY_INTEGRITY',
+    passed,
+    expected: 'Payment in FAILED or RETRYING state',
+    actual: `Status is ${ctx.payment.status}`,
+    details: passed
+      ? `Payment state is valid for recovery intervention (${ctx.payment.status}).`
+      : `Payment is in invalid state (${ctx.payment.status}). Automated recovery halted to prevent illegal double debit.`
+  };
+}
 
 /**
  * Check 1: Max Attempt Count Limit
@@ -136,5 +163,28 @@ export function checkIdempotencyGate(ctx: PolicyEvaluationContext): InvariantChe
     details: passed
       ? 'Idempotency key verified; guarantees single execution across distributed webhooks.'
       : 'Duplicate or missing idempotency key. Execution rejected to prevent double-charging.'
+  };
+}
+
+/**
+ * Check 7: Minimum AI Confidence Gate
+ * 
+ * Hinglish Comment:
+ * Agar AI model ka confidence 60% se neeche hai, toh autonomous execution block
+ * hoti hai aur case human review ke liye escalate ho jata hai.
+ */
+export function checkAIConfidenceThreshold(ctx: PolicyEvaluationContext): InvariantCheckResult {
+  const confidence = ctx.aiConfidence ?? 0.85; // default to healthy if not passed
+  const passed = confidence >= POLICY_RULES.MIN_AUTONOMOUS_CONFIDENCE;
+  return {
+    ruleId: 'POL_INV_07',
+    ruleName: 'Minimum AI Confidence Gate',
+    category: 'AMOUNT_RISK_CAP',
+    passed,
+    expected: `>= ${Math.round(POLICY_RULES.MIN_AUTONOMOUS_CONFIDENCE * 100)}% model confidence`,
+    actual: `${Math.round(confidence * 100)}% confidence`,
+    details: passed
+      ? `AI diagnostic confidence meets autonomous threshold (${Math.round(confidence * 100)}% >= 60%).`
+      : `AI confidence is too low (${Math.round(confidence * 100)}% < 60%). Automated execution requires human clearance.`
   };
 }

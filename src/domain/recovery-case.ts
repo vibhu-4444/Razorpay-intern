@@ -12,15 +12,45 @@ import { PolicyDecision } from './policy';
 import { AuditEvent } from './audit';
 
 export type RecoveryStatus = 
+  | 'OPEN'
   | 'DETECTED'
+  | 'ANALYZING'
   | 'DIAGNOSED'
+  | 'READY'
   | 'ELIGIBLE'
   | 'APPROVED'
-  | 'EXECUTED'
+  | 'EXECUTING'
   | 'RECOVERED'
-  | 'BLOCKED'
+  | 'FAILED'
+  | 'ESCALATED'
   | 'NEEDS_REVIEW'
-  | 'FAILED';
+  | 'BLOCKED'
+  | 'CLOSED';
+
+// Hinglish Architectural Note:
+// Bounded state machine transitions: Har state mutation random nahi ho sakti.
+// Jaise EXECUTING se direct OPEN nahi ja sakte, sirf RECOVERED ya FAILED/ESCALATED ho sakta hai.
+export const VALID_RECOVERY_TRANSITIONS: Record<RecoveryStatus, RecoveryStatus[]> = {
+  OPEN: ['ANALYZING', 'DETECTED', 'CLOSED'],
+  DETECTED: ['ANALYZING', 'OPEN', 'DIAGNOSED', 'CLOSED'],
+  ANALYZING: ['READY', 'DIAGNOSED', 'ELIGIBLE', 'ESCALATED', 'BLOCKED'],
+  DIAGNOSED: ['READY', 'ANALYZING', 'ELIGIBLE', 'APPROVED', 'ESCALATED', 'NEEDS_REVIEW', 'BLOCKED'],
+  ELIGIBLE: ['READY', 'APPROVED', 'EXECUTING', 'ESCALATED', 'NEEDS_REVIEW', 'BLOCKED'],
+  APPROVED: ['EXECUTING', 'READY', 'ESCALATED', 'NEEDS_REVIEW', 'BLOCKED'],
+  READY: ['EXECUTING', 'ESCALATED', 'BLOCKED', 'NEEDS_REVIEW'],
+  EXECUTING: ['RECOVERED', 'FAILED', 'ESCALATED', 'BLOCKED'],
+  RECOVERED: ['CLOSED'],
+  FAILED: ['READY', 'EXECUTING', 'ESCALATED', 'CLOSED'],
+  BLOCKED: ['CLOSED', 'ESCALATED', 'READY'],
+  ESCALATED: ['READY', 'EXECUTING', 'CLOSED', 'BLOCKED'],
+  NEEDS_REVIEW: ['READY', 'EXECUTING', 'CLOSED', 'BLOCKED', 'ESCALATED'],
+  CLOSED: [],
+};
+
+export function canTransitionCase(from: RecoveryStatus, to: RecoveryStatus): boolean {
+  if (from === to) return true;
+  return VALID_RECOVERY_TRANSITIONS[from]?.includes(to) ?? false;
+}
 
 export type RiskLevel = 'LOW' | 'MEDIUM' | 'HIGH';
 
