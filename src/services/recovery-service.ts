@@ -354,7 +354,13 @@ export class RecoveryService {
       logger.policyDecision(`Execution BLOCKED by Policy Engine for case ${caseId}: ${policyDecision.blockingReason}`);
       
       // Determine appropriate exception status
-      if (policyDecision.blockingRule === 'AI_CONFIDENCE_THRESHOLD' || policyDecision.blockingReason?.includes('review')) {
+      if (
+        policyDecision.requiresHumanReview ||
+        policyDecision.blockingRule === 'Minimum AI Confidence Gate' ||
+        policyDecision.blockingReason?.includes('review') ||
+        policyDecision.blockingReason?.includes('human') ||
+        policyDecision.blockingReason?.includes('confidence')
+      ) {
         recoveryCase.status = 'NEEDS_REVIEW';
       } else {
         recoveryCase.status = 'BLOCKED';

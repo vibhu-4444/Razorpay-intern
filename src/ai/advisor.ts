@@ -101,7 +101,8 @@ export class AIAdvisor {
         };
       }
 
-      case 'CARD_EXPIRED': {
+      case 'CARD_EXPIRED':
+      case 'EXPIRED_PAYMENT_METHOD': {
         return {
           prescribedAction: 'OFFER_ALTERNATIVE_METHOD',
           channel: 'WHATSAPP_MANDATE_UPDATE',
