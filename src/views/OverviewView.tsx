@@ -2,20 +2,28 @@ import React, { useState } from 'react';
 import { PageHeader, MetricCard, PipelineStepper } from '../design-system';
 import { PLATFORM_KPIS, DAILY_PERFORMANCE_30D } from '../data/historical-stats';
 import { RecoveryCase } from '../domain/recovery-case';
+import { OverviewKPIs, PipelineFunnelStep, defaultRecoveryService } from '../services/recovery-service';
 
 interface OverviewViewProps {
   cases: RecoveryCase[];
+  kpis?: OverviewKPIs;
+  pipelineSteps?: PipelineFunnelStep[];
   onSelectCase: (id: string) => void;
   onNavigateExceptions: () => void;
 }
 
 export const OverviewView: React.FC<OverviewViewProps> = ({
   cases,
+  kpis,
+  pipelineSteps,
   onSelectCase,
   onNavigateExceptions,
 }) => {
   const [selectedRange, setSelectedRange] = useState<'7D' | '30D' | '90D'>('30D');
   const [searchQuery, setSearchQuery] = useState('');
+
+  const liveKpis = kpis ?? defaultRecoveryService.getOverviewKPIs();
+  const liveFunnel = pipelineSteps ?? defaultRecoveryService.getPipelineFunnel();
 
   const filteredCases = cases.filter(c => 
     c.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -40,33 +48,33 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
         </button>
       </PageHeader>
 
-      {/* Primary KPI Row */}
+      {/* Primary KPI Row - Dynamic Live Ledger Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-base">
         <MetricCard
           label="Revenue at Risk"
-          value="₹8,42,500"
-          delta={{ text: '+12.4%', isPositive: false, subtext: 'vs previous period' }}
+          value={`₹${liveKpis.revenueAtRisk.toLocaleString('en-IN')}`}
+          delta={{ text: '+12.4%', isPositive: false, subtext: 'active pipeline exposure' }}
           icon="trending_down"
           iconColorClass="text-error"
         />
         <MetricCard
           label="Recoverable Revenue"
-          value="₹6,91,200"
-          delta={{ text: '81.9%', isPositive: true, subtext: 'of at-risk revenue' }}
+          value={`₹${liveKpis.recoverableRevenue.toLocaleString('en-IN')}`}
+          delta={{ text: `${liveKpis.revenueAtRisk > 0 ? Math.round((liveKpis.recoverableRevenue / liveKpis.revenueAtRisk) * 100) : 0}%`, isPositive: true, subtext: 'of at-risk revenue' }}
           icon="auto_fix_high"
           iconColorClass="text-primary"
         />
         <MetricCard
           label="Revenue Recovered"
-          value="₹4,72,350"
-          delta={{ text: '68.4%', isPositive: true, subtext: 'recovery rate' }}
+          value={`₹${liveKpis.revenueRecovered.toLocaleString('en-IN')}`}
+          delta={{ text: `${liveKpis.recoveryRatePercentage}%`, isPositive: true, subtext: 'conversion rate' }}
           icon="check_circle"
           iconColorClass="text-emerald-600"
         />
         <MetricCard
           label="Active Interventions"
-          value="37"
-          delta={{ text: '12', isPositive: false, subtext: 'require review' }}
+          value={`${liveKpis.activeInterventions}`}
+          delta={{ text: `${liveKpis.needsReviewCount}`, isPositive: false, subtext: 'require review' }}
           icon="pending_actions"
           iconColorClass="text-amber-600"
           onClick={onNavigateExceptions}
@@ -196,7 +204,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                     Review Queue →
                   </span>
                 </div>
-                <div className="text-sm font-semibold text-on-surface">12 cases require review</div>
+                <div className="text-sm font-semibold text-on-surface">{liveKpis.needsReviewCount} cases require review</div>
                 <p className="text-xs text-on-surface-variant mt-0.5">High-value enterprise accounts with manual intervention guardrails.</p>
               </div>
 
@@ -213,7 +221,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                     Inspect Rules →
                   </span>
                 </div>
-                <div className="text-sm font-semibold text-on-surface">27 interventions blocked</div>
+                <div className="text-sm font-semibold text-on-surface">{liveKpis.policyBlockedCount} interventions blocked</div>
                 <p className="text-xs text-on-surface-variant mt-0.5">Daily attempt frequency or user opt-out thresholds reached.</p>
               </div>
 
@@ -230,7 +238,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
                     Check Telemetry →
                   </span>
                 </div>
-                <div className="text-sm font-semibold text-on-surface">8 provider failures</div>
+                <div className="text-sm font-semibold text-on-surface">{liveKpis.providerTimeoutCount} provider failures</div>
                 <p className="text-xs text-on-surface-variant mt-0.5">HDFC network latency spike detected across recurring UPI rails.</p>
               </div>
             </div>
@@ -246,7 +254,7 @@ export const OverviewView: React.FC<OverviewViewProps> = ({
       </div>
 
       {/* Recovery Pipeline Stepper Flow */}
-      <PipelineStepper />
+      <PipelineStepper steps={liveFunnel} />
 
       {/* Recent Recovery Activity Table Section */}
       <div className="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-xs overflow-hidden">

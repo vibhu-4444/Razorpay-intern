@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppShell, NavRoute } from './design-system';
 import { defaultRecoveryService } from './services/recovery-service';
 import { RecoveryCase } from './domain/recovery-case';
@@ -16,6 +16,17 @@ export const App: React.FC = () => {
   const [currentRoute, setCurrentRoute] = useState<NavRoute>('overview');
   const [cases, setCases] = useState<RecoveryCase[]>(() => defaultRecoveryService.getAllCases());
   const [selectedCaseId, setSelectedCaseId] = useState<string>('RP-10482');
+
+  // Dynamic subscription to recovery service state
+  useEffect(() => {
+    const unsubscribe = defaultRecoveryService.subscribe(() => {
+      setCases([...defaultRecoveryService.getAllCases()]);
+    });
+    return unsubscribe;
+  }, []);
+
+  const kpis = defaultRecoveryService.getOverviewKPIs();
+  const exceptionCount = kpis.needsReviewCount + kpis.policyBlockedCount + kpis.providerTimeoutCount;
 
   const selectedCase = cases.find(c => c.id === selectedCaseId) ?? cases[0];
 
@@ -52,11 +63,12 @@ export const App: React.FC = () => {
       currentRoute={currentRoute}
       currentViewTitle={getRouteTitle(currentRoute)}
       onRouteChange={setCurrentRoute}
-      exceptionCount={12}
+      exceptionCount={exceptionCount}
     >
       {currentRoute === 'overview' && (
         <OverviewView
           cases={cases}
+          kpis={kpis}
           onSelectCase={handleSelectCase}
           onNavigateExceptions={() => setCurrentRoute('exceptions')}
         />
