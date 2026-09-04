@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "tertiary-container": "#585be6",
+        "on-secondary": "#ffffff",
+        "on-error-container": "#93000a",
+        "secondary-container": "#dae2fd",
+        "tertiary": "#3e3fcc",
+        "primary-fixed-dim": "#b4c5ff",
+        "inverse-surface": "#213145",
+        "on-surface": "#0b1c30",
+        "on-tertiary-container": "#f1eeff",
+        "surface-dim": "#cbdbf5",
+        "on-secondary-fixed-variant": "#3f465c",
+        "surface-container": "#e5eeff",
+        "on-secondary-container": "#5c647a",
+        "primary": "#004ac6",
+        "error-container": "#ffdad6",
+        "outline-variant": "#c3c6d7",
+        "tertiary-fixed-dim": "#c0c1ff",
+        "on-primary-fixed": "#00174b",
+        "on-primary-container": "#eeefff",
+        "surface-container-lowest": "#ffffff",
+        "primary-container": "#2563eb",
+        "surface-container-low": "#eff4ff",
+        "secondary-fixed": "#dae2fd",
+        "outline": "#737686",
+        "surface-bright": "#f8f9ff",
+        "surface-variant": "#d3e4fe",
+        "on-background": "#0b1c30",
+        "on-primary": "#ffffff",
+        "inverse-primary": "#b4c5ff",
+        "on-tertiary-fixed": "#07006c",
+        "surface-container-high": "#dce9ff",
+        "background": "#f8f9ff",
+        "tertiary-fixed": "#e1e0ff",
+        "inverse-on-surface": "#eaf1ff",
+        "surface-tint": "#0053db",
+        "secondary": "#565e74",
+        "on-surface-variant": "#434655",
+        "on-tertiary": "#ffffff",
+        "primary-fixed": "#dbe1ff",
+        "secondary-fixed-dim": "#bec6e0",
+        "on-tertiary-fixed-variant": "#2f2ebe",
+        "error": "#ba1a1a",
+        "surface-container-highest": "#d3e4fe",
+        "on-error": "#ffffff",
+        "on-primary-fixed-variant": "#003ea8",
+        "surface": "#f8f9ff",
+        "on-secondary-fixed": "#131b2e"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-2xl": "3rem",
+        "space-lg": "1.5rem",
+        "space-xs": "0.25rem",
+        "space-xl": "2rem",
+        "layout-margin-mobile": "1rem",
+        "space-2xs": "0.125rem",
+        "space-sm": "0.5rem",
+        "layout-margin-desktop": "2rem",
+        "space-base": "1rem",
+        "space-md": "0.75rem",
+        "gutter-table": "0.75rem"
+      },
+      "fontFamily": {
+        "body-md": ["Inter"],
+        "headline-xl": ["Inter"],
+        "headline-md": ["Inter"],
+        "body-lg": ["Inter"],
+        "data-mono": ["Inter"],
+        "body-sm": ["Inter"],
+        "label-sm": ["Inter"],
+        "label-md": ["Inter"],
+        "headline-lg": ["Inter"],
+        "headline-sm": ["Inter"]
+      },
+      "fontSize": {
+        "body-md": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "body-lg": ["15px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400"}],
+        "data-mono": ["13px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+        "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+        "headline-sm": ["15px", {"lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-base flex items-center gap-space-sm border-b border-outline-variant/30"><img alt="REVIVE Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold">REVIVE</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wider bg-surface-container-high text-primary border border-primary/20">OPERATIONS</span></div></div><nav class="flex-1 px-space-sm py-space-base space-y-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm"><div class="px-space-base pt-1 pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Operations</span></div><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="overview" href="#"><span>Overview</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="recovery-cases" href="#"><span>Recovery Cases</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="exceptions" href="#"><span>Exceptions</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="analytics" href="#"><span>Analytics</span></a><div class="px-space-base pt-3 pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Engineering &amp; Labs</span></div><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="evaluation-lab" href="#"><span>Evaluation Lab</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="failure-lab" href="#"><span>Failure Lab</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="simulation-data" href="#"><span>Simulation Data</span></a><div class="px-space-base pt-3 pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Governance &amp; Rules</span></div><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="policies-guardrails" href="#"><span>Policies &amp; Guardrails</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="audit-explorer" href="#"><span>Audit Explorer</span></a><div class="px-space-base pt-3 pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Execution &amp; Infrastructure</span></div><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="recovery-execution" href="#"><span>Recovery Execution</span></a><a aria-current="page" class="flex items-center justify-between px-space-base py-1.5 transition-colors bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm" data-path="merchant-config" href="#"><span>Merchant Config</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="system-health" href="#"><span>System Health</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings" href="#"><span>Settings</span></a></nav></div><div class="p-space-base border-t border-outline-variant/30 bg-surface-container-lowest flex flex-col gap-space-sm"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span><span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Systems Operational</span></div><div class="flex items-center justify-between pt-1"><span class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-surface-container-high text-on-secondary-container border border-outline-variant/50">TEST MODE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">v2.4-ops (sandbox)</span></div><div class="pt-1"><p class="font-label-sm text-label-sm text-on-surface-variant truncate" title="Razorpay Direct Merchant (sandbox)">Razorpay Direct Merchant <span class="text-outline">(sandbox)</span></p></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-base"><img alt="REVIVE Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant"><span class="text-outline">REVIVE OPERATIONS</span><span class="text-outline-variant">/</span><span class="text-on-surface font-medium capitalize" id="active-view-indicator">Module Console</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant/40 font-label-sm text-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-[15px]">schedule</span><span>UTC+05:30 (IST)</span></div><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/40 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-sm text-label-sm">Search</span><kbd class="font-data-mono text-[10px] px-1.5 py-0.5 rounded bg-surface-container-lowest border border-outline-variant/50 text-outline shadow-sm">⌘K</kbd></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant/40 font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>TEST MODE / SIMULATION ACTIVE</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="w-full max-w-[1440px] mx-auto p-space-xl"><div class="flex flex-col w-full space-y-space-xl">
+<!-- Top Level Notification / Status Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-base pb-space-base">
+<div class="space-y-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-semibold">Governance Console</span>
+<span class="text-outline-variant font-mono text-[10px]">/</span>
+<span class="font-data-mono text-body-sm text-outline">SEC_ZONE_04</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-semibold">Merchant Configuration</h1>
+<p class="font-body-md text-body-md text-secondary">Configure recovery preferences, operational boundaries, and customer protection ceilings.</p>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-2 px-space-md py-1.5 rounded-full bg-surface-container-low shadow-sm">
+<span class="w-2 h-2 rounded-full bg-outline-variant" id="save-status-dot"></span>
+<span class="font-label-sm text-label-sm text-secondary font-mono" id="unsaved-counter">Unsaved changes: 0</span>
+</div>
+<button class="flex items-center gap-space-xs px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container transition-all cursor-pointer" id="btn-save-primary" onclick="simulateSave()">
+<span class="material-symbols-outlined text-[16px]">save</span>
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+<!-- Merchant Identity Strip -->
+<div class="w-full bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-space-lg items-center">
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Merchant Entity</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate font-semibold" title="Acme Commerce (Dunzo Digital Group)">Acme Commerce</span>
+</div>
+<span class="font-body-sm text-body-sm text-secondary block truncate">Dunzo Digital Group</span>
+</div>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Merchant Identifier</span>
+<div class="flex items-center gap-1.5 font-data-mono text-body-md text-on-surface font-medium">
+<span>MID_DNZ_984</span>
+<button class="text-outline hover:text-primary transition-colors cursor-pointer" onclick="navigator.clipboard.writeText('MID_DNZ_984')" title="Copy MID">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+</button>
+</div>
+<span class="font-label-sm text-label-sm text-outline block">Node ID: BLR-09</span>
+</div>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Environment</span>
+<div>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-mono font-semibold bg-surface-container-high text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+            Test Mode (Sandbox)
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline block">Simulated Gateway</span>
+</div>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Base Currency</span>
+<div class="font-data-mono text-headline-sm text-headline-sm text-on-surface font-semibold">
+          INR <span class="text-secondary font-normal">(₹)</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline block">Settlement: T+1 net</span>
+</div>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Recovery Mode</span>
+<div>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-secondary-container text-on-secondary-fixed">
+<span class="material-symbols-outlined text-[13px]">bolt</span>
+            Controlled Automation
+          </span>
+</div>
+<span class="font-label-sm text-label-sm text-outline block">Deterministic Guard</span>
+</div>
+<div class="space-y-1">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider block">Regulatory Profile</span>
+<div class="flex items-center gap-1 text-emerald-800 font-label-md text-label-md font-medium">
+<span class="material-symbols-outlined text-[16px] text-emerald-600">gavel</span>
+<span class="truncate" title="RBI Tokenization &amp; e-Mandate Compliant">RBI Tokenized</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline block truncate">e-Mandate Compliant</span>
+</div>
+</div>
+</div>
+<!-- Primary 12-Column Configuration Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+<!-- LEFT COLUMN: Operation Mode & Vector Matrix (7 Cols) -->
+<div class="lg:col-span-7 space-y-space-xl">
+<!-- Section 1: Autonomous Operation Mode -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg space-y-space-base">
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">psychology</span>
+              Autonomous Operation Mode
+            </h2>
+<p class="font-body-sm text-body-sm text-secondary">Determines the human-in-the-loop intervention threshold for inbound failure signals.</p>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-mono">SPEC_V2.9</span>
+</div>
+<div class="space-y-space-sm" id="mode-selector-group">
+<!-- Mode 1: Manual -->
+<div class="mode-card cursor-pointer p-space-base rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex items-start gap-space-base" id="mode-card-manual" onclick="selectMode('manual')">
+<div class="pt-0.5">
+<div class="w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center mode-radio-circle" id="radio-manual">
+<div class="w-2 h-2 rounded-full bg-transparent"></div>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Manual</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary">High Latency</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">All recovery actions require human operator review before dispatch. Full audit isolation; recommended solely for sandbox calibration or high-liability testing.</p>
+<div class="flex items-center gap-space-base pt-1 font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">timer</span> Mean Latency: 4.2h</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">verified_user</span> Human Gate: 100%</span>
+</div>
+</div>
+</div>
+<!-- Mode 2: Assisted -->
+<div class="mode-card cursor-pointer p-space-base rounded-lg bg-surface-container-low hover:bg-surface-container transition-all flex items-start gap-space-base" id="mode-card-assisted" onclick="selectMode('assisted')">
+<div class="pt-0.5">
+<div class="w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center mode-radio-circle" id="radio-assisted">
+<div class="w-2 h-2 rounded-full bg-transparent"></div>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Assisted</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-secondary">1-Click Dispatch</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">AI models formulate mitigation strategy and optimal routing. Operator clicks a single-touch batch approval to release the dunning or retry stream.</p>
+<div class="flex items-center gap-space-base pt-1 font-label-sm text-label-sm text-outline">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">timer</span> Mean Latency: 12m</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">smart_toy</span> AI Advisory</span>
+</div>
+</div>
+</div>
+<!-- Mode 3: Controlled Automation (ACTIVE) -->
+<div class="mode-card cursor-pointer p-space-base rounded-lg bg-surface-container text-on-surface shadow-sm transition-all flex items-start gap-space-base ring-2 ring-primary" id="mode-card-controlled" onclick="selectMode('controlled')">
+<div class="pt-0.5">
+<div class="w-4 h-4 rounded-full bg-primary flex items-center justify-center mode-radio-circle" id="radio-controlled">
+<div class="w-2 h-2 rounded-full bg-on-primary"></div>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">Controlled Automation</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary text-on-primary font-semibold tracking-wide text-[10px]">ACTIVE</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">Recommended</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Deterministic invariant engine automatically authorizes and executes recovery vectors that satisfy safety policies. Sub-threshold anomalies automatically escalate to human queue.</p>
+<div class="flex items-center gap-space-base pt-1 font-label-sm text-label-sm text-primary font-medium">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">speed</span> Sub-second Dispatch</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">shield</span> Formal Invariant Guard</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Preferred Recovery Vectors Matrix -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg space-y-space-base">
+<div class="flex items-center justify-between">
+<div class="space-y-0.5">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">hub</span>
+              Eligible Autonomous Recovery Vectors
+            </h2>
+<p class="font-body-sm text-body-sm text-secondary">Control which intervention strategies the machine agent is allowed to execute autonomously.</p>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">4 / 5 ENABLED</span>
+</div>
+<div class="divide-y divide-surface-container-low">
+<!-- Vector 1 -->
+<div class="py-space-md flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary mt-0.5">
+<span class="material-symbols-outlined text-[18px]">cached</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Retry Payment</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono bg-surface-container text-on-surface-variant">Core Engine</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Automated secondary network switch, smart mid-flight routing, and progressive backoff cooldown retries.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer pt-1">
+<input checked="" class="sr-only peer" onchange="registerChange()" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[6px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Vector 2 -->
+<div class="py-space-md flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary mt-0.5">
+<span class="material-symbols-outlined text-[18px]">link</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Smart Payment Link</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono bg-surface-container text-on-surface-variant">WhatsApp / SMS</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Tokenized instant checkout links dispatched through customer primary messaging channels with 4-hour dynamic expiry.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer pt-1">
+<input checked="" class="sr-only peer" onchange="registerChange()" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[6px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Vector 3 -->
+<div class="py-space-md flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary mt-0.5">
+<span class="material-symbols-outlined text-[18px]">event_repeat</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Scheduled Reminder</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono bg-surface-container text-on-surface-variant">Salary Cadence</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Frictionless email and SMS notifications timed to align with payday liquidity cycles and card billing calendar days.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer pt-1">
+<input checked="" class="sr-only peer" onchange="registerChange()" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[6px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Vector 4 -->
+<div class="py-space-md flex items-start justify-between gap-space-md">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary mt-0.5">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Human Ops Escalation</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono bg-surface-container text-on-surface-variant">Risk &amp; Ops</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Auto-dispatch critical enterprise failures and edge exceptions straight to Tier-2 support team with pre-compiled forensics.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer pt-1">
+<input checked="" class="sr-only peer" onchange="registerChange()" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[6px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Vector 5: Disabled -->
+<div class="py-space-md flex items-start justify-between gap-space-md opacity-75">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-outline mt-0.5">
+<span class="material-symbols-outlined text-[18px]">percent</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface font-medium">Proactive Margin Concession / Discount</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono bg-error-container text-on-error-container font-semibold">RESTRICTED</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Waiving 5–10% late fee or transaction fee requires explicit Merchant Finance Director multi-factor override.</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer pt-1">
+<input class="sr-only peer" onchange="registerChange()" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-surface-container-lowest after:content-[''] after:absolute after:top-[6px] after:left-[2px] after:bg-surface-container-lowest after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Guardrails, Cadence & Audit Enforcement (5 Cols) -->
+<div class="lg:col-span-5 space-y-space-xl">
+<!-- Section 1: Customer Protection & Risk Ceilings -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg space-y-space-base">
+<div class="space-y-0.5">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">security</span>
+              Customer Fatigue &amp; Exposure Controls
+            </h2>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">These thresholds directly feed the deterministic invariant engine.</p>
+</div>
+<div class="space-y-space-base pt-2">
+<!-- Setting 1: Max automated actions -->
+<div class="space-y-1.5 p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-medium">Maximum automated actions per customer</label>
+<span class="font-data-mono text-body-md font-semibold text-primary" id="val-actions">3 / 24h</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Prevents end-user alert exhaustion across SMS/Push channels.</p>
+<div class="pt-1 flex items-center gap-3">
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="8" min="1" oninput="document.getElementById('val-actions').innerText = this.value + ' / 24h'; registerChange();" type="range" value="3"/>
+</div>
+</div>
+<!-- Setting 2: Min AI Confidence Floor -->
+<div class="space-y-1.5 p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-medium">Minimum AI confidence floor</label>
+<span class="font-data-mono text-body-md font-semibold text-primary" id="val-conf">80%</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Sub-threshold inferences trigger instant escalation to manual human queue.</p>
+<div class="pt-1 flex items-center gap-3">
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" max="99" min="60" oninput="document.getElementById('val-conf').innerText = this.value + '%'; registerChange();" type="range" value="80"/>
+</div>
+</div>
+<!-- Setting 3: Max Recovery Amount -->
+<div class="space-y-1.5 p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-medium">Maximum automatic recovery transaction</label>
+<span class="font-data-mono text-body-md font-semibold text-primary">₹25,000</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Transactions exceeding this limit trigger a mandatory dual-operator signoff.</p>
+<div class="relative mt-1">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none font-data-mono text-outline">₹</div>
+<input class="w-full pl-8 pr-3 py-1.5 bg-surface-container-lowest rounded-md text-on-surface font-data-mono text-body-md shadow-sm focus:outline-none focus:ring-1 focus:ring-primary" onchange="registerChange()" type="text" value="25,000"/>
+</div>
+</div>
+<!-- Setting 4: Retry Cooldown Backoff -->
+<div class="space-y-1.5 p-space-md rounded-lg bg-surface-container-low">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-medium">Minimum retry cooldown backoff</label>
+<span class="font-data-mono text-body-md font-semibold text-primary">60 seconds</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Deterministic backoff interval strictly guarding against issuer bank rate-limits.</p>
+<div class="grid grid-cols-3 gap-2 pt-1">
+<button class="cd-btn py-1.5 rounded-md bg-surface-container-lowest font-data-mono text-body-sm text-secondary hover:text-on-surface shadow-sm" onclick="setCooldown(30, this)">30s</button>
+<button class="cd-btn py-1.5 rounded-md bg-primary text-on-primary font-data-mono text-body-sm font-semibold shadow-sm" onclick="setCooldown(60, this)">60s</button>
+<button class="cd-btn py-1.5 rounded-md bg-surface-container-lowest font-data-mono text-body-sm text-secondary hover:text-on-surface shadow-sm" onclick="setCooldown(120, this)">120s</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Recovery Communication Preferences -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg space-y-space-base">
+<div class="space-y-0.5">
+<h2 class="font-headline-md text-headline-md text-on-surface font-semibold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">forum</span>
+            Customer Communication &amp; Dunning Cadence
+          </h2>
+<p class="font-body-sm text-body-sm text-secondary">Telecommunication rules compliance and customer contact restrictions.</p>
+</div>
+<div class="space-y-space-md pt-1">
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-lg">
+<div class="space-y-0.5">
+<span class="font-label-md text-label-md text-on-surface font-medium block">Multi-channel Dispatch</span>
+<span class="font-body-sm text-body-sm text-secondary">WhatsApp Business API + Transactional SES Email</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-medium">ENABLED</span>
+</div>
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-lg">
+<div class="space-y-0.5">
+<span class="font-label-md text-label-md text-on-surface font-medium block">Maximum Reminders Per Case</span>
+<span class="font-body-sm text-body-sm text-secondary">Strict ceiling for active recovery lifetime</span>
+</div>
+<span class="font-data-mono text-body-md font-semibold text-on-surface">2 attempts max</span>
+</div>
+<div class="flex items-center justify-between p-space-sm bg-surface-container-low rounded-lg">
+<div class="space-y-0.5">
+<span class="font-label-md text-label-md text-on-surface font-medium block">Minimum Notification Interval</span>
+<span class="font-body-sm text-body-sm text-secondary">Inter-message suppression cooldown window</span>
+</div>
+<span class="font-data-mono text-body-md font-semibold text-on-surface">24 hours</span>
+</div>
+<!-- Quiet Hours Indicator -->
+<div class="p-space-md rounded-lg bg-surface-container space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-on-surface font-headline-sm text-headline-sm font-semibold">
+<span class="material-symbols-outlined text-primary text-[18px]">bedtime</span>
+<span>Quiet Hours Enforced</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-primary text-on-primary font-mono text-[10px]">TRAI COMPLIANT</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Messaging pipeline strictly suspended from <strong class="text-on-surface font-data-mono">22:00 IST</strong> to <strong class="text-on-surface font-data-mono">08:00 IST</strong>. Outbound messages are queued in ledger and released automatically at daylight window open.</p>
+<!-- Visual schedule strip -->
+<div class="pt-2">
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden flex">
+<div class="h-full bg-secondary-container" style="width: 33.3%" title="00:00 - 08:00 (Quiet)"></div>
+<div class="h-full bg-primary" style="width: 58.3%" title="08:00 - 22:00 (Active Dispatches Allowed)"></div>
+<div class="h-full bg-secondary-container" style="width: 8.4%" title="22:00 - 24:00 (Quiet)"></div>
+</div>
+<div class="flex justify-between font-data-mono text-[10px] text-outline pt-1">
+<span>00:00 IST</span>
+<span class="text-primary font-semibold">08:00 (START)</span>
+<span class="text-primary font-semibold">22:00 (LOCK)</span>
+<span>24:00 IST</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Audit Enforcement Box -->
+<div class="bg-surface-container-low rounded-xl shadow-sm p-space-lg space-y-space-base">
+<div class="flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">history_edu</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Deterministic Policy Epoch</h3>
+<p class="font-body-sm text-body-sm text-secondary leading-relaxed">
+              Configuration changes take effect on the next evaluation epoch. All updates are logged to the forensic audit ledger with actor cryptographic signature.
+            </p>
+</div>
+</div>
+<div class="pt-2 flex items-center justify-between gap-space-md">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container text-secondary text-label-md font-label-md shadow-sm transition-colors cursor-pointer" onclick="resetDefaults()">
+            Revert to Default
+          </button>
+<button class="flex-1 px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-colors cursor-pointer flex items-center justify-center gap-1.5" onclick="simulateSave()">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>Commit Configuration</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+    let unsavedChangesCount = 0;
+
+    function registerChange() {
+      unsavedChangesCount++;
+      updateUnsavedCounter();
+    }
+
+    function updateUnsavedCounter() {
+      const counter = document.getElementById('unsaved-counter');
+      const dot = document.getElementById('save-status-dot');
+      if (!counter || !dot) return;
+      
+      counter.innerText = 'Unsaved changes: ' + unsavedChangesCount;
+      if (unsavedChangesCount > 0) {
+        dot.className = 'w-2 h-2 rounded-full bg-amber-500 animate-pulse';
+        counter.classList.remove('text-secondary');
+        counter.classList.add('text-amber-800', 'font-medium');
+      } else {
+        dot.className = 'w-2 h-2 rounded-full bg-outline-variant';
+        counter.classList.remove('text-amber-800', 'font-medium');
+        counter.classList.add('text-secondary');
+      }
+    }
+
+    function selectMode(mode) {
+      const modes = ['manual', 'assisted', 'controlled'];
+      modes.forEach(m => {
+        const card = document.getElementById('mode-card-' + m);
+        const radio = document.getElementById('radio-' + m);
+        if (card && radio) {
+          card.classList.remove('ring-2', 'ring-primary', 'bg-surface-container', 'shadow-sm');
+          card.classList.add('bg-surface-container-low');
+          radio.className = 'w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center mode-radio-circle';
+          radio.innerHTML = '<div class="w-2 h-2 rounded-full bg-transparent"></div>';
+        }
+      });
+
+      const activeCard = document.getElementById('mode-card-' + mode);
+      const activeRadio = document.getElementById('radio-' + mode);
+      if (activeCard && activeRadio) {
+        activeCard.classList.remove('bg-surface-container-low');
+        activeCard.classList.add('bg-surface-container', 'ring-2', 'ring-primary', 'shadow-sm');
+        activeRadio.className = 'w-4 h-4 rounded-full bg-primary flex items-center justify-center mode-radio-circle';
+        activeRadio.innerHTML = '<div class="w-2 h-2 rounded-full bg-on-primary"></div>';
+      }
+
+      registerChange();
+    }
+
+    function setCooldown(seconds, btn) {
+      const buttons = document.querySelectorAll('.cd-btn');
+      buttons.forEach(b => {
+        b.className = 'cd-btn py-1.5 rounded-md bg-surface-container-lowest font-data-mono text-body-sm text-secondary hover:text-on-surface shadow-sm';
+      });
+      btn.className = 'cd-btn py-1.5 rounded-md bg-primary text-on-primary font-data-mono text-body-sm font-semibold shadow-sm';
+      registerChange();
+    }
+
+    function simulateSave() {
+      const saveBtn = document.getElementById('btn-save-primary');
+      if (saveBtn) {
+        saveBtn.disabled = true;
+        saveBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">progress_activity</span><span>Applying to Epoch...</span>';
+        setTimeout(() => {
+          unsavedChangesCount = 0;
+          updateUnsavedCounter();
+          saveBtn.disabled = false;
+          saveBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">done</span><span>Saved & Audited</span>';
+          setTimeout(() => {
+            saveBtn.innerHTML = '<span class="material-symbols-outlined text-[16px]">save</span><span>Save Changes</span>';
+          }, 2000);
+        }, 700);
+      }
+    }
+
+    function resetDefaults() {
+      if (confirm('Revert all boundary parameters to REVIVE Safe Default baseline?')) {
+        selectMode('controlled');
+        unsavedChangesCount = 0;
+        updateUnsavedCounter();
+      }
+    }
+  </script>
+</div></div></main></div></body></html>

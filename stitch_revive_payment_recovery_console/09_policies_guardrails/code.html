@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "tertiary-fixed-dim": "#c0c1ff",
+        "surface-container-low": "#eff4ff",
+        "inverse-on-surface": "#eaf1ff",
+        "primary": "#004ac6",
+        "on-tertiary-fixed-variant": "#2f2ebe",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed": "#dbe1ff",
+        "on-secondary-container": "#5c647a",
+        "outline-variant": "#c3c6d7",
+        "secondary-fixed": "#dae2fd",
+        "tertiary-fixed": "#e1e0ff",
+        "surface-container-high": "#dce9ff",
+        "on-secondary": "#ffffff",
+        "surface-dim": "#cbdbf5",
+        "surface-variant": "#d3e4fe",
+        "on-background": "#0b1c30",
+        "inverse-surface": "#213145",
+        "on-error": "#ffffff",
+        "on-secondary-fixed-variant": "#3f465c",
+        "on-secondary-fixed": "#131b2e",
+        "tertiary": "#3e3fcc",
+        "surface-container-highest": "#d3e4fe",
+        "primary-container": "#2563eb",
+        "on-primary-container": "#eeefff",
+        "tertiary-container": "#585be6",
+        "on-surface-variant": "#434655",
+        "secondary-container": "#dae2fd",
+        "on-tertiary-fixed": "#07006c",
+        "on-tertiary-container": "#f1eeff",
+        "on-primary-fixed": "#00174b",
+        "error": "#ba1a1a",
+        "inverse-primary": "#b4c5ff",
+        "surface-bright": "#f8f9ff",
+        "on-primary-fixed-variant": "#003ea8",
+        "secondary-fixed-dim": "#bec6e0",
+        "surface-container": "#e5eeff",
+        "outline": "#737686",
+        "on-primary": "#ffffff",
+        "surface": "#f8f9ff",
+        "primary-fixed-dim": "#b4c5ff",
+        "error-container": "#ffdad6",
+        "surface-tint": "#0053db",
+        "on-tertiary": "#ffffff",
+        "secondary": "#565e74",
+        "on-error-container": "#93000a",
+        "background": "#f8f9ff",
+        "on-surface": "#0b1c30"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-xl": "2rem",
+        "space-md": "0.75rem",
+        "space-lg": "1.5rem",
+        "layout-margin-desktop": "2rem",
+        "space-xs": "0.25rem",
+        "space-base": "1rem",
+        "space-sm": "0.5rem",
+        "space-2xs": "0.125rem",
+        "layout-margin-mobile": "1rem",
+        "gutter-table": "0.75rem",
+        "space-2xl": "3rem"
+      },
+      "fontFamily": {
+        "body-sm": ["Inter"],
+        "headline-lg": ["Inter"],
+        "data-mono": ["Inter"],
+        "headline-xl": ["Inter"],
+        "label-md": ["Inter"],
+        "body-md": ["Inter"],
+        "label-sm": ["Inter"],
+        "headline-sm": ["Inter"],
+        "headline-md": ["Inter"],
+        "body-lg": ["Inter"]
+      },
+      "fontSize": {
+        "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+        "data-mono": ["13px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+        "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+        "body-md": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "headline-sm": ["15px", {"lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "body-lg": ["15px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-base flex items-center gap-space-sm border-b border-outline-variant/30"><img alt="REVIVE Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold">REVIVE</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wider bg-surface-container-high text-primary border border-primary/20">OPERATIONS</span></div></div><nav class="flex-1 px-space-sm py-space-base space-y-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm"><div class="px-space-base pb-1.5 pt-1 text-[10px] font-semibold uppercase tracking-wider text-outline font-label-sm">Core Operations</div><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="overview" href="#"><span>Overview</span></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="recovery-cases" href="#"><span>Recovery Cases</span></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="exceptions" href="#"><span>Exceptions</span><span class="px-1.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-error-container text-on-error-container">12</span></a><div class="px-space-base pb-1.5 pt-3 text-[10px] font-semibold uppercase tracking-wider text-outline font-label-sm">Intelligence &amp; Control</div><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="recovery-analytics" href="#"><span>Recovery Analytics</span></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="evaluation-lab" href="#"><span>Evaluation Lab</span></a><a aria-current="page" class="flex items-center justify-between px-space-base py-2 transition-colors bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm" data-path="policies-and-guardrails" href="#"><span>Policies &amp; Guardrails</span></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="audit-explorer" href="#"><span>Audit Explorer</span></a><div class="px-space-base pb-1.5 pt-3 text-[10px] font-semibold uppercase tracking-wider text-outline font-label-sm">Administration</div><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings" href="#"><span>Settings</span></a></nav></div><div class="p-space-base border-t border-outline-variant/30 bg-surface-container-lowest flex flex-col gap-space-sm"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span><span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Systems Operational</span></div><div class="flex items-center justify-between pt-1"><span class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-surface-container-high text-on-secondary-container border border-outline-variant/50">TEST MODE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">v2.4-ops</span></div><div class="pt-1"><p class="font-label-sm text-label-sm text-on-surface-variant truncate" title="Razorpay Direct Merchant (sandbox)">Razorpay Direct Merchant <span class="text-outline">(sandbox)</span></p></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-base"><img alt="REVIVE Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant"><span class="text-outline">Operations</span><span class="text-outline-variant">/</span><span class="text-on-surface font-medium capitalize" id="active-view-indicator">Console</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant/40 font-label-sm text-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-[15px]">schedule</span><span>UTC+05:30 (IST)</span></div><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/40 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-sm text-label-sm">Search</span><kbd class="font-data-mono text-[10px] px-1.5 py-0.5 rounded bg-surface-container-lowest border border-outline-variant/50 text-outline shadow-sm">⌘K</kbd></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant/40 font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Simulation Active</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="w-full max-w-[1440px] mx-auto p-space-xl"><div class="flex flex-col w-full gap-space-xl">
+<!-- Top Governance Context & Meta Header -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pb-space-sm">
+<div class="space-y-1">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold tracking-wider uppercase bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[14px]">shield_with_heart</span>
+          System Invariants Active
+        </span>
+<span class="text-outline font-data-mono text-label-sm">Rulebook: <span class="text-on-surface font-semibold">POL-REV-2024-Q4.active</span></span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-semibold">Policies &amp; Guardrails</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Deterministic bounding contracts defining operational bounds for autonomous recovery engines. AI operates strictly as an advisory proposal unit within immutable execution fences.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm self-start md:self-auto">
+<button class="px-3.5 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-low transition-colors font-label-md text-label-md font-medium shadow-sm flex items-center gap-2" id="exportAuditBtn">
+<span class="material-symbols-outlined text-[16px] text-outline">history_edu</span>
+        Export Active Spec
+      </button>
+<button class="px-3.5 py-2 rounded-lg bg-primary-container text-on-primary-container hover:bg-primary transition-colors font-label-md text-label-md font-medium shadow-sm flex items-center gap-2" id="triggerRecheckBtn">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+        Verify Invariants
+      </button>
+</div>
+</div>
+<!-- Summary Metric Strip -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-base">
+<div class="p-space-base rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-semibold tracking-wider text-outline">Active Policies</span>
+<span class="material-symbols-outlined text-[18px] text-primary">gavel</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-semibold text-on-surface">12</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">enforced</span>
+</div>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">Universal scope over cards, UPI &amp; e-mandate pipelines</p>
+</div>
+<div class="p-space-base rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-semibold tracking-wider text-outline">Actions Protected</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">check_circle</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-semibold text-on-surface">1,842</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-data-mono">24h cycle</span>
+</div>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">Validated through real-time deterministic gates</p>
+</div>
+<div class="p-space-base rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-semibold tracking-wider text-outline">Blocked Actions</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">block</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-semibold text-on-surface">27</span>
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-surface-container-high text-on-secondary-container">1.44% intercepted</span>
+</div>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">Dispatched directly to human review or cancelled</p>
+</div>
+<div class="p-space-base rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase font-semibold tracking-wider text-outline">Policy Violations</span>
+<span class="material-symbols-outlined text-[18px] text-primary">security</span>
+</div>
+<div class="mt-space-md flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-semibold text-on-surface">0</span>
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-surface-container-high text-primary">100% compliant</span>
+</div>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">Zero unauthorized ledger writes or out-of-band actions</p>
+</div>
+</div>
+<!-- Section 3: Policy Precedence Hierarchy (Visual Architecture) -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-base">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<div class="font-label-sm text-label-sm uppercase font-semibold tracking-wider text-outline">Precedence Architecture</div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Deterministic Cascading Hierarchy</h2>
+</div>
+<span class="font-data-mono text-label-sm px-2.5 py-1 rounded bg-surface-container-low text-on-surface-variant self-start sm:self-auto">
+        ISO-31000 Compliant
+      </span>
+</div>
+<!-- Visual Cascade Stack -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-sm pt-space-xs">
+<!-- Step 1 -->
+<div class="p-space-base rounded-lg bg-surface-container-low flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-outline-variant"></div>
+<div class="flex items-center justify-between">
+<span class="font-data-mono text-label-sm text-outline">PRIORITY L4 (BASE)</span>
+<span class="material-symbols-outlined text-outline text-[18px]">storefront</span>
+</div>
+<div class="py-space-sm">
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">Merchant Business Policy</div>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">Commercial retry pacing, invoice grace intervals, and user retention rules.</p>
+</div>
+<div class="font-label-sm text-label-sm text-outline">May be restricted by higher tiers</div>
+</div>
+<!-- Step 2 -->
+<div class="p-space-base rounded-lg bg-surface-container flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex items-center justify-between">
+<span class="font-data-mono text-label-sm text-secondary font-semibold">PRIORITY L3</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">account_balance</span>
+</div>
+<div class="py-space-sm">
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">Regulatory / RBI Risk Policy</div>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">Mandatory tokenization, multi-factor triggers, dynamic cooldown throttles.</p>
+</div>
+<div class="font-label-sm text-label-sm text-secondary font-medium">Overrides Merchant Business tier</div>
+</div>
+<!-- Step 3 -->
+<div class="p-space-base rounded-lg bg-surface-container-high flex flex-col justify-between relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex items-center justify-between">
+<span class="font-data-mono text-label-sm text-primary font-semibold">PRIORITY L2</span>
+<span class="material-symbols-outlined text-primary text-[18px]">lock_clock</span>
+</div>
+<div class="py-space-sm">
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">System Safety Engine</div>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">Absolute non-executable ceilings, fraud tripwires, concurrency rate-locks.</p>
+</div>
+<div class="font-label-sm text-label-sm text-primary font-medium">Hard programmatic invariants</div>
+</div>
+<!-- Step 4 -->
+<div class="p-space-base rounded-lg bg-primary-container text-on-primary-container flex flex-col justify-between relative overflow-hidden shadow-md">
+<div class="flex items-center justify-between">
+<span class="font-data-mono text-label-sm text-inverse-on-surface font-semibold">PRIORITY L1 (FINAL)</span>
+<span class="material-symbols-outlined text-inverse-on-surface text-[18px]">verified</span>
+</div>
+<div class="py-space-sm">
+<div class="font-headline-sm text-headline-sm font-semibold text-on-primary-container">Sovereign Decision Unit</div>
+<p class="mt-1 font-body-sm text-body-sm text-primary-fixed-dim">Final deterministic authorization. Statistical AI recommendations are evaluated or rejected here.</p>
+</div>
+<div class="font-label-sm text-label-sm text-on-primary-container font-medium">Immutable audit logged</div>
+</div>
+</div>
+<!-- Governance Banner -->
+<div class="p-space-sm px-space-base rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] mt-0.5">info</span>
+<div class="font-body-sm text-body-sm text-on-surface-variant">
+<span class="font-medium text-on-surface">Rule of Precedence:</span> Higher numerical tiers strictly supersede lower ones. No statistical inference or custom merchant preference can bypass regulatory constraints or system invariants.
+      </div>
+</div>
+</div>
+<!-- Section 1: Bounded Recovery Limits (Financial Automation Control Center) -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-base">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<div class="font-label-sm text-label-sm uppercase font-semibold tracking-wider text-outline">Configuration Space</div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Bounded Recovery Limits</h2>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low px-3 py-1 rounded-md">
+<span class="material-symbols-outlined text-[15px] text-outline">tune</span>
+<span>Parameters locked under cryptographic policy stamp</span>
+</div>
+</div>
+<!-- Parameter Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-base">
+<!-- Parameter 1 -->
+<div class="p-space-base rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container transition-colors">
+<div class="flex items-start justify-between">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-data-mono">MAX_RETRY_ATTEMPTS</span>
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">Maximum Retry Attempts</div>
+</div>
+<span class="p-1 rounded bg-surface-container-lowest text-primary">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+</span>
+</div>
+<div class="flex items-baseline justify-between py-space-xs">
+<div class="font-headline-xl text-headline-xl font-semibold font-data-mono text-on-surface">2 <span class="font-body-md text-body-md text-on-surface-variant font-normal">attempts</span></div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-surface-container-high text-on-surface">Hard Ceiling</span>
+</div>
+<div class="space-y-1">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 40%"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-data-mono text-outline">
+<span>Enforced per failed invoice</span>
+<span class="text-on-surface-variant font-medium">POL-RET-01</span>
+</div>
+</div>
+</div>
+<!-- Parameter 2 -->
+<div class="p-space-base rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container transition-colors">
+<div class="flex items-start justify-between">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-data-mono">MIN_COOLDOWN_WINDOW</span>
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">Minimum Retry Cooldown</div>
+</div>
+<span class="p-1 rounded bg-surface-container-lowest text-primary">
+<span class="material-symbols-outlined text-[18px]">timer</span>
+</span>
+</div>
+<div class="flex items-baseline justify-between py-space-xs">
+<div class="font-headline-xl text-headline-xl font-semibold font-data-mono text-on-surface">60 <span class="font-body-md text-body-md text-on-surface-variant font-normal">seconds</span></div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-surface-container-high text-on-surface">Dynamic Backoff</span>
+</div>
+<div class="space-y-1">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 65%"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-data-mono text-outline">
+<span>Progressive throttle window</span>
+<span class="text-on-surface-variant font-medium">POL-THROT-08</span>
+</div>
+</div>
+</div>
+<!-- Parameter 3 -->
+<div class="p-space-base rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container transition-colors">
+<div class="flex items-start justify-between">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-data-mono">MAX_AUTONOMOUS_CAP</span>
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">Max Auto Recovery Amount</div>
+</div>
+<span class="p-1 rounded bg-surface-container-lowest text-tertiary">
+<span class="material-symbols-outlined text-[18px]">currency_rupee</span>
+</span>
+</div>
+<div class="flex items-baseline justify-between py-space-xs">
+<div class="font-headline-xl text-headline-xl font-semibold font-data-mono text-on-surface">₹25,000</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-surface-container-high text-on-surface">Two-Person Rule</span>
+</div>
+<div class="space-y-1">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-tertiary h-1.5 rounded-full" style="width: 50%"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-data-mono text-outline">
+<span>&gt;₹25k routes to Dual-Auth</span>
+<span class="text-on-surface-variant font-medium">POL-VAL-04</span>
+</div>
+</div>
+</div>
+<!-- Parameter 4 -->
+<div class="p-space-base rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container transition-colors">
+<div class="flex items-start justify-between">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-data-mono">AI_CONFIDENCE_THRESHOLD</span>
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">Minimum AI Confidence</div>
+</div>
+<span class="p-1 rounded bg-surface-container-lowest text-primary">
+<span class="material-symbols-outlined text-[18px]">psychology</span>
+</span>
+</div>
+<div class="flex items-baseline justify-between py-space-xs">
+<div class="font-headline-xl text-headline-xl font-semibold font-data-mono text-on-surface">80%</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-surface-container-high text-on-surface">Execution Gate</span>
+</div>
+<div class="space-y-1">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 80%"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-data-mono text-outline">
+<span>Sub-80% downgraded to advisory</span>
+<span class="text-on-surface-variant font-medium">POL-AI-GATE</span>
+</div>
+</div>
+</div>
+<!-- Parameter 5 -->
+<div class="p-space-base rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container transition-colors">
+<div class="flex items-start justify-between">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-data-mono">RATE_LIMIT_CUSTOMER</span>
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">Max Actions Per Customer</div>
+</div>
+<span class="p-1 rounded bg-surface-container-lowest text-secondary">
+<span class="material-symbols-outlined text-[18px]">person_off</span>
+</span>
+</div>
+<div class="flex items-baseline justify-between py-space-xs">
+<div class="font-headline-xl text-headline-xl font-semibold font-data-mono text-on-surface">3 <span class="font-body-md text-body-md text-on-surface-variant font-normal">/ 24h</span></div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-surface-container-high text-on-surface">Fatigue Guard</span>
+</div>
+<div class="space-y-1">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-1.5 rounded-full" style="width: 30%"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-data-mono text-outline">
+<span>Velocity throttle ceiling</span>
+<span class="text-on-surface-variant font-medium">POL-VEL-02</span>
+</div>
+</div>
+</div>
+<!-- Parameter 6 -->
+<div class="p-space-base rounded-lg bg-surface-container-low flex flex-col justify-between gap-space-md hover:bg-surface-container transition-colors">
+<div class="flex items-start justify-between">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider font-data-mono">BACKOFF_CURVE</span>
+<div class="font-headline-sm text-headline-sm font-semibold text-on-surface">Cooldown Multiplier</div>
+</div>
+<span class="p-1 rounded bg-surface-container-lowest text-primary">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+</span>
+</div>
+<div class="flex items-baseline justify-between py-space-xs">
+<div class="font-headline-xl text-headline-xl font-semibold font-data-mono text-on-surface">1.5x</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-surface-container-high text-on-surface">Exponential</span>
+</div>
+<div class="space-y-1">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 55%"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-data-mono text-outline">
+<span>Base multiplier algorithm</span>
+<span class="text-on-surface-variant font-medium">POL-EXP-07</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Action Permissions Matrix (Authorization Boundaries) -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<div class="p-space-lg flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm bg-surface-container-lowest">
+<div>
+<div class="font-label-sm text-label-sm uppercase font-semibold tracking-wider text-outline">Deterministic Matrix</div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Action Permissions Matrix</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">System enforcement boundaries for each autonomous operation type.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-outline">Live Filter:</span>
+<span class="px-2 py-1 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm font-medium">All 5 Channels</span>
+</div>
+</div>
+<!-- Permission Matrix Table -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-space-lg font-semibold">Action Vector</th>
+<th class="py-3 px-space-base font-semibold">AI Can Recommend</th>
+<th class="py-3 px-space-base font-semibold">Automatic Execution</th>
+<th class="py-3 px-space-base font-semibold">Requires Review</th>
+<th class="py-3 px-space-lg font-semibold">Active Guardrail Specification</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 font-body-md text-body-md text-on-surface">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+</span>
+<div>
+<div class="font-headline-sm text-headline-sm font-semibold">Retry Payment</div>
+<div class="font-body-sm text-body-sm text-outline">Card/UPI automated charge attempt</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-medium bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                Enabled
+              </span>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-medium bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+                Allowed
+              </span>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="font-data-mono text-label-sm text-outline">No</span>
+</td>
+<td class="py-3.5 px-space-lg">
+<div class="space-y-0.5">
+<div class="font-medium text-on-surface">Within 2 attempts &amp; &lt;₹25,000 threshold</div>
+<div class="font-data-mono text-label-sm text-outline">POL-EXEC-RETRY-01</div>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</span>
+<div>
+<div class="font-headline-sm text-headline-sm font-semibold">Payment Link (WhatsApp / SMS)</div>
+<div class="font-body-sm text-body-sm text-outline">Smart tokenized outreach message</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-medium bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                Enabled
+              </span>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-medium bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+                Allowed
+              </span>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="font-data-mono text-label-sm text-outline">No</span>
+</td>
+<td class="py-3.5 px-space-lg">
+<div class="space-y-0.5">
+<div class="font-medium text-on-surface">RBI tokenized mandate verified &amp; opt-in active</div>
+<div class="font-data-mono text-label-sm text-outline">POL-COMM-WHATSAPP-04</div>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">local_offer</span>
+</span>
+<div>
+<div class="font-headline-sm text-headline-sm font-semibold">Discount Offer (SaaS Recovery)</div>
+<div class="font-body-sm text-body-sm text-outline">Proactive concession dunning incentive</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-medium bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                Enabled
+              </span>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-medium bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">block</span>
+                Blocked
+              </span>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-container-high text-primary">
+                Mandatory
+              </span>
+</td>
+<td class="py-3.5 px-space-lg">
+<div class="space-y-0.5">
+<div class="font-medium text-on-surface">Margin exposure cap (Max 15% incentive waiver)</div>
+<div class="font-data-mono text-label-sm text-outline">POL-FIN-DISC-09</div>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">currency_exchange</span>
+</span>
+<div>
+<div class="font-headline-sm text-headline-sm font-semibold">Partial Refund / Waiver</div>
+<div class="font-body-sm text-body-sm text-outline">Settlement reconciliation adjustment</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-medium bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                Enabled
+              </span>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-medium bg-surface-container-high text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">block</span>
+                Blocked
+              </span>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-surface-container-high text-primary">
+                Mandatory
+              </span>
+</td>
+<td class="py-3.5 px-space-lg">
+<div class="space-y-0.5">
+<div class="font-medium text-on-surface">Finance Controller dual-signature role required</div>
+<div class="font-data-mono text-label-sm text-outline">POL-FIN-WAIVER-12</div>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-space-lg">
+<div class="flex items-center gap-space-sm">
+<span class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">assignment_ind</span>
+</span>
+<div>
+<div class="font-headline-sm text-headline-sm font-semibold">Manual Escalation</div>
+<div class="font-body-sm text-body-sm text-outline">Queue dispatch to human risk agent</div>
+</div>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-medium bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[14px]">check</span>
+                Enabled
+              </span>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full font-label-sm text-label-sm font-medium bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+                Allowed
+              </span>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="font-data-mono text-label-sm text-outline">No</span>
+</td>
+<td class="py-3.5 px-space-lg">
+<div class="space-y-0.5">
+<div class="font-medium text-on-surface">Dispatches to Tier 2 Ops Queue with context bundle</div>
+<div class="font-data-mono text-label-sm text-outline">POL-ROUT-TIER2-03</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Section 4: Recent Policy Blocks (Live Interceptions) -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm space-y-space-base">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div>
+<div class="font-label-sm text-label-sm uppercase font-semibold tracking-wider text-outline">Safety Intercepts</div>
+<h2 class="font-headline-md text-headline-md font-semibold text-on-surface">Recent Policy Blocks</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live record of automated actions intercepted before hitting payment infrastructure.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-data-mono">Interceptor daemon active</span>
+</div>
+</div>
+<!-- Intercepts Ledger -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-space-base font-semibold">Case Reference</th>
+<th class="py-2.5 px-space-base font-semibold">Proposed Action</th>
+<th class="py-2.5 px-space-base font-semibold">Invariant Triggered</th>
+<th class="py-2.5 px-space-base font-semibold">Status</th>
+<th class="py-2.5 px-space-base font-semibold">Timestamp</th>
+<th class="py-2.5 px-space-base font-semibold text-right">Audit Trail</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/30 font-body-md text-body-md text-on-surface">
+<!-- Block 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-base font-data-mono text-primary font-medium">RP-10503</td>
+<td class="py-3 px-space-base font-medium">Retry Payment</td>
+<td class="py-3 px-space-base">
+<span class="font-body-sm text-body-sm text-on-surface">Retry limit ceiling (2/2 hit)</span>
+</td>
+<td class="py-3 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm font-semibold bg-surface-container-high text-on-secondary-container">
+                Blocked
+              </span>
+</td>
+<td class="py-3 px-space-base font-data-mono text-label-sm text-outline">4m ago</td>
+<td class="py-3 px-space-base text-right">
+<button class="font-label-sm text-label-sm text-primary hover:text-on-surface font-medium underline inline-flex items-center gap-1" onclick="alert('Audit payload: Case RP-10503 violated POL-RET-01 hard attempt cap.')">
+                View Audit
+                <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+</button>
+</td>
+</tr>
+<!-- Block 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-base font-data-mono text-primary font-medium">RP-10521</td>
+<td class="py-3 px-space-base font-medium">Discount 25%</td>
+<td class="py-3 px-space-base">
+<span class="font-body-sm text-body-sm text-on-surface">Exceeds 15% margin guardrail</span>
+</td>
+<td class="py-3 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm font-semibold bg-surface-container-high text-on-secondary-container">
+                Blocked
+              </span>
+</td>
+<td class="py-3 px-space-base font-data-mono text-label-sm text-outline">18m ago</td>
+<td class="py-3 px-space-base text-right">
+<button class="font-label-sm text-label-sm text-primary hover:text-on-surface font-medium underline inline-flex items-center gap-1" onclick="alert('Audit payload: Case RP-10521 attempted 25% discount, surpassing ceiling 15%. Forwarded to Ops queue.')">
+                View Audit
+                <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+</button>
+</td>
+</tr>
+<!-- Block 3 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-base font-data-mono text-primary font-medium">RP-10537</td>
+<td class="py-3 px-space-base font-medium">Smart Retry</td>
+<td class="py-3 px-space-base">
+<span class="font-body-sm text-body-sm text-on-surface">AI Confidence 71% (&lt;80% threshold)</span>
+</td>
+<td class="py-3 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm font-semibold bg-surface-container-high text-on-secondary-container">
+                Blocked
+              </span>
+</td>
+<td class="py-3 px-space-base font-data-mono text-label-sm text-outline">32m ago</td>
+<td class="py-3 px-space-base text-right">
+<button class="font-label-sm text-label-sm text-primary hover:text-on-surface font-medium underline inline-flex items-center gap-1" onclick="alert('Audit payload: Inference score 0.71 was downgraded from Autonomous to Advisory per POL-AI-GATE.')">
+                View Audit
+                <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+</button>
+</td>
+</tr>
+<!-- Block 4 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-base font-data-mono text-primary font-medium">RP-10499</td>
+<td class="py-3 px-space-base font-medium">Immediate Dispatch</td>
+<td class="py-3 px-space-base">
+<span class="font-body-sm text-body-sm text-on-surface">Amount ₹92,000 (&gt;₹25k threshold)</span>
+</td>
+<td class="py-3 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-label-sm font-semibold bg-surface-container-high text-on-secondary-container">
+                Blocked
+              </span>
+</td>
+<td class="py-3 px-space-base font-data-mono text-label-sm text-outline">1h ago</td>
+<td class="py-3 px-space-base text-right">
+<button class="font-label-sm text-label-sm text-primary hover:text-on-surface font-medium underline inline-flex items-center gap-1" onclick="alert('Audit payload: Case RP-10499 requires dual-officer sign-off under sovereign high-value safeguard.')">
+                View Audit
+                <span class="material-symbols-outlined text-[13px]">arrow_outward</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Micro Detail Footer -->
+<div class="flex flex-col sm:flex-row items-center justify-between pt-space-xs text-outline font-label-sm text-label-sm">
+<div>Showing latest 4 intercepted anomalies of 27 recorded in active window</div>
+<div class="font-data-mono">SHA256-SIG: 9c2b8104...c8701e</div>
+</div>
+</div>
+</div>
+<script>
+  // Simple micro-interactions for operational clarity
+  document.getElementById('triggerRecheckBtn')?.addEventListener('click', function() {
+    const originalText = this.innerHTML;
+    this.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">refresh</span> Verifying 12 Policies...';
+    setTimeout(() => {
+      this.innerHTML = '<span class="material-symbols-outlined text-[16px]">check_circle</span> Invariants Validated';
+      setTimeout(() => {
+        this.innerHTML = originalText;
+      }, 2500);
+    }, 700);
+  });
+
+  document.getElementById('exportAuditBtn')?.addEventListener('click', function() {
+    alert("Active Specification Hash: POL-REV-2024-Q4.active\n\n12 Rules Verified\nCoverage: Cards, UPI, Netbanking, e-Mandate\nStrict RBI Framework: Active\nZero bypass paths allowed.");
+  });
+</script></div></main></div></body></html>

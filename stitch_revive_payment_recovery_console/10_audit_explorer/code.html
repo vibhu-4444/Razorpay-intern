@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "tertiary-fixed-dim": "#c0c1ff",
+        "surface-container-low": "#eff4ff",
+        "inverse-on-surface": "#eaf1ff",
+        "primary": "#004ac6",
+        "on-tertiary-fixed-variant": "#2f2ebe",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed": "#dbe1ff",
+        "on-secondary-container": "#5c647a",
+        "outline-variant": "#c3c6d7",
+        "secondary-fixed": "#dae2fd",
+        "tertiary-fixed": "#e1e0ff",
+        "surface-container-high": "#dce9ff",
+        "on-secondary": "#ffffff",
+        "surface-dim": "#cbdbf5",
+        "surface-variant": "#d3e4fe",
+        "on-background": "#0b1c30",
+        "inverse-surface": "#213145",
+        "on-error": "#ffffff",
+        "on-secondary-fixed-variant": "#3f465c",
+        "on-secondary-fixed": "#131b2e",
+        "tertiary": "#3e3fcc",
+        "surface-container-highest": "#d3e4fe",
+        "primary-container": "#2563eb",
+        "on-primary-container": "#eeefff",
+        "tertiary-container": "#585be6",
+        "on-surface-variant": "#434655",
+        "secondary-container": "#dae2fd",
+        "on-tertiary-fixed": "#07006c",
+        "on-tertiary-container": "#f1eeff",
+        "on-primary-fixed": "#00174b",
+        "error": "#ba1a1a",
+        "inverse-primary": "#b4c5ff",
+        "surface-bright": "#f8f9ff",
+        "on-primary-fixed-variant": "#003ea8",
+        "secondary-fixed-dim": "#bec6e0",
+        "surface-container": "#e5eeff",
+        "outline": "#737686",
+        "on-primary": "#ffffff",
+        "surface": "#f8f9ff",
+        "primary-fixed-dim": "#b4c5ff",
+        "error-container": "#ffdad6",
+        "surface-tint": "#0053db",
+        "on-tertiary": "#ffffff",
+        "secondary": "#565e74",
+        "on-error-container": "#93000a",
+        "background": "#f8f9ff",
+        "on-surface": "#0b1c30"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-xl": "2rem",
+        "space-md": "0.75rem",
+        "space-lg": "1.5rem",
+        "layout-margin-desktop": "2rem",
+        "space-xs": "0.25rem",
+        "space-base": "1rem",
+        "space-sm": "0.5rem",
+        "space-2xs": "0.125rem",
+        "layout-margin-mobile": "1rem",
+        "gutter-table": "0.75rem",
+        "space-2xl": "3rem"
+      },
+      "fontFamily": {
+        "body-sm": ["Inter"],
+        "headline-lg": ["Inter"],
+        "data-mono": ["Inter"],
+        "headline-xl": ["Inter"],
+        "label-md": ["Inter"],
+        "body-md": ["Inter"],
+        "label-sm": ["Inter"],
+        "headline-sm": ["Inter"],
+        "headline-md": ["Inter"],
+        "body-lg": ["Inter"]
+      },
+      "fontSize": {
+        "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+        "data-mono": ["13px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+        "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+        "body-md": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "headline-sm": ["15px", {"lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "body-lg": ["15px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-base flex items-center gap-space-sm border-b border-outline-variant/30"><img alt="REVIVE Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold">REVIVE</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wider bg-surface-container-high text-primary border border-primary/20">OPERATIONS</span></div></div><nav class="flex-1 px-space-sm py-space-base space-y-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm"><div class="px-space-base pb-1.5 pt-1 text-[10px] font-semibold uppercase tracking-wider text-outline font-label-sm">Core Operations</div><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="overview" href="#"><span>Overview</span></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="recovery-cases" href="#"><span>Recovery Cases</span></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="exceptions" href="#"><span>Exceptions</span><span class="px-1.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-error-container text-on-error-container">12</span></a><div class="px-space-base pb-1.5 pt-3 text-[10px] font-semibold uppercase tracking-wider text-outline font-label-sm">Intelligence &amp; Control</div><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="recovery-analytics" href="#"><span>Recovery Analytics</span></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="evaluation-lab" href="#"><span>Evaluation Lab</span></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="policies-and-guardrails" href="#"><span>Policies &amp; Guardrails</span></a><a aria-current="page" class="flex items-center justify-between px-space-base py-2 transition-colors bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm" data-path="audit-explorer" href="#"><span>Audit Explorer</span></a><div class="px-space-base pb-1.5 pt-3 text-[10px] font-semibold uppercase tracking-wider text-outline font-label-sm">Administration</div><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings" href="#"><span>Settings</span></a></nav></div><div class="p-space-base border-t border-outline-variant/30 bg-surface-container-lowest flex flex-col gap-space-sm"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span><span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Systems Operational</span></div><div class="flex items-center justify-between pt-1"><span class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-surface-container-high text-on-secondary-container border border-outline-variant/50">TEST MODE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">v2.4-ops</span></div><div class="pt-1"><p class="font-label-sm text-label-sm text-on-surface-variant truncate" title="Razorpay Direct Merchant (sandbox)">Razorpay Direct Merchant <span class="text-outline">(sandbox)</span></p></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-base"><img alt="REVIVE Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant"><span class="text-outline">Operations</span><span class="text-outline-variant">/</span><span class="text-on-surface font-medium capitalize" id="active-view-indicator">Console</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant/40 font-label-sm text-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-[15px]">schedule</span><span>UTC+05:30 (IST)</span></div><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/40 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-sm text-label-sm">Search</span><kbd class="font-data-mono text-[10px] px-1.5 py-0.5 rounded bg-surface-container-lowest border border-outline-variant/50 text-outline shadow-sm">⌘K</kbd></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant/40 font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Simulation Active</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="w-full max-w-[1440px] mx-auto p-space-xl"><div class="flex flex-col w-full">
+<!-- Top Forensic Integrity Bar & Section Header -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-base pb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="font-data-mono text-label-sm uppercase tracking-wider text-primary font-semibold">Forensic Ledger · Kernel v2.4</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-data-mono text-label-sm">
+<span class="material-symbols-outlined text-[13px] text-primary" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+          Audit Trail Integrity: Verified (SHA-256 Chain Signed • SOC2 Type II Compliant)
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Audit Explorer</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-3xl">
+        Trace deterministic decisions, policy checks, micro-actions, and cryptographic state transitions across the autonomous recovery engine with microsecond precision.
+      </p>
+</div>
+<!-- Quick Forensic Stream Actions -->
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-surface-container-lowest text-on-surface hover:bg-surface-container-low shadow-sm font-label-md text-label-md transition-all">
+<span class="material-symbols-outlined text-[16px] text-outline">file_download</span>
+        Export Immutable Log
+      </button>
+<button class="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-surface-container-lowest text-on-surface hover:bg-surface-container-low shadow-sm font-label-md text-label-md transition-all">
+<span class="material-symbols-outlined text-[16px] text-outline">key</span>
+        Verify Merkle Proof
+      </button>
+<button class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-md bg-primary text-on-primary hover:bg-primary-container shadow-sm font-label-md text-label-md transition-all">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+        Live Tail: Active
+      </button>
+</div>
+</div>
+<!-- KPI Bento Row -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-lg">
+<!-- Card 1: Events Today -->
+<div class="rounded-xl bg-surface-container-lowest p-space-base shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Events Today</span>
+<span class="p-1.5 rounded-lg bg-surface-container-low text-primary">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</span>
+</div>
+<div class="pt-space-sm">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-semibold tracking-tight font-data-mono">2,481</span>
+<span class="font-label-sm text-label-sm text-primary font-medium">+14.2%</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span>Total system operations logged</span>
+<span class="font-data-mono text-outline">28.4 evt/s</span>
+</div>
+</div>
+<!-- Mini Sparkline inline svg -->
+<div class="mt-3 pt-2">
+<svg class="w-full h-5 text-primary" preserveaspectratio="none" viewbox="0 0 100 20">
+<path d="M0,16 L12,14 L24,17 L36,11 L48,13 L60,8 L72,12 L84,4 L100,7" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"></path>
+</svg>
+</div>
+</div>
+<!-- Card 2: Automated Actions -->
+<div class="rounded-xl bg-surface-container-lowest p-space-base shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Automated Actions</span>
+<span class="p-1.5 rounded-lg bg-surface-container-low text-primary">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</span>
+</div>
+<div class="pt-space-sm">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-semibold tracking-tight font-data-mono">1,842</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">74.2% ratio</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span>Autonomous execution events</span>
+<span class="font-data-mono text-outline">0 human assist</span>
+</div>
+</div>
+<div class="mt-3 pt-2">
+<div class="w-full bg-surface-container-high rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 74.2%"></div>
+</div>
+</div>
+</div>
+<!-- Card 3: Policy Blocks -->
+<div class="rounded-xl bg-surface-container-lowest p-space-base shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Policy Blocks</span>
+<span class="p-1.5 rounded-lg bg-error-container text-on-error-container">
+<span class="material-symbols-outlined text-[18px]">gavel</span>
+</span>
+</div>
+<div class="pt-space-sm">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-error font-semibold tracking-tight font-data-mono">27</span>
+<span class="font-label-sm text-label-sm text-error font-medium">Deterministic</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span>Deterministic guardrail halts</span>
+<span class="font-data-mono text-outline">100% compliant</span>
+</div>
+</div>
+<div class="mt-3 pt-2 flex items-center gap-1.5">
+<span class="h-2 w-2 rounded-full bg-error"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active protection invariants hold</span>
+</div>
+</div>
+<!-- Card 4: Human Decisions -->
+<div class="rounded-xl bg-surface-container-lowest p-space-base shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Human Decisions</span>
+<span class="p-1.5 rounded-lg bg-surface-container-low text-tertiary">
+<span class="material-symbols-outlined text-[18px]">supervisor_account</span>
+</span>
+</div>
+<div class="pt-space-sm">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl text-on-surface font-semibold tracking-tight font-data-mono">64</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">2.5% load</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm pt-1">
+<span>Operator overrides &amp; sign-offs</span>
+<span class="font-data-mono text-outline">Avg 48s MTTD</span>
+</div>
+</div>
+<div class="mt-3 pt-2 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>Queue Health: Cleared</span>
+<span class="font-data-mono text-primary font-semibold">12 queued</span>
+</div>
+</div>
+</div>
+<!-- Systematic Filter Bar -->
+<div class="rounded-xl bg-surface-container-lowest p-space-base shadow-sm mb-space-base">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-sm items-center">
+<!-- Search -->
+<div class="md:col-span-4 relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-8 bg-surface text-on-surface rounded-md font-body-md text-body-md focus:outline-none focus:bg-surface-container-low transition-colors" placeholder="Search Case ID, RRN, or Signature..." type="text" value="RP-10503"/>
+<button class="absolute right-2.5 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Actor Select -->
+<div class="md:col-span-2">
+<div class="relative">
+<select class="w-full h-9 px-3 appearance-none bg-surface text-on-surface rounded-md font-body-md text-body-md focus:outline-none cursor-pointer">
+<option>All Actors</option>
+<option>AI Model</option>
+<option selected="">Policy Engine</option>
+<option>System Kernel</option>
+<option>Payment Provider</option>
+<option>Human Reviewer</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Event Type Select -->
+<div class="md:col-span-2">
+<div class="relative">
+<select class="w-full h-9 px-3 appearance-none bg-surface text-on-surface rounded-md font-body-md text-body-md focus:outline-none cursor-pointer">
+<option>All Event Types</option>
+<option>Ingestion</option>
+<option>Diagnosis</option>
+<option selected="">Policy Check</option>
+<option>Dispatch</option>
+<option>Settlement</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Result Filter Select -->
+<div class="md:col-span-2">
+<div class="relative">
+<select class="w-full h-9 px-3 appearance-none bg-surface text-on-surface rounded-md font-body-md text-body-md focus:outline-none cursor-pointer">
+<option>All Results</option>
+<option>Authorized</option>
+<option selected="">Blocked</option>
+<option>Executed</option>
+<option>Succeeded</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline pointer-events-none text-[18px]">expand_more</span>
+</div>
+</div>
+<!-- Date Time Range -->
+<div class="md:col-span-2 flex items-center justify-end gap-2">
+<button class="w-full h-9 px-2.5 bg-surface text-on-surface rounded-md font-label-md text-label-md flex items-center justify-between hover:bg-surface-container-low transition-colors">
+<span class="flex items-center gap-1.5 truncate">
+<span class="material-symbols-outlined text-[16px] text-outline">calendar_today</span>
+<span>Today (IST)</span>
+</span>
+<span class="material-symbols-outlined text-[16px] text-outline">tune</span>
+</button>
+</div>
+</div>
+<!-- Active Filter Tags row -->
+<div class="flex items-center gap-space-sm pt-space-sm mt-space-sm border-t border-surface-container">
+<span class="font-label-sm text-label-sm text-outline font-medium">Applied Scope:</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+        Case: <strong class="font-data-mono">RP-10503</strong>
+<span class="material-symbols-outlined text-[13px] text-outline cursor-pointer hover:text-on-surface">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm">
+        Mode: <strong>Active Audit Log</strong>
+</span>
+<button class="font-label-sm text-label-sm text-primary hover:underline ml-auto">Reset to Default</button>
+</div>
+</div>
+<!-- Forensic Split Screen Layout: Stream + Deep Inspector -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-base items-start">
+<!-- Left Column: Event Stream Ledger (7 Cols) -->
+<div class="lg:col-span-7 rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<!-- Table Header Bar -->
+<div class="px-space-base py-space-sm bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="font-headline-sm text-headline-sm text-on-surface">Forensic Event Stream</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-data-mono text-label-sm">7 Records</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-primary"></span> Microsecond Resolution</span>
+</div>
+</div>
+<!-- Compact Ledger Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface font-label-sm text-label-sm text-outline uppercase tracking-wider select-none">
+<th class="py-2.5 px-space-base font-medium">Timestamp (IST)</th>
+<th class="py-2.5 px-space-sm font-medium">Case ID</th>
+<th class="py-2.5 px-space-sm font-medium">Actor</th>
+<th class="py-2.5 px-space-sm font-medium">Event</th>
+<th class="py-2.5 px-space-sm font-medium">Decision</th>
+<th class="py-2.5 px-space-base font-medium text-right">Result</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low font-body-md text-body-md">
+<!-- Row 1: Human Reviewer Approved -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group">
+<td class="py-3 px-space-base font-data-mono text-label-md text-outline group-hover:text-on-surface whitespace-nowrap">
+                21:34:18.402
+              </td>
+<td class="py-3 px-space-sm font-data-mono font-medium text-primary whitespace-nowrap">
+                RP-10503
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-tertiary">person</span>
+<span class="font-medium text-on-surface">op_ananya</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-on-surface-variant whitespace-nowrap">
+                Manual Review Decision
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-label-sm font-medium bg-secondary-container text-on-secondary-fixed-variant">
+                  Approved (Override)
+                </span>
+</td>
+<td class="py-3 px-space-base text-right whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-surface-container-high text-primary">
+                  Succeeded
+                </span>
+</td>
+</tr>
+<!-- Row 2: System Kernel Dispatch -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group">
+<td class="py-3 px-space-base font-data-mono text-label-md text-outline group-hover:text-on-surface whitespace-nowrap">
+                21:32:01.280
+              </td>
+<td class="py-3 px-space-sm font-data-mono font-medium text-primary whitespace-nowrap">
+                RP-10503
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline">dns</span>
+<span class="font-medium text-on-surface">System Kernel</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-on-surface-variant whitespace-nowrap">
+                Exception Queue Dispatch
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<span class="text-on-surface-variant font-data-mono text-label-sm">Dispatched</span>
+</td>
+<td class="py-3 px-space-base text-right whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-surface-container text-on-surface-variant">
+                  Executed
+                </span>
+</td>
+</tr>
+<!-- Row 3: SELECTED ACTIVE ROW - Policy Engine Blocked -->
+<tr class="bg-primary/5 hover:bg-primary/10 transition-colors cursor-pointer ring-1 ring-primary/20 relative">
+<td class="py-3 px-space-base font-data-mono text-label-md font-semibold text-primary whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  21:32:01.240
+                </div>
+</td>
+<td class="py-3 px-space-sm font-data-mono font-semibold text-primary whitespace-nowrap">
+                RP-10503
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary" style="font-variation-settings: 'FILL' 1;">policy</span>
+<span class="font-medium text-on-surface">Policy Engine</span>
+</div>
+</td>
+<td class="py-3 px-space-sm font-medium text-on-surface whitespace-nowrap">
+                Retry Authorization
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-label-sm font-semibold bg-error-container text-on-error-container">
+                  Blocked (Ceiling)
+                </span>
+</td>
+<td class="py-3 px-space-base text-right whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-semibold bg-error text-on-error">
+                  Blocked
+                </span>
+</td>
+</tr>
+<!-- Row 4: AI Model Recommendation -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group">
+<td class="py-3 px-space-base font-data-mono text-label-md text-outline group-hover:text-on-surface whitespace-nowrap">
+                21:32:01.102
+              </td>
+<td class="py-3 px-space-sm font-data-mono font-medium text-primary whitespace-nowrap">
+                RP-10503
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-tertiary">psychology</span>
+<span class="font-medium text-on-surface">AI Model Engine</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-on-surface-variant whitespace-nowrap">
+                Recovery Recommendation
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-label-sm font-medium bg-tertiary-fixed text-on-tertiary-fixed-variant">
+                  Retry (Cooldown)
+                </span>
+</td>
+<td class="py-3 px-space-base text-right whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-surface-container text-on-surface-variant">
+                  Generated
+                </span>
+</td>
+</tr>
+<!-- Row 5: Payment Provider Settled -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group">
+<td class="py-3 px-space-base font-data-mono text-label-md text-outline group-hover:text-on-surface whitespace-nowrap">
+                21:30:14.891
+              </td>
+<td class="py-3 px-space-sm font-data-mono font-medium text-on-surface whitespace-nowrap">
+                RP-10482
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-outline">account_balance</span>
+<span class="font-medium text-on-surface">Payment Provider</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-on-surface-variant whitespace-nowrap">
+                Fund Settlement Confirmation
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<span class="font-data-mono text-label-sm text-on-surface font-semibold">Settled ₹4,999</span>
+</td>
+<td class="py-3 px-space-base text-right whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-surface-container-high text-primary">
+                  Succeeded
+                </span>
+</td>
+</tr>
+<!-- Row 6: Policy Engine Invariant Verification -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group">
+<td class="py-3 px-space-base font-data-mono text-label-md text-outline group-hover:text-on-surface whitespace-nowrap">
+                21:29:40.110
+              </td>
+<td class="py-3 px-space-sm font-data-mono font-medium text-on-surface whitespace-nowrap">
+                RP-10482
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary">policy</span>
+<span class="font-medium text-on-surface">Policy Engine</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-on-surface-variant whitespace-nowrap">
+                Invariant Verification
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<span class="font-data-mono text-label-sm text-primary font-medium">6/6 Invariants Met</span>
+</td>
+<td class="py-3 px-space-base text-right whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-primary-fixed text-on-primary-fixed">
+                  Authorized
+                </span>
+</td>
+</tr>
+<!-- Row 7: AI Model Smart Retry -->
+<tr class="hover:bg-surface-container-low/70 transition-colors cursor-pointer group">
+<td class="py-3 px-space-base font-data-mono text-label-md text-outline group-hover:text-on-surface whitespace-nowrap">
+                21:29:39.950
+              </td>
+<td class="py-3 px-space-sm font-data-mono font-medium text-on-surface whitespace-nowrap">
+                RP-10482
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-tertiary">psychology</span>
+<span class="font-medium text-on-surface">AI Model Engine</span>
+</div>
+</td>
+<td class="py-3 px-space-sm text-on-surface-variant whitespace-nowrap">
+                Recovery Recommendation
+              </td>
+<td class="py-3 px-space-sm whitespace-nowrap">
+<span class="px-2 py-0.5 rounded text-label-sm font-medium bg-tertiary-fixed text-on-tertiary-fixed-variant">
+                  Smart Retry Switch
+                </span>
+</td>
+<td class="py-3 px-space-base text-right whitespace-nowrap">
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm font-medium bg-surface-container text-on-surface-variant">
+                  Generated
+                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Ledger Pagination & Micro-Footer -->
+<div class="px-space-base py-space-sm bg-surface-container-lowest border-t border-surface-container flex items-center justify-between">
+<span class="font-data-mono text-label-sm text-outline">Offset: 0..7 of 2,481 events (Live Sync)</span>
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm hover:bg-surface-container disabled:opacity-50">Older</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-low text-on-surface font-label-sm text-label-sm hover:bg-surface-container">Newer</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Inspector Drawer / Decision Trace Chain (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-base">
+<!-- Main Inspector Card -->
+<div class="rounded-xl bg-surface-container-lowest p-space-base shadow-sm">
+<!-- Header & ID Banner -->
+<div class="flex items-start justify-between pb-space-sm border-b border-surface-container">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Event Detail</span>
+<span class="font-data-mono text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-primary font-bold">EVT-89201-POL</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-data-mono text-label-sm pt-1">
+<span>Timestamp: 21:32:01.240 IST</span>
+<span>•</span>
+<span class="text-error font-semibold">HALTED</span>
+</div>
+</div>
+<span class="p-2 rounded-lg bg-error-container text-on-error-container">
+<span class="material-symbols-outlined text-[20px]">block</span>
+</span>
+</div>
+<!-- Meta Grid -->
+<div class="grid grid-cols-2 gap-space-sm py-space-sm bg-surface-container-low/50 rounded-lg p-3 my-space-sm font-body-sm text-body-sm">
+<div>
+<span class="font-label-sm text-label-sm text-outline block">Actor</span>
+<span class="font-medium text-on-surface">Deterministic Policy Engine</span>
+<span class="font-data-mono text-[11px] text-outline block">Kernel v8-Rete</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-outline block">Case Context</span>
+<span class="font-data-mono font-semibold text-primary">RP-10503</span>
+<span class="text-on-surface-variant block truncate">Dunzo Digital • ₹3,200</span>
+</div>
+</div>
+<!-- Decision Chain Visual Flow -->
+<div class="py-space-xs">
+<div class="flex items-center justify-between pb-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Decision Chain Flow</span>
+<span class="font-data-mono text-[11px] text-primary">7 Stages Recorded</span>
+</div>
+<!-- Vertical Timeline Steps -->
+<div class="relative pl-6 space-y-4 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-high">
+<!-- Step 1 -->
+<div class="relative">
+<span class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+</span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">Payment Failed</span>
+<span class="font-data-mono text-[11px] text-outline">Webhook 21:31:59</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Razorpay gateway code: <code class="font-data-mono text-outline">PAYMENT_TIMED_OUT</code></p>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<span class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-tertiary-fixed flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+</span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">AI Diagnosis</span>
+<span class="font-data-mono text-[11px] text-outline">21:32:01.102</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Confidence score: <span class="font-data-mono font-semibold text-error">42% (Ambiguous)</span></p>
+</div>
+<!-- Step 3: Current Block Point -->
+<div class="relative bg-surface-container-low p-2.5 rounded-lg -ml-2">
+<span class="absolute -left-4 top-3.5 w-4 h-4 rounded-full bg-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-on-error font-bold">close</span>
+</span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-md text-label-md font-semibold text-error">Policy Evaluation</span>
+<span class="font-data-mono text-[11px] text-error font-bold">REJECT</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface">Reason: <span class="font-semibold">Retry limit 2/2 reached for session.</span></p>
+</div>
+<!-- Step 4 -->
+<div class="relative">
+<span class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-error-container flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+</span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">Execution Decision</span>
+<span class="font-data-mono text-[11px] text-error font-semibold">BLOCKED</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Automatic retry invocation prevented by guardrail.</p>
+</div>
+<!-- Step 5 -->
+<div class="relative">
+<span class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+</span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">Escalation Routed</span>
+<span class="font-data-mono text-[11px] text-outline">21:32:01.280</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enqueued to <span class="font-medium text-on-surface">Human Exceptions Queue (T2)</span></p>
+</div>
+<!-- Step 6 -->
+<div class="relative">
+<span class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-[11px] text-primary font-bold">check</span>
+</span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">Human Review</span>
+<span class="font-data-mono text-[11px] text-outline">21:34:18.402</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Override signed by <span class="font-medium text-on-surface font-data-mono">op_ananya</span> (RRN Verified via Gateway)</p>
+</div>
+<!-- Step 7 -->
+<div class="relative">
+<span class="absolute -left-6 top-1 w-4 h-4 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[11px] text-primary font-bold">lock</span>
+</span>
+<div class="flex items-baseline justify-between">
+<span class="font-label-md text-label-md font-medium text-on-surface">Audit Nonce Committed</span>
+<span class="font-data-mono text-[11px] text-primary">Signed</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline font-data-mono truncate">block #991428 // 0x4e29...fc81</p>
+</div>
+</div>
+</div>
+<!-- Inspected Policy Invariants Module -->
+<div class="mt-space-base pt-space-sm border-t border-surface-container">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Inspected Invariants</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2 Passed • 2 Failed</span>
+</div>
+<div class="space-y-1.5">
+<!-- Invariant 1: FAILED -->
+<div class="flex items-center justify-between p-2 rounded bg-error-container/30 text-on-surface text-body-sm font-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[16px] font-bold">cancel</span>
+<span class="font-medium">Max Retry Ceiling</span>
+</div>
+<span class="font-data-mono text-error font-semibold text-label-sm">FAILED (Current: 2, Max: 2)</span>
+</div>
+<!-- Invariant 2: PASSED -->
+<div class="flex items-center justify-between p-2 rounded bg-surface-container text-on-surface text-body-sm font-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span class="font-medium">Transaction Exposure Cap</span>
+</div>
+<span class="font-data-mono text-on-surface-variant text-label-sm">PASSED (₹3,200 ≤ ₹25,000)</span>
+</div>
+<!-- Invariant 3: PASSED -->
+<div class="flex items-center justify-between p-2 rounded bg-surface-container text-on-surface text-body-sm font-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[16px]">check_circle</span>
+<span class="font-medium">Merchant Policy Clearance</span>
+</div>
+<span class="font-data-mono text-on-surface-variant text-label-sm">PASSED (dunzo_live_in)</span>
+</div>
+<!-- Invariant 4: FAILED -->
+<div class="flex items-center justify-between p-2 rounded bg-error-container/30 text-on-surface text-body-sm font-body-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[16px] font-bold">cancel</span>
+<span class="font-medium">Confidence Floor</span>
+</div>
+<span class="font-data-mono text-error font-semibold text-label-sm">FAILED (42% &lt; 80% threshold)</span>
+</div>
+</div>
+</div>
+<!-- Cryptographic Proof Block -->
+<div class="mt-space-base p-3 rounded-lg bg-surface-container-high/40 font-data-mono text-[11px] space-y-1 text-on-surface-variant">
+<div class="flex items-center justify-between pb-1 border-b border-surface-container">
+<span class="text-outline uppercase">Cryptographic Verification</span>
+<span class="text-primary font-semibold">VALID_SIG</span>
+</div>
+<div class="flex justify-between pt-1">
+<span class="text-outline">Nonce:</span>
+<span class="text-on-surface font-medium">idmp_88192a_c4</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Signature:</span>
+<span class="text-on-surface font-medium truncate max-w-[200px]" title="0x4e29bca711902881aeb901fa9921fc81">0x4e29b...fc81</span>
+</div>
+<div class="flex justify-between">
+<span class="text-outline">Cluster Node:</span>
+<span class="text-on-surface">revive-prod-in-04</span>
+</div>
+</div>
+<!-- Trace Navigation Step Controls -->
+<div class="flex items-center justify-between pt-space-base mt-space-sm border-t border-surface-container">
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary font-label-sm text-label-sm font-medium transition-colors">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+<span>Previous: AI Diagnosis</span>
+</button>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary font-label-sm text-label-sm font-medium transition-colors">
+<span>Next: Exception Escalation</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Compliance Statement Utility Note -->
+<div class="rounded-xl bg-surface-container-lowest p-space-base shadow-sm flex items-center gap-space-sm">
+<div class="p-2 rounded-md bg-surface-container-low text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">policy</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-label-md text-on-surface font-semibold">Regulatory Immutability Guarantee</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Every audit record is appended to a tamper-evident hash chain. Logs cannot be pruned, truncated, or modified without alerting forensic telemetry.
+          </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function initAuditExplorer() {
+    // Interactive row selection visual cues
+    const tableRows = document.querySelectorAll('tbody tr');
+    tableRows.forEach((row, idx) => {
+      row.addEventListener('click', () => {
+        tableRows.forEach(r => {
+          r.classList.remove('bg-primary/5', 'ring-1', 'ring-primary/20');
+        });
+        row.classList.add('bg-primary/5', 'ring-1', 'ring-primary/20');
+      });
+    });
+  })();
+</script></div></main></div></body></html>

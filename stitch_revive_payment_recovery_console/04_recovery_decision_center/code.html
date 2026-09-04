@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "tertiary-fixed-dim": "#c0c1ff",
+        "surface-container-low": "#eff4ff",
+        "inverse-on-surface": "#eaf1ff",
+        "primary": "#004ac6",
+        "on-tertiary-fixed-variant": "#2f2ebe",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed": "#dbe1ff",
+        "on-secondary-container": "#5c647a",
+        "outline-variant": "#c3c6d7",
+        "secondary-fixed": "#dae2fd",
+        "tertiary-fixed": "#e1e0ff",
+        "surface-container-high": "#dce9ff",
+        "on-secondary": "#ffffff",
+        "surface-dim": "#cbdbf5",
+        "surface-variant": "#d3e4fe",
+        "on-background": "#0b1c30",
+        "inverse-surface": "#213145",
+        "on-error": "#ffffff",
+        "on-secondary-fixed-variant": "#3f465c",
+        "on-secondary-fixed": "#131b2e",
+        "tertiary": "#3e3fcc",
+        "surface-container-highest": "#d3e4fe",
+        "primary-container": "#2563eb",
+        "on-primary-container": "#eeefff",
+        "tertiary-container": "#585be6",
+        "on-surface-variant": "#434655",
+        "secondary-container": "#dae2fd",
+        "on-tertiary-fixed": "#07006c",
+        "on-tertiary-container": "#f1eeff",
+        "on-primary-fixed": "#00174b",
+        "error": "#ba1a1a",
+        "inverse-primary": "#b4c5ff",
+        "surface-bright": "#f8f9ff",
+        "on-primary-fixed-variant": "#003ea8",
+        "secondary-fixed-dim": "#bec6e0",
+        "surface-container": "#e5eeff",
+        "outline": "#737686",
+        "on-primary": "#ffffff",
+        "surface": "#f8f9ff",
+        "primary-fixed-dim": "#b4c5ff",
+        "error-container": "#ffdad6",
+        "surface-tint": "#0053db",
+        "on-tertiary": "#ffffff",
+        "secondary": "#565e74",
+        "on-error-container": "#93000a",
+        "background": "#f8f9ff",
+        "on-surface": "#0b1c30"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-xl": "2rem",
+        "space-md": "0.75rem",
+        "space-lg": "1.5rem",
+        "layout-margin-desktop": "2rem",
+        "space-xs": "0.25rem",
+        "space-base": "1rem",
+        "space-sm": "0.5rem",
+        "space-2xs": "0.125rem",
+        "layout-margin-mobile": "1rem",
+        "gutter-table": "0.75rem",
+        "space-2xl": "3rem"
+      },
+      "fontFamily": {
+        "body-sm": ["Inter"],
+        "headline-lg": ["Inter"],
+        "data-mono": ["Inter"],
+        "headline-xl": ["Inter"],
+        "label-md": ["Inter"],
+        "body-md": ["Inter"],
+        "label-sm": ["Inter"],
+        "headline-sm": ["Inter"],
+        "headline-md": ["Inter"],
+        "body-lg": ["Inter"]
+      },
+      "fontSize": {
+        "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+        "data-mono": ["13px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+        "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+        "body-md": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "headline-sm": ["15px", {"lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "body-lg": ["15px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-base flex items-center gap-space-sm border-b border-outline-variant/30"><img alt="REVIVE Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold">REVIVE</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wider bg-surface-container-high text-primary border border-primary/20">OPERATIONS</span></div></div><nav class="flex-1 px-space-sm py-space-base space-y-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm"><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="overview" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Overview</span></div></a><a aria-current="page" class="flex items-center justify-between px-space-base py-2 transition-colors bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm" data-path="recovery-cases" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">inbox</span><span>Recovery Cases</span></div></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="exceptions" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">error_outline</span><span>Exceptions</span></div><span class="px-1.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-error-container text-on-error-container">12</span></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="analytics" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">trending_up</span><span>Analytics</span></div></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="evaluation-lab" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">science</span><span>Evaluation Lab</span></div></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></div></a></nav></div><div class="p-space-base border-t border-outline-variant/30 bg-surface-container-lowest flex flex-col gap-space-sm"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span><span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Systems Operational</span></div><div class="flex items-center justify-between pt-1"><span class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-surface-container-high text-on-secondary-container border border-outline-variant/50">TEST MODE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">v2.4-ops</span></div><div class="pt-1"><p class="font-label-sm text-label-sm text-on-surface-variant truncate" title="Razorpay Direct Merchant (sandbox)">Razorpay Direct Merchant <span class="text-outline">(sandbox)</span></p></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-base"><img alt="REVIVE Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant"><span class="text-outline">Operations</span><span class="text-outline-variant">/</span><span class="text-on-surface font-medium capitalize" id="active-view-indicator">Console</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant/40 font-label-sm text-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-[15px]">schedule</span><span>UTC+05:30 (IST)</span></div><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/40 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-sm text-label-sm">Search</span><kbd class="font-data-mono text-[10px] px-1.5 py-0.5 rounded bg-surface-container-lowest border border-outline-variant/50 text-outline shadow-sm">⌘K</kbd></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant/40 font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Simulation Active</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="w-full max-w-[1440px] mx-auto p-space-xl"><div class="flex flex-col w-full">
+<!-- Interactive View State Controller -->
+<div class="flex flex-col gap-space-lg mb-space-xl">
+<!-- Breadcrumb & Status Superheader -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-xs font-label-md text-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Recovery Cases</a>
+<span class="text-outline-variant">/</span>
+<span class="font-data-mono font-medium text-on-surface">RP-10482</span>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-medium">Recovery Decision</span>
+</div>
+<!-- Quick Ledger Metadata Pill Array -->
+<div class="flex items-center gap-2">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-lowest shadow-sm font-data-mono text-label-sm text-on-surface">
+<span class="text-outline">CASE:</span>
+<span class="font-semibold">RP-10482</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-lowest shadow-sm font-data-mono text-label-sm text-on-surface">
+<span class="text-outline">AMOUNT:</span>
+<span class="font-semibold text-primary">₹4,999.00</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-lowest shadow-sm font-label-sm text-label-sm text-on-surface">
+<span class="text-outline">MERCHANT:</span>
+<span class="font-semibold">Acme Labs Pvt Ltd</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-high font-data-mono text-label-sm text-on-secondary-container">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>SaaS Tier-1</span>
+</div>
+</div>
+</div>
+<!-- Title, Context & Interactive State Switcher -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-base">
+<div class="space-y-1">
+<h1 class="font-headline-xl text-headline-xl tracking-tight text-on-surface">Recovery Decision</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          Review the recommended intervention and its deterministic authorization status. Execution requires strict adherence to mathematical invariant gates.
+        </p>
+</div>
+<!-- Simulation State Switcher Tab Control -->
+<div class="inline-flex p-1 bg-surface-container rounded-lg shadow-inner self-start lg:self-auto">
+<button class="flex items-center gap-2 px-3.5 py-1.5 rounded font-label-md text-label-md font-semibold transition-all duration-150 bg-surface-container-lowest text-primary shadow-sm" id="btn-state-a" onclick="switchState('A')">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span>State A: Authorized Case (Active)</span>
+</button>
+<button class="flex items-center gap-2 px-3.5 py-1.5 rounded font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all duration-150" id="btn-state-b" onclick="switchState('B')">
+<span class="w-2 h-2 rounded-full bg-error"></span>
+<span>State B: Blocked by Policy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Architectural Guardrail Banner: Philosophy of Verification -->
+<div class="mb-space-lg p-space-base rounded-xl bg-surface-container-low shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-base">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">shield_with_heart</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface">Architectural Safety Boundary Active</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The AI advisory model produces statistical recommendations only. The deterministic policy engine retains absolute sovereign control over execution triggers.</p>
+</div>
+</div>
+<div class="flex items-center gap-2 font-data-mono text-label-sm text-outline shrink-0">
+<span>GATEWAY: RAZORPAY_V2</span>
+<span>•</span>
+<span>IDEMPOTENCY: <code class="text-on-surface">idmp_991fa02</code></span>
+</div>
+</div>
+<!-- MAIN VIEW CONTAINER: DUAL-STATE SWITCHABLE -->
+<div class="flex flex-col gap-space-lg" id="view-state-a">
+<!-- Top Row: Split Bento of Advisory (AI) vs Invariant Policy Engine (Deterministic) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- 1. AI RECOMMENDATION CARD (Advisory Layer) -->
+<section class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-tertiary-fixed-dim/20 to-transparent pointer-events-none rounded-tr-xl"></div>
+<div class="space-y-space-base">
+<!-- Advisory Header Badging -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">AI Recommendation</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded font-data-mono text-label-sm font-semibold bg-tertiary-fixed text-on-tertiary-fixed border border-tertiary/20">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              ADVISORY ONLY
+            </span>
+</div>
+<!-- Suggested Action Summary -->
+<div class="p-space-base rounded-lg bg-surface-container-low">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-1">Prescribed Action</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-lg text-headline-lg text-primary font-bold">Retry Payment</span>
+<span class="font-label-md text-label-md px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-medium">Channel: Smart Gateway Switch</span>
+</div>
+</div>
+<!-- Metric Gauges SVG Sparkline / Donut / Meters -->
+<div class="grid grid-cols-2 gap-space-sm pt-1">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline text-label-sm font-label-sm">
+<span>Model Confidence</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">psychology</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">91%</span>
+<span class="font-label-sm text-label-sm text-outline">L2 Tensor</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 91%"></div>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline text-label-sm font-label-sm">
+<span>Expected Recovery</span>
+<span class="material-symbols-outlined text-[16px] text-primary">query_stats</span>
+</div>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">86%</span>
+<span class="font-label-sm text-label-sm text-outline font-data-mono">p=0.864</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 86%"></div>
+</div>
+</div>
+</div>
+<!-- Operational Explainability Rationale -->
+<div class="space-y-1.5 pt-1">
+<p class="font-label-md text-label-md font-semibold text-on-surface">Synthesized Inference Rationale</p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              The failure pattern correlates directly with transient bank-side decline (<code class="font-data-mono text-label-sm text-on-surface px-1 py-0.5 rounded bg-surface-container">E05_ISSUER_TIMEOUT</code>). Acme Labs possesses an unblemished 98.4% 12-month fulfillment record across 7 recent settlements, with zero active retry locks.
+            </p>
+</div>
+</div>
+<!-- Technical Telemetry Footer -->
+<div class="pt-space-md mt-space-md bg-surface-container-low -mx-space-lg -mb-space-lg p-space-base flex items-center justify-between font-data-mono text-label-sm text-outline">
+<span>WEIGHT_VECTOR: <span class="text-on-surface">w_acme_tier1</span></span>
+<span>LATENCY: <span class="text-on-surface">142ms</span></span>
+</div>
+</section>
+<!-- 2. POLICY AUTHORIZATION CARD (The Invariant Deterministic Gatekeeper) -->
+<section class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between relative">
+<div class="space-y-space-base">
+<!-- Gatekeeper Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Deterministic Policy Authorization</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Immutable business rules engine &amp; constraint verification</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded font-label-md text-label-md font-bold bg-surface-container-low text-primary shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+                AUTHORIZED
+              </span>
+</div>
+</div>
+<!-- 6-Point Deterministic Policy Invariant Checklist -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm pt-1">
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface truncate">Retry Threshold Check</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Current: <span class="font-data-mono font-medium text-on-surface">0</span> / Max Allowed: <span class="font-data-mono font-medium text-on-surface">2</span></p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface truncate">Cooldown Interval</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">60s required • <span class="font-data-mono font-medium text-primary">64s elapsed</span></p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface truncate">Merchant SLA Policy</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Permitted: <span class="font-medium text-on-surface">SaaS Subscription Auto</span></p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface truncate">Value Exposure Cap</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">₹4,999 within ceiling &lt;= ₹50,000</p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface truncate">Ledger Reconciliation</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Zero active capture locks present</p>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-lowest shadow-sm flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">check_circle</span>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface truncate">Idempotency Validation</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-data-mono">SHA-256 unique nonce verified</p>
+</div>
+</div>
+</div>
+<!-- Policy Audit Proof Box -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">verified</span>
+              Policy Checksum: <code class="font-data-mono text-on-surface">POL-REV-9021-PASS</code>
+</span>
+<span class="text-primary font-semibold">ALL 6 INVARIANTS SATISFIED</span>
+</div>
+</div>
+<div class="pt-space-md mt-space-md bg-surface-container-low -mx-space-lg -mb-space-lg p-space-base flex items-center justify-between font-data-mono text-label-sm text-outline">
+<span>EVAL_ENGINE: <span class="text-on-surface">V8-Rete-Native</span></span>
+<span>TIMESTAMP: <span class="text-on-surface">14:02:44.891 UTC</span></span>
+</div>
+</section>
+</div>
+<!-- Middle Row: Action Preview & Bounded Execution (Operational Terminal) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- 3. ACTION PREVIEW & EXECUTION CONSOLE (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="space-y-space-base">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface text-[20px]">bolt</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Action Preview &amp; Bounded Execution</h3>
+</div>
+<span class="font-data-mono text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-secondary-container font-semibold">DISPATCH_DIRECT</span>
+</div>
+<!-- Parameters Spec Table -->
+<div class="rounded-lg overflow-hidden bg-surface-container-lowest shadow-sm">
+<div class="grid grid-cols-3 p-2.5 bg-surface-container-low font-label-sm text-label-sm text-outline font-semibold">
+<span>PARAMETER</span>
+<span>BOUNDED VALUE</span>
+<span>STATE / COMPLIANCE</span>
+</div>
+<div class="divide-y divide-surface-container">
+<div class="grid grid-cols-3 p-2.5 font-body-sm text-body-sm items-center hover:bg-surface-container-low/50">
+<span class="font-medium text-on-surface">Target Operation</span>
+<span class="font-data-mono text-primary font-semibold">Retry Payment</span>
+<span class="text-on-surface-variant">Secondary Rails (RPI-02)</span>
+</div>
+<div class="grid grid-cols-3 p-2.5 font-body-sm text-body-sm items-center hover:bg-surface-container-low/50">
+<span class="font-medium text-on-surface">Cooldown Requirement</span>
+<span class="font-data-mono text-on-surface">60 Seconds</span>
+<span class="text-primary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">done</span> Met (+4s buffer)
+                </span>
+</div>
+<div class="grid grid-cols-3 p-2.5 font-body-sm text-body-sm items-center hover:bg-surface-container-low/50">
+<span class="font-medium text-on-surface">Attempt Allocation</span>
+<span class="font-data-mono text-on-surface">Attempt 1 of 2</span>
+<span class="text-on-surface-variant">Quota remaining: 1</span>
+</div>
+<div class="grid grid-cols-3 p-2.5 font-body-sm text-body-sm items-center hover:bg-surface-container-low/50">
+<span class="font-medium text-on-surface">Expected Result</span>
+<span class="font-data-mono text-on-surface">Immediate Capture</span>
+<span class="text-on-surface-variant">Auto-reconciliation</span>
+</div>
+</div>
+</div>
+<!-- Bounded Execution Operational Warning -->
+<div class="p-space-base rounded-lg bg-surface-container-low flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">info</span>
+<div>
+<p class="font-label-md text-label-md font-semibold text-on-surface">Operational Safety Precondition</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Execution is permitted exclusively because all 6 deterministic policy checks passed. AI recommendations without deterministic validation cannot trigger write operations to the clearinghouse.
+              </p>
+</div>
+</div>
+</div>
+<!-- Action Control Buttons -->
+<div class="pt-space-lg flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-2">
+<button class="h-9 px-space-lg bg-primary-container text-on-primary-container hover:bg-primary font-label-md text-label-md font-semibold rounded-lg shadow-sm flex items-center gap-2 transition-colors active:scale-95" id="btn-exec" onclick="triggerExecution()">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Execute Recovery</span>
+</button>
+<button class="h-9 px-space-base bg-surface-container-lowest text-on-surface hover:bg-surface-container-low font-label-md text-label-md font-medium rounded-lg shadow-sm transition-colors" onclick="alert('Escalating case RP-10482 to manual risk committee review.')">
+              Escalate to Review
+            </button>
+</div>
+<span class="font-data-mono text-label-sm text-outline">ACTION_SIG: 0x8a92f0...c4</span>
+</div>
+</div>
+<!-- 4. DECISION EXPLANATION CARD (Why this action?) (5 Cols) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="space-y-space-base">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">account_tree</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Decision Explanation</h3>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Deterministic Audit</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            A comprehensive breakdown of all causal factors contributing to this specific recovery authorization:
+          </p>
+<!-- Explanation Tree List -->
+<div class="space-y-2">
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-start gap-2.5">
+<div class="w-5 h-5 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-data-mono text-[10px] font-bold shrink-0 mt-0.5">1</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface">Decline Code Classification</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Bank timeout code <code class="font-data-mono text-label-sm text-primary font-bold">05_DO_NOT_HONOR</code> flagged as temporary network throttle, not terminal card cancellation.</p>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-start gap-2.5">
+<div class="w-5 h-5 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-data-mono text-[10px] font-bold shrink-0 mt-0.5">2</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface">High-Reputation Payer Profile</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Acme Labs has logged 7 consecutive monthly renewals successfully. Historic churn risk index is 0.04.</p>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-start gap-2.5">
+<div class="w-5 h-5 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-data-mono text-[10px] font-bold shrink-0 mt-0.5">3</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface">Risk Threshold Tolerances</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">At ₹4,999.00, volume falls well below the ₹50,000 corporate two-person approval boundary.</p>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-start gap-2.5">
+<div class="w-5 h-5 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-data-mono text-[10px] font-bold shrink-0 mt-0.5">4</div>
+<div class="min-w-0">
+<p class="font-label-md text-label-md font-semibold text-on-surface">Strict Idempotency Clear</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">No duplicate recovery job scheduled across cluster queues. Distributed locks verified.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="pt-space-base flex items-center justify-between font-data-mono text-label-sm text-outline">
+<span>EXPLAINABILITY_STD: <span class="text-on-surface">ISO-22989</span></span>
+<a class="text-primary hover:underline font-medium" href="#">Export Decision Graph</a>
+</div>
+</div>
+</div>
+<!-- 5. CONTRAST COMPARISON PANEL: BLOCKED INTERVENTION PREVIEW -->
+<div class="mt-space-sm p-space-lg rounded-xl bg-surface-container-low shadow-sm relative overflow-hidden">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-base">
+<div class="space-y-1 max-w-3xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[20px]">block</span>
+<h4 class="font-headline-sm text-headline-sm text-error font-semibold">Contrast Example: Blocked Intervention State</h4>
+</div>
+<p class="font-body-md text-body-md text-on-surface">
+<strong>Core Product Principle:</strong> <span class="text-tertiary font-semibold">AI recommendation ≠ execution permission.</span> Even if model confidence reaches 99%, deterministic policy engines unconditionally halt execution when guardrails trip.
+          </p>
+</div>
+<div class="flex items-center gap-space-md shrink-0">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-md text-label-md font-semibold shadow-sm transition-colors flex items-center gap-2" onclick="switchState('B')">
+<span>Simulate Blocked Case</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ALTERNATIVE VIEW CONTAINER: STATE B (BLOCKED STATE) -->
+<div class="hidden flex-col gap-space-lg" id="view-state-b">
+<!-- Blocked Case Warning Alert Container -->
+<div class="p-space-lg rounded-xl bg-error-container text-on-error-container shadow-sm flex flex-col md:flex-row items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[28px] text-error shrink-0">error</span>
+<div class="space-y-1">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-error-container">INTERVENTION BLOCKED BY POLICY ENGINE</h2>
+<p class="font-body-md text-body-md">
+            The deterministic policy engine has vetoed execution for Case <span class="font-data-mono font-semibold">RP-10482</span>. Maximum automatic retry attempts exhausted for the active billing cycle.
+          </p>
+</div>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-error text-on-error font-data-mono text-label-sm font-bold shadow-sm self-start md:self-auto">
+        STATUS: EXECUTION_PROHIBITED
+      </div>
+</div>
+<!-- Dual Bento for State B -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+<!-- AI Advisory Still Recommends, but is Subordinate -->
+<section class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="space-y-space-base">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">auto_awesome</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">AI Recommendation</span>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded font-data-mono text-label-sm font-semibold bg-tertiary-fixed text-on-tertiary-fixed">
+              ADVISORY ONLY
+            </span>
+</div>
+<div class="p-space-base rounded-lg bg-surface-container-low opacity-75">
+<p class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-1">Algorithmic Suggestion</p>
+<div class="flex items-center justify-between">
+<span class="font-headline-lg text-headline-lg text-on-surface line-through font-bold">Retry Payment</span>
+<span class="font-data-mono text-label-sm text-outline">Conf: 84%</span>
+</div>
+</div>
+<div class="p-space-base rounded-lg bg-surface-container-low space-y-2">
+<p class="font-label-md text-label-md font-semibold text-on-surface">Advisory Insight</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              ML scoring models project an 84% probability of recovery based solely on bank clearing times. However, advisory algorithms have no authority to override risk management maximums.
+            </p>
+</div>
+</div>
+<div class="p-space-base rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span>Advisory status: Overruled by deterministic policy.</span>
+</div>
+</section>
+<!-- The Invariant Policy Result: BLOCKED with Detailed Violations -->
+<section class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="space-y-space-base">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[20px]">gavel</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Deterministic Policy Authorization</h2>
+<p class="font-label-sm text-label-sm text-error font-medium">Policy Engine Evaluation: 1 Invariant Violated</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded font-label-md text-label-md font-bold bg-error-container text-on-error-container">
+<span class="material-symbols-outlined text-[16px]">close</span>
+              BLOCKED
+            </span>
+</div>
+<!-- Policy Breakdown with Violation -->
+<div class="space-y-2">
+<!-- VIOLATION ROW -->
+<div class="p-space-base rounded-lg bg-error-container/40 flex items-start justify-between gap-space-sm">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-error text-[20px] shrink-0 mt-0.5">cancel</span>
+<div>
+<p class="font-label-md text-label-md font-bold text-on-error-container">POL_MAX_RETRY_LIMIT (Failed)</p>
+<p class="font-body-sm text-body-sm text-on-surface">Maximum retry limit reached (2/2 attempts exhausted for cycle). Further automated requests violate Card Association spam prevention rules.</p>
+</div>
+</div>
+<span class="font-data-mono text-label-sm font-bold text-error px-2 py-0.5 rounded bg-surface-container-lowest shrink-0">FAIL</span>
+</div>
+<!-- PASSING RULES -->
+<div class="p-2 rounded-lg bg-surface-container-low flex items-center justify-between text-body-sm text-body-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px]">check</span>
+<span>Cooldown Period: 60s satisfied</span>
+</div>
+<span class="font-data-mono text-label-sm text-outline">PASS</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low flex items-center justify-between text-body-sm text-body-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px]">check</span>
+<span>Value Exposure Cap: ₹4,999 &lt;= ₹50,000 threshold</span>
+</div>
+<span class="font-data-mono text-label-sm text-outline">PASS</span>
+</div>
+<div class="p-2 rounded-lg bg-surface-container-low flex items-center justify-between text-body-sm text-body-sm">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-[16px]">check</span>
+<span>Idempotency Signature: Unique Key Verified</span>
+</div>
+<span class="font-data-mono text-label-sm text-outline">PASS</span>
+</div>
+</div>
+</div>
+<!-- Next Action Prescriptions for Blocked State -->
+<div class="pt-space-lg flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-2">
+<button class="h-9 px-space-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold rounded-lg shadow-sm flex items-center gap-2 transition-colors" onclick="alert('Case escalated to Dunning &amp; Exceptions Team.')">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Escalate to Exceptions Queue</span>
+</button>
+<button class="h-9 px-space-base bg-surface-container-lowest text-on-surface hover:bg-surface-container-low font-label-md text-label-md font-medium rounded-lg shadow-sm transition-colors" onclick="alert('Initiating customer notification flow via SMS &amp; Email.')">
+              Trigger Customer Dunning Email
+            </button>
+</div>
+<span class="font-data-mono text-label-sm text-outline">GATEWAY_LOCK_ID: lck_8819</span>
+</div>
+</section>
+</div>
+</div>
+<!-- Operational Audit & Trace Log Bottom Drawer (Always Visible Context) -->
+<div class="mt-space-xl bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-base">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">receipt_long</span>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Execution Audit Trail &amp; Ledger Proofs</h4>
+</div>
+<div class="flex items-center gap-space-md text-label-sm font-data-mono text-outline">
+<span>SESSION: sess_9901_a</span>
+<span>NODE: revive-prod-in-04</span>
+</div>
+</div>
+<!-- Ledger Table with Hairline Spacing (No borders rule, tonal background) -->
+<div class="rounded-lg overflow-x-auto bg-surface-container-lowest">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-low text-outline font-label-sm text-label-sm">
+<tr>
+<th class="p-2.5">TIMESTAMP (IST)</th>
+<th class="p-2.5">COMPONENT</th>
+<th class="p-2.5">EVENT TYPE</th>
+<th class="p-2.5">INVARIANT / RESULT</th>
+<th class="p-2.5 text-right">HASH TRACE</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low/40">
+<td class="p-2.5 font-data-mono text-on-surface">19:32:40.104</td>
+<td class="p-2.5 font-medium text-on-surface">Payment Webhook</td>
+<td class="p-2.5"><span class="px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm">CHARGE_FAILED</span></td>
+<td class="p-2.5 text-on-surface-variant font-data-mono">Issuer Timeout (05)</td>
+<td class="p-2.5 font-data-mono text-right text-outline">0x4a19...9b</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40">
+<td class="p-2.5 font-data-mono text-on-surface">19:32:41.220</td>
+<td class="p-2.5 font-medium text-tertiary">Advisory Engine (ML)</td>
+<td class="p-2.5"><span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">RETRY_SUGGESTED</span></td>
+<td class="p-2.5 text-on-surface-variant font-data-mono">Confidence: 0.912</td>
+<td class="p-2.5 font-data-mono text-right text-outline">0x88ec...11</td>
+</tr>
+<tr class="hover:bg-surface-container-low/40">
+<td class="p-2.5 font-data-mono text-on-surface">19:33:41.240</td>
+<td class="p-2.5 font-medium text-primary">Policy Engine (Deterministic)</td>
+<td class="p-2.5"><span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold">POLICY_EVAL_COMPLETE</span></td>
+<td class="p-2.5 text-primary font-semibold font-data-mono">6/6 CHECKS PASSED</td>
+<td class="p-2.5 font-data-mono text-right text-outline">0x99ff...e0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<script>
+  function switchState(state) {
+    const stateA = document.getElementById('view-state-a');
+    const stateB = document.getElementById('view-state-b');
+    const btnA = document.getElementById('btn-state-a');
+    const btnB = document.getElementById('btn-state-b');
+
+    if (state === 'A') {
+      stateA.classList.remove('hidden');
+      stateA.classList.add('flex');
+      stateB.classList.add('hidden');
+      stateB.classList.remove('flex');
+
+      btnA.className = 'flex items-center gap-2 px-3.5 py-1.5 rounded font-label-md text-label-md font-semibold transition-all duration-150 bg-surface-container-lowest text-primary shadow-sm';
+      btnB.className = 'flex items-center gap-2 px-3.5 py-1.5 rounded font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all duration-150';
+    } else {
+      stateB.classList.remove('hidden');
+      stateB.classList.add('flex');
+      stateA.classList.add('hidden');
+      stateA.classList.remove('flex');
+
+      btnB.className = 'flex items-center gap-2 px-3.5 py-1.5 rounded font-label-md text-label-md font-semibold transition-all duration-150 bg-surface-container-lowest text-error shadow-sm';
+      btnA.className = 'flex items-center gap-2 px-3.5 py-1.5 rounded font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all duration-150';
+    }
+  }
+
+  function triggerExecution() {
+    const btn = document.getElementById('btn-exec');
+    btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Dispatching...</span>';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done</span><span>Recovery Dispatched</span>';
+      btn.className = 'h-9 px-space-lg bg-surface-container-high text-primary font-label-md text-label-md font-semibold rounded-lg shadow-sm flex items-center gap-2';
+      alert('SUCCESS: Payment retry dispatched to Razorpay Secondary Gateway via Idempotency Token idmp_991fa02. Case marked IN_FLIGHT.');
+    }, 900);
+  }
+</script></div></main></div></body></html>

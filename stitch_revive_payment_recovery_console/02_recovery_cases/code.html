@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "tertiary-fixed-dim": "#c0c1ff",
+        "surface-container-low": "#eff4ff",
+        "inverse-on-surface": "#eaf1ff",
+        "primary": "#004ac6",
+        "on-tertiary-fixed-variant": "#2f2ebe",
+        "surface-container-lowest": "#ffffff",
+        "primary-fixed": "#dbe1ff",
+        "on-secondary-container": "#5c647a",
+        "outline-variant": "#c3c6d7",
+        "secondary-fixed": "#dae2fd",
+        "tertiary-fixed": "#e1e0ff",
+        "surface-container-high": "#dce9ff",
+        "on-secondary": "#ffffff",
+        "surface-dim": "#cbdbf5",
+        "surface-variant": "#d3e4fe",
+        "on-background": "#0b1c30",
+        "inverse-surface": "#213145",
+        "on-error": "#ffffff",
+        "on-secondary-fixed-variant": "#3f465c",
+        "on-secondary-fixed": "#131b2e",
+        "tertiary": "#3e3fcc",
+        "surface-container-highest": "#d3e4fe",
+        "primary-container": "#2563eb",
+        "on-primary-container": "#eeefff",
+        "tertiary-container": "#585be6",
+        "on-surface-variant": "#434655",
+        "secondary-container": "#dae2fd",
+        "on-tertiary-fixed": "#07006c",
+        "on-tertiary-container": "#f1eeff",
+        "on-primary-fixed": "#00174b",
+        "error": "#ba1a1a",
+        "inverse-primary": "#b4c5ff",
+        "surface-bright": "#f8f9ff",
+        "on-primary-fixed-variant": "#003ea8",
+        "secondary-fixed-dim": "#bec6e0",
+        "surface-container": "#e5eeff",
+        "outline": "#737686",
+        "on-primary": "#ffffff",
+        "surface": "#f8f9ff",
+        "primary-fixed-dim": "#b4c5ff",
+        "error-container": "#ffdad6",
+        "surface-tint": "#0053db",
+        "on-tertiary": "#ffffff",
+        "secondary": "#565e74",
+        "on-error-container": "#93000a",
+        "background": "#f8f9ff",
+        "on-surface": "#0b1c30"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-xl": "2rem",
+        "space-md": "0.75rem",
+        "space-lg": "1.5rem",
+        "layout-margin-desktop": "2rem",
+        "space-xs": "0.25rem",
+        "space-base": "1rem",
+        "space-sm": "0.5rem",
+        "space-2xs": "0.125rem",
+        "layout-margin-mobile": "1rem",
+        "gutter-table": "0.75rem",
+        "space-2xl": "3rem"
+      },
+      "fontFamily": {
+        "body-sm": ["Inter"],
+        "headline-lg": ["Inter"],
+        "data-mono": ["Inter"],
+        "headline-xl": ["Inter"],
+        "label-md": ["Inter"],
+        "body-md": ["Inter"],
+        "label-sm": ["Inter"],
+        "headline-sm": ["Inter"],
+        "headline-md": ["Inter"],
+        "body-lg": ["Inter"]
+      },
+      "fontSize": {
+        "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+        "data-mono": ["13px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+        "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+        "body-md": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "headline-sm": ["15px", {"lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "body-lg": ["15px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-base flex items-center gap-space-sm border-b border-outline-variant/30"><img alt="REVIVE Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold">REVIVE</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wider bg-surface-container-high text-primary border border-primary/20">OPERATIONS</span></div></div><nav class="flex-1 px-space-sm py-space-base space-y-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm"><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="overview" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Overview</span></div></a><a aria-current="page" class="flex items-center justify-between px-space-base py-2 transition-colors bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm" data-path="recovery-cases" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">inbox</span><span>Recovery Cases</span></div></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="exceptions" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">error_outline</span><span>Exceptions</span></div><span class="px-1.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-error-container text-on-error-container">12</span></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="analytics" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">trending_up</span><span>Analytics</span></div></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="evaluation-lab" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">science</span><span>Evaluation Lab</span></div></a><a class="flex items-center justify-between px-space-base py-2 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings" href="#"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></div></a></nav></div><div class="p-space-base border-t border-outline-variant/30 bg-surface-container-lowest flex flex-col gap-space-sm"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span><span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Systems Operational</span></div><div class="flex items-center justify-between pt-1"><span class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-surface-container-high text-on-secondary-container border border-outline-variant/50">TEST MODE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">v2.4-ops</span></div><div class="pt-1"><p class="font-label-sm text-label-sm text-on-surface-variant truncate" title="Razorpay Direct Merchant (sandbox)">Razorpay Direct Merchant <span class="text-outline">(sandbox)</span></p></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-base"><img alt="REVIVE Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant"><span class="text-outline">Operations</span><span class="text-outline-variant">/</span><span class="text-on-surface font-medium capitalize" id="active-view-indicator">Console</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant/40 font-label-sm text-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-[15px]">schedule</span><span>UTC+05:30 (IST)</span></div><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/40 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-sm text-label-sm">Search</span><kbd class="font-data-mono text-[10px] px-1.5 py-0.5 rounded bg-surface-container-lowest border border-outline-variant/50 text-outline shadow-sm">⌘K</kbd></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant/40 font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Simulation Active</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="w-full max-w-[1440px] mx-auto p-space-xl"><div class="flex flex-col w-full">
+<!-- Header Module -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-base pb-space-lg">
+<div class="flex flex-col gap-space-2xs">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Recovery Cases</h1>
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-primary/10 text-primary font-semibold tracking-wide">LIVE QUEUE</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Review failed payments and manage recovery opportunities across payment channels. Deterministic routing enabled for multi-gateway failover.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="group flex items-center gap-space-xs px-3.5 py-2 rounded-xl bg-surface-container-lowest text-on-surface hover:bg-surface-container-low shadow-sm transition-all text-body-md font-medium" type="button">
+<span class="material-symbols-outlined text-[18px] text-outline group-hover:text-on-surface">tune</span>
+<span>Simulate Ingestion</span>
+</button>
+<button class="flex items-center gap-space-xs px-3.5 py-2 rounded-xl bg-primary text-on-primary shadow-sm hover:bg-primary-container transition-colors text-body-md font-medium" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export Audit Log</span>
+</button>
+</div>
+</div>
+<!-- Recovery Telemetry Quick Strip -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-md mb-space-lg">
+<div class="bg-surface-container-lowest rounded-xl p-space-base shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Total Recoverable Volume</span>
+<span class="material-symbols-outlined text-[18px] text-primary">currency_rupee</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">₹2,58,047</span>
+<span class="font-label-sm text-label-sm text-primary font-semibold">+14.2%</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-base shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Avg. Autonomous Win Rate</span>
+<span class="material-symbols-outlined text-[18px] text-tertiary">autorenew</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">78.4%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">vs 61.2% manual</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-base shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Gateway Resilience Index</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">verified_user</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-on-surface">99.8%</span>
+<span class="font-label-sm text-label-sm text-outline font-medium">HDFC / Razorpay</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-base shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-outline">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Open Interventions</span>
+<span class="material-symbols-outlined text-[18px] text-error">notification_important</span>
+</div>
+<div class="mt-space-sm flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg font-bold text-error">12</span>
+<span class="font-label-sm text-label-sm text-on-error-container font-semibold bg-error-container/60 px-1.5 py-0.5 rounded">Action Req</span>
+</div>
+</div>
+</div>
+<!-- Primary Workspace Canvas Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- View Switcher Tabs -->
+<div class="flex items-center justify-between px-space-lg pt-space-md bg-surface-container-lowest overflow-x-auto">
+<div class="flex items-center gap-space-sm">
+<button class="relative pb-3 px-2 flex items-center gap-2 text-primary font-semibold text-body-md transition-colors after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-primary" type="button">
+<span>All Cases</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] bg-primary-fixed text-on-primary-fixed font-mono font-medium">482</span>
+</button>
+<button class="relative pb-3 px-2 flex items-center gap-2 text-on-surface-variant hover:text-on-surface font-medium text-body-md transition-colors" type="button">
+<span>Recoverable</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] bg-surface-container-low text-on-secondary-container font-mono">317</span>
+</button>
+<button class="relative pb-3 px-2 flex items-center gap-2 text-on-surface-variant hover:text-on-surface font-medium text-body-md transition-colors" type="button">
+<span>In Recovery</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] bg-secondary-container text-on-secondary-container font-mono">37</span>
+</button>
+<button class="relative pb-3 px-2 flex items-center gap-2 text-on-surface-variant hover:text-on-surface font-medium text-body-md transition-colors" type="button">
+<span>Recovered</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] bg-surface-container-high text-primary font-mono font-medium">189</span>
+</button>
+<button class="relative pb-3 px-2 flex items-center gap-2 text-on-surface-variant hover:text-on-surface font-medium text-body-md transition-colors" type="button">
+<span>Needs Review</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] bg-error-container text-on-error-container font-mono font-bold">12</span>
+</button>
+</div>
+<div class="hidden lg:flex items-center gap-space-xs text-outline pb-3 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span>Synced 14 seconds ago</span>
+</div>
+</div>
+<!-- Filter Control Sub-bar -->
+<div class="p-space-base bg-surface-container-low/40 flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-sm flex-1 min-w-[320px]">
+<!-- Search field -->
+<div class="relative min-w-[260px] flex-1 max-w-sm">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-outline">search</span>
+<input class="w-full h-9 pl-9 pr-4 rounded-lg bg-surface-container-lowest text-on-surface placeholder:text-outline font-body-md text-body-md shadow-xs focus:outline-hidden focus:ring-1 focus:ring-primary" placeholder="Search case ID, customer, RRN..." type="text"/>
+</div>
+<!-- Filter Dropdown 1 -->
+<div class="relative">
+<select class="appearance-none h-9 pl-3 pr-8 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-xs focus:outline-hidden cursor-pointer hover:bg-surface-container-low transition-colors">
+<option>Status: All Statuses</option>
+<option>Recovered</option>
+<option>In Progress</option>
+<option>Needs Review</option>
+<option>Blocked</option>
+<option>Failed</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-[16px] pointer-events-none text-outline">expand_more</span>
+</div>
+<!-- Filter Dropdown 2 -->
+<div class="relative">
+<select class="appearance-none h-9 pl-3 pr-8 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-xs focus:outline-hidden cursor-pointer hover:bg-surface-container-low transition-colors">
+<option>Failure: All Reasons</option>
+<option>Bank decline</option>
+<option>Insufficient funds</option>
+<option>Gateway timeout</option>
+<option>Card expired</option>
+<option>Velocity limit</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-[16px] pointer-events-none text-outline">expand_more</span>
+</div>
+<!-- Filter Dropdown 3 -->
+<div class="relative">
+<select class="appearance-none h-9 pl-3 pr-8 rounded-lg bg-surface-container-lowest text-on-surface font-body-md text-body-md shadow-xs focus:outline-hidden cursor-pointer hover:bg-surface-container-low transition-colors">
+<option>Eligibility: All Scores</option>
+<option>High (&gt;80%)</option>
+<option>Medium (50-80%)</option>
+<option>Low (&lt;50%)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-[16px] pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+<!-- Quick Date & Sort Tools -->
+<div class="flex items-center gap-space-sm shrink-0">
+<div class="flex items-center gap-1.5 h-9 px-3 rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md shadow-xs cursor-pointer hover:text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-outline">calendar_today</span>
+<span>Last 7 Days (Oct 18 - Oct 25)</span>
+</div>
+<div class="relative">
+<select class="appearance-none h-9 pl-8 pr-8 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-xs focus:outline-hidden cursor-pointer">
+<option>Sort: Potential Revenue (High to Low)</option>
+<option>Sort: Latest Failed</option>
+<option>Sort: Highest Recoverability</option>
+</select>
+<span class="material-symbols-outlined absolute left-2.5 top-2.5 text-[16px] pointer-events-none text-outline">swap_vert</span>
+<span class="material-symbols-outlined absolute right-2 top-2.5 text-[16px] pointer-events-none text-outline">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Ledger Table Layout -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left table-fixed">
+<colgroup>
+<col class="w-[120px]"/>
+<col class="w-[220px]"/>
+<col class="w-[130px]"/>
+<col class="w-[170px]"/>
+<col class="w-[160px]"/>
+<col class="w-[240px]"/>
+<col class="w-[130px]"/>
+<col class="w-[100px]"/>
+</colgroup>
+<thead>
+<tr class="bg-surface-container-low/70 font-label-sm text-label-sm text-outline uppercase tracking-wider">
+<th class="py-3 px-space-base font-semibold" scope="col">Case ID</th>
+<th class="py-3 px-space-base font-semibold" scope="col">Customer</th>
+<th class="py-3 px-space-base font-semibold text-right" scope="col">Amount</th>
+<th class="py-3 px-space-base font-semibold" scope="col">Failure Reason</th>
+<th class="py-3 px-space-base font-semibold" scope="col">Recoverability</th>
+<th class="py-3 px-space-base font-semibold" scope="col">Recommended Action</th>
+<th class="py-3 px-space-base font-semibold" scope="col">Status</th>
+<th class="py-3 px-space-base font-semibold text-right" scope="col">Updated</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-body-md font-body-md">
+<!-- Row 1 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-semibold text-primary">RP-10482</td>
+<td class="py-3.5 px-space-base truncate">
+<div class="font-headline-sm text-headline-sm text-on-surface truncate">Acme Labs</div>
+<div class="font-label-sm text-label-sm text-outline truncate font-mono">ind_9281</div>
+</td>
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-bold text-on-surface text-right">₹4,999</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-secondary-container">Bank decline</span>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 86%"></div>
+</div>
+<span class="font-data-mono text-label-sm font-semibold text-on-surface">86%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-tertiary-fixed/30 text-on-tertiary-fixed font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span class="truncate">Retry after cooldown</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-high text-primary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Recovered</span>
+</span>
+</td>
+<td class="py-3.5 px-space-base text-right font-label-sm text-label-sm text-outline whitespace-nowrap">2m ago</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer bg-surface-container-lowest">
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-semibold text-primary">RP-10481</td>
+<td class="py-3.5 px-space-base truncate">
+<div class="font-headline-sm text-headline-sm text-on-surface truncate">HyperVerge Tech</div>
+<div class="font-label-sm text-label-sm text-outline truncate font-mono">ind_3821</div>
+</td>
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-bold text-on-surface text-right">₹12,500</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-secondary-container">Insufficient funds</span>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-primary/80 h-full rounded-full" style="width: 74%"></div>
+</div>
+<span class="font-data-mono text-label-sm font-semibold text-on-surface">74%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-tertiary-fixed/30 text-on-tertiary-fixed font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]">event_repeat</span>
+<span class="truncate">Smart Dunning Schedule</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary-container text-on-secondary-container font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>In Progress</span>
+</span>
+</td>
+<td class="py-3.5 px-space-base text-right font-label-sm text-label-sm text-outline whitespace-nowrap">8m ago</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-semibold text-primary">RP-10480</td>
+<td class="py-3.5 px-space-base truncate">
+<div class="font-headline-sm text-headline-sm text-on-surface truncate">Razorpay Test Store</div>
+<div class="font-label-sm text-label-sm text-outline truncate font-mono">ind_1190</div>
+</td>
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-bold text-on-surface text-right">₹1,299</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-secondary-container">Card expired</span>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-outline h-full rounded-full" style="width: 42%"></div>
+</div>
+<span class="font-data-mono text-label-sm font-semibold text-outline">42%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-fixed/40 text-on-secondary-fixed font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]">credit_card</span>
+<span class="truncate">Customer Mandate Update</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-error-container text-on-error-container font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>Needs Review</span>
+</span>
+</td>
+<td class="py-3.5 px-space-base text-right font-label-sm text-label-sm text-outline whitespace-nowrap">14m ago</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer bg-surface-container-lowest">
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-semibold text-primary">RP-10479</td>
+<td class="py-3.5 px-space-base truncate">
+<div class="font-headline-sm text-headline-sm text-on-surface truncate">Zomato Enterprise</div>
+<div class="font-label-sm text-label-sm text-outline truncate font-mono">ind_0042</div>
+</td>
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-bold text-on-surface text-right">₹48,000</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-secondary-container">Gateway timeout</span>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 91%"></div>
+</div>
+<span class="font-data-mono text-label-sm font-semibold text-on-surface">91%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-tertiary-fixed/30 text-on-tertiary-fixed font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]">alt_route</span>
+<span class="truncate">Fallback Network Switch</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-high text-primary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Recovered</span>
+</span>
+</td>
+<td class="py-3.5 px-space-base text-right font-label-sm text-label-sm text-outline whitespace-nowrap">22m ago</td>
+</tr>
+<!-- Row 5 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-semibold text-primary">RP-10478</td>
+<td class="py-3.5 px-space-base truncate">
+<div class="font-headline-sm text-headline-sm text-on-surface truncate">Swiggy Instamart</div>
+<div class="font-label-sm text-label-sm text-outline truncate font-mono">ind_8820</div>
+</td>
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-bold text-on-surface text-right">₹3,499</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-secondary-container">Daily limit exceeded</span>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-primary/70 h-full rounded-full" style="width: 65%"></div>
+</div>
+<span class="font-data-mono text-label-sm font-semibold text-on-surface">65%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-fixed/40 text-on-secondary-fixed font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span class="truncate">Next-day Window Retry</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-highest text-on-surface-variant font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+<span>Blocked</span>
+</span>
+</td>
+<td class="py-3.5 px-space-base text-right font-label-sm text-label-sm text-outline whitespace-nowrap">35m ago</td>
+</tr>
+<!-- Row 6 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer bg-surface-container-lowest">
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-semibold text-primary">RP-10477</td>
+<td class="py-3.5 px-space-base truncate">
+<div class="font-headline-sm text-headline-sm text-on-surface truncate">CRED Payments</div>
+<div class="font-label-sm text-label-sm text-outline truncate font-mono">ind_4439</div>
+</td>
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-bold text-on-surface text-right">₹1,25,000</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-secondary-container">Auth rejected</span>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 28%"></div>
+</div>
+<span class="font-data-mono text-label-sm font-semibold text-error">28%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-fixed/40 text-on-secondary-fixed font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]">policy</span>
+<span class="truncate">Manual Compliance Check</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-error-container text-on-error-container font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>Failed</span>
+</span>
+</td>
+<td class="py-3.5 px-space-base text-right font-label-sm text-label-sm text-outline whitespace-nowrap">51m ago</td>
+</tr>
+<!-- Row 7 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-semibold text-primary">RP-10476</td>
+<td class="py-3.5 px-space-base truncate">
+<div class="font-headline-sm text-headline-sm text-on-surface truncate">Freshworks B2B</div>
+<div class="font-label-sm text-label-sm text-outline truncate font-mono">ind_7721</div>
+</td>
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-bold text-on-surface text-right">₹18,400</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-secondary-container">Do not honor (05)</span>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 88%"></div>
+</div>
+<span class="font-data-mono text-label-sm font-semibold text-on-surface">88%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-tertiary-fixed/30 text-on-tertiary-fixed font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]">auto_fix_high</span>
+<span class="truncate">Routing optimization</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary-container text-on-secondary-container font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>In Progress</span>
+</span>
+</td>
+<td class="py-3.5 px-space-base text-right font-label-sm text-label-sm text-outline whitespace-nowrap">1h ago</td>
+</tr>
+<!-- Row 8 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer bg-surface-container-lowest">
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-semibold text-primary">RP-10475</td>
+<td class="py-3.5 px-space-base truncate">
+<div class="font-headline-sm text-headline-sm text-on-surface truncate">Zerodha Broking</div>
+<div class="font-label-sm text-label-sm text-outline truncate font-mono">ind_9930</div>
+</td>
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-bold text-on-surface text-right">₹7,500</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-secondary-container">Network fluctuation</span>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 94%"></div>
+</div>
+<span class="font-data-mono text-label-sm font-semibold text-on-surface">94%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-tertiary-fixed/30 text-on-tertiary-fixed font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]">flash_on</span>
+<span class="truncate">Instant retry</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-high text-primary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Recovered</span>
+</span>
+</td>
+<td class="py-3.5 px-space-base text-right font-label-sm text-label-sm text-outline whitespace-nowrap">1h ago</td>
+</tr>
+<!-- Row 9 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer">
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-semibold text-primary">RP-10474</td>
+<td class="py-3.5 px-space-base truncate">
+<div class="font-headline-sm text-headline-sm text-on-surface truncate">Meesho Logistics</div>
+<div class="font-label-sm text-label-sm text-outline truncate font-mono">ind_6623</div>
+</td>
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-bold text-on-surface text-right">₹2,850</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-secondary-container">Technical error (91)</span>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-primary/90 h-full rounded-full" style="width: 82%"></div>
+</div>
+<span class="font-data-mono text-label-sm font-semibold text-on-surface">82%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-tertiary-fixed/30 text-on-tertiary-fixed font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+<span class="truncate">Cooldown retry (120s)</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container-high text-primary font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span>Recovered</span>
+</span>
+</td>
+<td class="py-3.5 px-space-base text-right font-label-sm text-label-sm text-outline whitespace-nowrap">2h ago</td>
+</tr>
+<!-- Row 10 -->
+<tr class="group hover:bg-surface-container-low/50 transition-colors cursor-pointer bg-surface-container-lowest">
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-semibold text-primary">RP-10473</td>
+<td class="py-3.5 px-space-base truncate">
+<div class="font-headline-sm text-headline-sm text-on-surface truncate">Postman SaaS</div>
+<div class="font-label-sm text-label-sm text-outline truncate font-mono">ind_5512</div>
+</td>
+<td class="py-3.5 px-space-base font-data-mono text-data-mono font-bold text-on-surface text-right">₹34,200</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-surface-container text-on-secondary-container">Velocity limit</span>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="flex items-center gap-2">
+<div class="w-16 h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="bg-primary/60 h-full rounded-full" style="width: 53%"></div>
+</div>
+<span class="font-data-mono text-label-sm font-semibold text-on-surface">53%</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-secondary-fixed/40 text-on-secondary-fixed font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[14px]">fact_check</span>
+<span class="truncate">Policy review required</span>
+</div>
+</td>
+<td class="py-3.5 px-space-base">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full font-label-sm text-label-sm bg-error-container text-on-error-container font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+<span>Needs Review</span>
+</span>
+</td>
+<td class="py-3.5 px-space-base text-right font-label-sm text-label-sm text-outline whitespace-nowrap">2h ago</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Ledger Footer / Pagination Module -->
+<div class="p-space-base bg-surface-container-low/30 flex flex-col sm:flex-row items-center justify-between gap-space-base text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="font-medium text-on-surface">Showing 1–10</span>
+<span>of</span>
+<span class="font-medium text-on-surface">482 cases</span>
+<div class="h-3 w-px bg-outline-variant/60 mx-2"></div>
+<div class="flex items-center gap-1 text-outline">
+<span>Displaying 10 per page</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="p-1.5 rounded-lg text-outline-variant bg-surface-container-lowest cursor-not-allowed shadow-xs flex items-center justify-center" disabled="" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-semibold text-label-md flex items-center justify-center shadow-xs" type="button">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-low font-medium text-label-md flex items-center justify-center shadow-xs" type="button">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-low font-medium text-label-md flex items-center justify-center shadow-xs" type="button">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-low font-medium text-label-md flex items-center justify-center shadow-xs" type="button">49</button>
+<button class="p-1.5 rounded-lg text-on-surface bg-surface-container-lowest hover:bg-surface-container-low shadow-xs flex items-center justify-center" type="button">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Operational Context Panel -->
+<div class="mt-space-lg grid grid-cols-1 lg:grid-cols-3 gap-space-base">
+<div class="bg-surface-container-lowest p-space-base rounded-xl shadow-sm flex items-start gap-space-base">
+<div class="p-2.5 rounded-lg bg-primary-fixed text-primary shrink-0">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Routing Failover Active</h4>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">
+          Automated circuit breaking is directing 15% of HDFC NetBanking retry traffic to Axis Aggregator due to latency spikes on ICICI core switches.
+        </p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-base rounded-xl shadow-sm flex items-start gap-space-base">
+<div class="p-2.5 rounded-lg bg-tertiary-fixed text-tertiary shrink-0">
+<span class="material-symbols-outlined text-[20px]">schedule_send</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Dunning Cohort 4 Triggered</h4>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">
+          WhatsApp interactive mandate re-auth links dispatched for 32 subscription payments exceeding ₹10,000 threshold.
+        </p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-base rounded-xl shadow-sm flex items-start gap-space-base">
+<div class="p-2.5 rounded-lg bg-surface-container-high text-secondary shrink-0">
+<span class="material-symbols-outlined text-[20px]">security</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Deterministic Policy Lock</h4>
+<p class="mt-1 font-body-sm text-body-sm text-on-surface-variant">
+          RBI tokenization compliant dunning cadence enforced across all recurring debit card recovery operations.
+        </p>
+</div>
+</div>
+</div>
+</div></div></main></div></body></html>

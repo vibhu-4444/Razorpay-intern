@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      "colors": {
+        "tertiary-container": "#585be6",
+        "on-secondary": "#ffffff",
+        "on-error-container": "#93000a",
+        "secondary-container": "#dae2fd",
+        "tertiary": "#3e3fcc",
+        "primary-fixed-dim": "#b4c5ff",
+        "inverse-surface": "#213145",
+        "on-surface": "#0b1c30",
+        "on-tertiary-container": "#f1eeff",
+        "surface-dim": "#cbdbf5",
+        "on-secondary-fixed-variant": "#3f465c",
+        "surface-container": "#e5eeff",
+        "on-secondary-container": "#5c647a",
+        "primary": "#004ac6",
+        "error-container": "#ffdad6",
+        "outline-variant": "#c3c6d7",
+        "tertiary-fixed-dim": "#c0c1ff",
+        "on-primary-fixed": "#00174b",
+        "on-primary-container": "#eeefff",
+        "surface-container-lowest": "#ffffff",
+        "primary-container": "#2563eb",
+        "surface-container-low": "#eff4ff",
+        "secondary-fixed": "#dae2fd",
+        "outline": "#737686",
+        "surface-bright": "#f8f9ff",
+        "surface-variant": "#d3e4fe",
+        "on-background": "#0b1c30",
+        "on-primary": "#ffffff",
+        "inverse-primary": "#b4c5ff",
+        "on-tertiary-fixed": "#07006c",
+        "surface-container-high": "#dce9ff",
+        "background": "#f8f9ff",
+        "tertiary-fixed": "#e1e0ff",
+        "inverse-on-surface": "#eaf1ff",
+        "surface-tint": "#0053db",
+        "secondary": "#565e74",
+        "on-surface-variant": "#434655",
+        "on-tertiary": "#ffffff",
+        "primary-fixed": "#dbe1ff",
+        "secondary-fixed-dim": "#bec6e0",
+        "on-tertiary-fixed-variant": "#2f2ebe",
+        "error": "#ba1a1a",
+        "surface-container-highest": "#d3e4fe",
+        "on-error": "#ffffff",
+        "on-primary-fixed-variant": "#003ea8",
+        "surface": "#f8f9ff",
+        "on-secondary-fixed": "#131b2e"
+      },
+      "borderRadius": {
+        "DEFAULT": "0.125rem",
+        "lg": "0.25rem",
+        "xl": "0.5rem",
+        "full": "0.75rem"
+      },
+      "spacing": {
+        "space-2xl": "3rem",
+        "space-lg": "1.5rem",
+        "space-xs": "0.25rem",
+        "space-xl": "2rem",
+        "layout-margin-mobile": "1rem",
+        "space-2xs": "0.125rem",
+        "space-sm": "0.5rem",
+        "layout-margin-desktop": "2rem",
+        "space-base": "1rem",
+        "space-md": "0.75rem",
+        "gutter-table": "0.75rem"
+      },
+      "fontFamily": {
+        "body-md": ["Inter"],
+        "headline-xl": ["Inter"],
+        "headline-md": ["Inter"],
+        "body-lg": ["Inter"],
+        "data-mono": ["Inter"],
+        "body-sm": ["Inter"],
+        "label-sm": ["Inter"],
+        "label-md": ["Inter"],
+        "headline-lg": ["Inter"],
+        "headline-sm": ["Inter"]
+      },
+      "fontSize": {
+        "body-md": ["13px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "headline-xl": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+        "headline-md": ["18px", {"lineHeight": "26px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+        "body-lg": ["15px", {"lineHeight": "24px", "letterSpacing": "-0.005em", "fontWeight": "400"}],
+        "data-mono": ["13px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+        "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0em", "fontWeight": "400"}],
+        "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+        "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+        "headline-lg": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+        "headline-sm": ["15px", {"lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+      }
+    }
+  }
+}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest border-r border-outline-variant/40 z-50 flex flex-col justify-between select-none"><div class="flex flex-col flex-1 min-h-0"><div class="h-16 px-space-base flex items-center gap-space-sm border-b border-outline-variant/30"><img alt="REVIVE Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="flex items-center gap-space-xs"><span class="font-headline-md text-headline-md tracking-tight text-on-surface font-bold">REVIVE</span><span class="px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wider bg-surface-container-high text-primary border border-primary/20">OPERATIONS</span></div></div><nav class="flex-1 px-space-sm py-space-base space-y-1 overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm"><div class="px-space-base pt-1 pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Operations</span></div><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="overview" href="#"><span>Overview</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="recovery-cases" href="#"><span>Recovery Cases</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="exceptions" href="#"><span>Exceptions</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="analytics" href="#"><span>Analytics</span></a><div class="px-space-base pt-3 pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Engineering &amp; Labs</span></div><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="evaluation-lab" href="#"><span>Evaluation Lab</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="failure-lab" href="#"><span>Failure Lab</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="simulation-data" href="#"><span>Simulation Data</span></a><div class="px-space-base pt-3 pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Governance &amp; Rules</span></div><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="policies-guardrails" href="#"><span>Policies &amp; Guardrails</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="audit-explorer" href="#"><span>Audit Explorer</span></a><div class="px-space-base pt-3 pb-1"><span class="font-label-sm text-label-sm uppercase tracking-wider text-outline font-semibold">Execution &amp; Infrastructure</span></div><a aria-current="page" class="flex items-center justify-between px-space-base py-1.5 transition-colors bg-primary-container text-on-primary-container font-medium rounded-lg shadow-sm" data-path="recovery-execution" href="#"><span>Recovery Execution</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="merchant-config" href="#"><span>Merchant Config</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="system-health" href="#"><span>System Health</span></a><a class="flex items-center justify-between px-space-base py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings" href="#"><span>Settings</span></a></nav></div><div class="p-space-base border-t border-outline-variant/30 bg-surface-container-lowest flex flex-col gap-space-sm"><div class="flex items-center gap-2"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span><span class="font-label-sm text-label-sm font-medium text-on-surface-variant">Systems Operational</span></div><div class="flex items-center justify-between pt-1"><span class="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-surface-container-high text-on-secondary-container border border-outline-variant/50">TEST MODE</span><span class="font-label-sm text-label-sm text-on-surface-variant font-mono">v2.4-ops (sandbox)</span></div><div class="pt-1"><p class="font-label-sm text-label-sm text-on-surface-variant truncate" title="Razorpay Direct Merchant (sandbox)">Razorpay Direct Merchant <span class="text-outline">(sandbox)</span></p></div></div></aside><div class="pl-64 flex flex-col min-h-screen"><header class="fixed top-0 left-64 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/30 z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-base"><img alt="REVIVE Logo" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WpinXNSuoL55jyXEvV-MvDgG4f2JtkbezE-xnbEYS9LlUp8rZMABU6xVLY4Mc2FLcVAcqr-ND67ipLQLpSXzcanyNv0YK4_IWZ1DAUQbmRd1aKKxEn8l-tqMUjrRCBGhoONDWfR5-7VKtvOVj_-qYV8ZIVi5t8gD9zYk1joT8n6jajGq3ehJatzTVvvYFGv6yEKkgbChJ_u7MxPhpQgMf95EPxFqnOg2NhTc7eS4X82Vu-B2vvtnYE5XBP"/><div class="h-4 w-px bg-outline-variant/40"></div><div class="flex items-center gap-2 font-label-md text-label-md text-on-surface-variant"><span class="text-outline">REVIVE OPERATIONS</span><span class="text-outline-variant">/</span><span class="text-on-surface font-medium capitalize" id="active-view-indicator">Module Console</span></div></div><div class="flex items-center gap-space-md"><div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant/40 font-label-sm text-label-sm text-on-surface-variant"><span class="material-symbols-outlined text-[15px]">schedule</span><span>UTC+05:30 (IST)</span></div><div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/40 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"><span class="material-symbols-outlined text-[16px]">search</span><span class="font-label-sm text-label-sm">Search</span><kbd class="font-data-mono text-[10px] px-1.5 py-0.5 rounded bg-surface-container-lowest border border-outline-variant/50 text-outline shadow-sm">⌘K</kbd></div><div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant border border-outline-variant/40 font-label-sm text-label-sm"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>TEST MODE / SIMULATION ACTIVE</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 flex-1 bg-surface"><div class="w-full max-w-[1440px] mx-auto p-space-xl"><div class="flex flex-col w-full">
+<!-- Top Context Header & Metadata Ribbon -->
+<section class="flex flex-col gap-space-sm mb-space-lg">
+<!-- Breadcrumb & Mode Telemetry -->
+<div class="flex items-center justify-between">
+<nav class="flex items-center gap-2 font-label-md text-label-md text-secondary">
+<span>Recovery Cases</span>
+<span class="text-outline-variant font-data-mono">/</span>
+<span class="font-data-mono text-on-surface font-semibold">RP-10482</span>
+<span class="text-outline-variant font-data-mono">/</span>
+<span class="text-primary font-medium">Recovery Execution</span>
+</nav>
+<div class="flex items-center gap-space-xs font-data-mono text-label-sm text-secondary bg-surface-container-low px-2.5 py-1 rounded-lg">
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+<span>IDMP NONCE: 0x4e29...88172</span>
+</div>
+</div>
+<!-- Title & Operational Ledger Badges -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-base">
+<div class="flex items-center gap-space-md">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Recovery Execution</h1>
+<span class="px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-primary-container text-on-primary-container font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">bolt</span>
+<span>KERNEL v2.4-DISPATCH</span>
+</span>
+</div>
+<!-- Dense Ledger Badges -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-surface-container-lowest shadow-sm font-data-mono text-body-sm text-on-surface">
+<span class="text-secondary font-sans font-medium">Case:</span>
+<span class="font-semibold text-primary">RP-10482</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-surface-container-lowest shadow-sm font-data-mono text-body-sm text-on-surface">
+<span class="text-secondary font-sans font-medium">Amount:</span>
+<span class="font-semibold text-on-surface">₹4,999.00</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-amber-50 text-amber-900 font-label-md text-label-md">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+<span class="font-semibold">Ready to Execute</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-md bg-surface-container-lowest shadow-sm font-body-sm text-body-sm text-secondary">
+<span class="material-symbols-outlined text-[15px] text-primary">account_balance</span>
+<span class="text-on-surface font-medium">Razorpay Direct</span>
+<span class="text-outline text-label-sm font-data-mono">(Tier-1)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Main 12-Column Ledger Canvas -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT 7 COLUMNS: Pre-Flight, Authorization & Dispatch -->
+<div class="lg:col-span-7 flex flex-col gap-space-lg min-w-0">
+<!-- Module 1: Authorized Execution Blueprint -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Authorized Execution Blueprint</h2>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-emerald-100 text-emerald-900 font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+            AUTHORIZED (6/6 INVARIANTS)
+          </span>
+</div>
+<div class="p-space-lg flex flex-col gap-space-md">
+<!-- Recommended Policy Hero Strip -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex items-start justify-between gap-4">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Recommended Action</span>
+<span class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Retry Payment (Algorithmic Cooldown Pipe)</span>
+<p class="font-body-sm text-body-sm text-secondary mt-1">Autonomous orchestration selects fallback switch based on bank-side clearing volatility index.</p>
+</div>
+<div class="flex flex-col items-end flex-shrink-0">
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-md bg-indigo-50 text-indigo-900">
+<span class="material-symbols-outlined text-[14px]">auto_awesome</span>
+<span class="font-data-mono text-label-md font-semibold">91% Confidence</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary mt-1">Advisory Telemetry</span>
+</div>
+</div>
+<!-- Structured Ledger Data Matrix -->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-space-sm font-body-sm text-body-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col">
+<span class="text-secondary font-label-sm text-label-sm">Execution Attempt</span>
+<span class="font-data-mono font-semibold text-on-surface mt-0.5">0 / 2 <span class="text-secondary font-normal font-sans text-label-sm">(1st attempt)</span></span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col">
+<span class="text-secondary font-label-sm text-label-sm">Cooldown Window</span>
+<span class="font-data-mono font-semibold text-emerald-800 mt-0.5">Satisfied (64s / 60s)</span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col col-span-2 md:col-span-1">
+<span class="text-secondary font-label-sm text-label-sm">Target Route</span>
+<span class="font-data-mono font-semibold text-on-surface mt-0.5 truncate" title="Secondary Gateway Switch (HDFC ISO-8583)">HDFC ISO-8583</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Module 2: Mandatory Pre-Flight Invariants Checklist -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">rule</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Mandatory Pre-Flight Invariants (Kernel Enforced)</h2>
+</div>
+<span class="font-data-mono text-label-sm text-secondary">FAIL-CLOSED SPEC</span>
+</div>
+<div class="p-space-lg flex flex-col gap-3">
+<!-- Deterministic Checklist Items -->
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low text-body-sm">
+<div class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-on-surface font-medium">Payment State Valid</span>
+</div>
+<span class="font-data-mono text-secondary text-label-sm">Webhook verified, pending capture</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low text-body-sm">
+<div class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-on-surface font-medium">Retry Limit Invariant</span>
+</div>
+<span class="font-data-mono text-secondary text-label-sm">0/2 current attempts &lt; 2 max</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low text-body-sm">
+<div class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-on-surface font-medium">Cooldown Threshold Satisfied</span>
+</div>
+<span class="font-data-mono text-secondary text-label-sm">64s elapsed &gt; 60s minimum backoff</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low text-body-sm">
+<div class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-on-surface font-medium">Merchant Routing Policy Allowance</span>
+</div>
+<span class="font-data-mono text-secondary text-label-sm">SLA: SaaS Subscription Auto-Recovery</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low text-body-sm">
+<div class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-on-surface font-medium">Amount Cap Rule Verified</span>
+</div>
+<span class="font-data-mono text-secondary text-label-sm">₹4,999 &lt;= ₹25,000 threshold</span>
+</div>
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-low text-body-sm">
+<div class="flex items-center gap-3">
+<span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-on-surface font-medium">Idempotency Lock Acquired</span>
+</div>
+<span class="font-data-mono text-primary text-label-sm">idmp_991fa02 (MUTEX LOCKED)</span>
+</div>
+<!-- Status Green Banner -->
+<div class="mt-2 p-3 rounded-lg bg-emerald-50 flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-700 text-[20px]">format_image_left</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-emerald-900 tracking-wide uppercase">READY FOR EXECUTION</span>
+<span class="font-body-sm text-body-sm text-emerald-800">All deterministic pre-flight invariants validated. Zero compliance block flags.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Module 3: Action Preview & Primary Execution Dispatch -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="px-space-lg py-space-md bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">send</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Action Preview &amp; Dispatch</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Step 2 of 2</span>
+</div>
+<div class="p-space-lg flex flex-col gap-space-lg">
+<!-- Dispatch Spec Key-Value Matrix -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md p-space-md rounded-lg bg-surface-container-low font-body-sm text-body-sm">
+<div>
+<span class="text-secondary font-label-sm text-label-sm uppercase">Committed Action</span>
+<p class="font-medium text-on-surface mt-0.5">Retry Payment Request</p>
+</div>
+<div>
+<span class="text-secondary font-label-sm text-label-sm uppercase">Provider Adapter</span>
+<p class="font-medium text-on-surface mt-0.5">Sandbox Provider <span class="font-data-mono text-label-sm text-secondary">(v2.4-ops)</span></p>
+</div>
+<div>
+<span class="text-secondary font-label-sm text-label-sm uppercase">Idempotency Nonce</span>
+<p class="font-data-mono text-label-sm font-semibold text-primary mt-0.5 truncate" title="SHA-256: 0x4e29bca28019ab77d88172">0x4e29b...88172</p>
+</div>
+</div>
+<!-- Dual Execution Call-to-Actions -->
+<div class="flex flex-col sm:flex-row items-center gap-space-base">
+<button class="w-full sm:w-auto flex-1 flex items-center justify-center gap-2 px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-headline-sm text-headline-sm font-semibold hover:bg-primary/90 active:bg-primary-container shadow-sm transition-all focus:outline-none" id="btn-execute" onclick="triggerSimulation()">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Execute Recovery</span>
+</button>
+<button class="w-full sm:w-auto px-space-lg py-2.5 rounded-lg bg-surface-container-low text-on-surface font-headline-sm text-headline-sm font-medium hover:bg-surface-container transition-colors shadow-sm focus:outline-none" id="btn-review" onclick="toggleState('state-c')">
+<span>Send to Review</span>
+</button>
+</div>
+<!-- Cryptographic Assurance Footer -->
+<div class="flex items-start gap-2 pt-1 text-secondary font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[16px] text-outline mt-0.5">lock_clock</span>
+<p><strong class="text-on-surface font-medium">Zero Financial Ambiguity:</strong> This action commits a cryptographically signed dispatch call to the acquiring gateway rails. Idempotency guarantees prevent concurrent double billing.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT 5 COLUMNS: State Transition Simulation & Terminal State Inspector -->
+<div class="lg:col-span-5 flex flex-col gap-space-md min-w-0">
+<!-- Sticky/Structured State Simulator Deck -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-base">
+<!-- Header & Segmented Controller -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">account_tree</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Execution Lifecycle States</h2>
+</div>
+<span class="font-data-mono text-label-sm text-primary font-semibold px-2 py-0.5 rounded bg-surface-container-high">INSPECTOR</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">
+            Deterministic runtime state transitions. Toggle state cards to inspect operational invariants across dispatch phases.
+          </p>
+<!-- Segmented Tab Bar -->
+<div class="grid grid-cols-3 gap-1 p-1 bg-surface-container-low rounded-lg mt-2 font-label-md text-label-md font-medium text-secondary">
+<button class="py-1.5 px-2 rounded-md transition-all text-center bg-surface-container-lowest shadow-sm text-primary font-semibold" id="tab-a" onclick="toggleState('state-a')">State A: Active</button>
+<button class="py-1.5 px-2 rounded-md transition-all text-center hover:text-on-surface" id="tab-b" onclick="toggleState('state-b')">State B: Success</button>
+<button class="py-1.5 px-2 rounded-md transition-all text-center hover:text-on-surface" id="tab-c" onclick="toggleState('state-c')">State C: Safe Fail</button>
+</div>
+</div>
+<!-- STATE A: IN PROGRESS / EXECUTING STATE -->
+<div class="state-panel flex flex-col gap-space-md p-space-md rounded-xl bg-surface-container-low" id="state-a">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Executing recovery...</span>
+</div>
+<span class="font-data-mono text-label-sm text-secondary bg-surface-container-lowest px-2 py-0.5 rounded">PHASE: DISPATCH</span>
+</div>
+<!-- Operational Micro-Progress Bar -->
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full w-2/3 animate-pulse"></div>
+</div>
+<!-- Live Trace Telemetry -->
+<div class="flex flex-col gap-2 font-data-mono text-body-sm p-3 rounded-lg bg-surface-container-lowest">
+<div class="flex items-center justify-between text-emerald-800">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">done</span>
+                1. Lock acquired
+              </span>
+<span class="text-label-sm">0ms</span>
+</div>
+<div class="flex items-center justify-between text-emerald-800">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">done</span>
+                2. Contacting provider gateway
+              </span>
+<span class="text-label-sm">120ms</span>
+</div>
+<div class="flex items-center justify-between text-primary font-semibold">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px] animate-spin">sync</span>
+                3. Waiting for bank ISO clearing...
+              </span>
+<span class="text-label-sm animate-pulse">840ms</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]">info</span>
+<span>Cryptographic distributed locks prevent concurrent retry initiation on rail HDFC-01.</span>
+</div>
+</div>
+<!-- STATE B: TERMINAL SUCCESS STATE -->
+<div class="state-panel hidden flex flex-col gap-space-md p-space-md rounded-xl bg-emerald-50" id="state-b">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</span>
+<span class="font-headline-sm text-headline-sm text-emerald-950 font-semibold">Recovery Successful</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-emerald-200 text-emerald-950 font-semibold font-data-mono">TERMINAL_SETTLED</span>
+</div>
+<p class="font-body-sm text-body-sm text-emerald-900">
+            Payment fully authorized and recovered. Dual-entry ledger record credited without manual intervention.
+          </p>
+<!-- Ledger Attributes Table -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col gap-2 font-data-mono text-body-sm">
+<div class="flex items-center justify-between py-1">
+<span class="text-secondary font-sans text-label-sm">Settled Amount:</span>
+<span class="font-bold text-on-surface">₹4,999.00 INR</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-secondary font-sans text-label-sm">Execution Latency:</span>
+<span class="text-emerald-800 font-semibold">1.84s (P95 SLA Clear)</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-secondary font-sans text-label-sm">Provider RRN:</span>
+<span class="text-primary font-semibold">pay_Nxi9823kL0</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-secondary font-sans text-label-sm">Attempt Sequence:</span>
+<span class="text-on-surface">1 of 2 (Ceiling Respected)</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-secondary font-sans text-label-sm">Sunk Revenue Settled:</span>
+<span class="text-emerald-800 font-semibold">Transferred to Merchant Escrow</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-label-sm font-label-sm text-emerald-950 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">receipt_long</span>
+              Receipt ref_84719-h posted
+            </span>
+<button class="px-2 py-1 rounded bg-emerald-200 text-emerald-950 font-label-sm text-label-sm hover:bg-emerald-300 transition-colors">
+              View Journal Record
+            </button>
+</div>
+</div>
+<!-- STATE C: TERMINAL SAFE FAILURE STATE -->
+<div class="state-panel hidden flex flex-col gap-space-md p-space-md rounded-xl bg-amber-50" id="state-c">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-amber-600 text-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">security</span>
+</span>
+<span class="font-headline-sm text-headline-sm text-amber-950 font-semibold">Safe State Preserved</span>
+</div>
+<span class="px-2 py-0.5 rounded text-label-sm font-label-sm bg-amber-200 text-amber-950 font-semibold font-data-mono">INTERCEPT_SAFE</span>
+</div>
+<p class="font-body-sm text-body-sm text-amber-900">
+            The payment provider did not complete the recovery request. Deterministic fail-safe engaged.
+          </p>
+<!-- Safe Invariant Guarantee Banner -->
+<div class="p-2.5 rounded-lg bg-surface-container-lowest flex items-start gap-2">
+<span class="material-symbols-outlined text-amber-700 text-[18px] flex-shrink-0 mt-0.5">gavel</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md font-semibold text-amber-950">SAFE FAILURE GUARANTEE</span>
+<p class="font-body-sm text-body-sm text-secondary mt-0.5">
+                No financial mutation or duplicate charge occurred. Escrow locks cleanly released without settlement drift.
+              </p>
+</div>
+</div>
+<!-- Audit Ledger Metadata -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest flex flex-col gap-2 font-data-mono text-body-sm">
+<div class="flex items-center justify-between py-1">
+<span class="text-secondary font-sans text-label-sm">Provider Code:</span>
+<span class="font-bold text-rose-800">EXPIRED_CARD</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-secondary font-sans text-label-sm">Terminal Reason:</span>
+<span class="text-on-surface">Decline - retry ceiling bypassed</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="text-secondary font-sans text-label-sm">Automated Routing:</span>
+<span class="text-amber-800 font-semibold">Queue T2 (Priority High)</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-label-sm font-label-sm text-amber-950">Dispatched to Tier-2 Operations Lead</span>
+<button class="px-2.5 py-1 rounded bg-amber-200 text-amber-950 font-label-sm text-label-sm hover:bg-amber-300 transition-colors">
+              Open Incident T2-092
+            </button>
+</div>
+</div>
+<!-- Telemetry Card Footer: Real-time cryptographic ledger proof -->
+<div class="p-3 rounded-lg bg-surface-container-low flex items-center justify-between text-secondary font-data-mono text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-primary">fingerprint</span>
+<span>SIGNED_BY: rev_orchestrator_prod_k3</span>
+</div>
+<span>TS: 2025-02-27T08:14:02.19Z</span>
+</div>
+</div>
+<!-- Auxiliary Audit Trail & Gateway Spec Badge -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Gateway Switch Telemetry</span>
+<div class="flex items-center justify-between font-body-sm text-body-sm">
+<span class="text-on-surface">Switch Rail: <strong class="font-data-mono text-on-surface">HDFC-01-DIRECT</strong></span>
+<span class="text-emerald-800 font-medium flex items-center gap-1 font-data-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+            99.98% SLA
+          </span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary">Fallback routing table active. In event of upstream timeout &gt; 3000ms, execution safely terminates to idempotency pool.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+  function toggleState(stateId) {
+    // Hide all state panels
+    const panels = document.querySelectorAll('.state-panel');
+    panels.forEach(panel => panel.classList.add('hidden'));
+
+    // Show target panel
+    const target = document.getElementById(stateId);
+    if (target) {
+      target.classList.remove('hidden');
+    }
+
+    // Reset tab active classes
+    const tabs = ['tab-a', 'tab-b', 'tab-c'];
+    tabs.forEach(tab => {
+      const el = document.getElementById(tab);
+      if (el) {
+        el.className = 'py-1.5 px-2 rounded-md transition-all text-center hover:text-on-surface';
+      }
+    });
+
+    // Mark current tab active
+    const activeTab = document.getElementById('tab-' + stateId.replace('state-', ''));
+    if (activeTab) {
+      activeTab.className = 'py-1.5 px-2 rounded-md transition-all text-center bg-surface-container-lowest shadow-sm text-primary font-semibold';
+    }
+  }
+
+  function triggerSimulation() {
+    // Transition from A to B with simulated runtime micro-delay
+    toggleState('state-a');
+    const btn = document.getElementById('btn-execute');
+    if (btn) {
+      btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">sync</span><span>Dispatched...</span>';
+      setTimeout(() => {
+        toggleState('state-b');
+        btn.innerHTML = '<span class="material-symbols-outlined text-[18px]">done_all</span><span>Dispatched & Settled</span>';
+      }, 900);
+    }
+  }
+</script></div></main></div></body></html>
