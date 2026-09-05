@@ -41,6 +41,8 @@ export type FailureCategory =
   | 'VELOCITY_LIMIT'
   | 'TECHNICAL_ERROR';
 
+export type PaymentFailureCategory = FailureCategory;
+
 export interface PaymentFailureInfo {
   code: string;               // e.g. "E05_ISSUER_TIMEOUT", "INSUFFICIENT_FUNDS", "BANK_DECLINE"
   category: FailureCategory;

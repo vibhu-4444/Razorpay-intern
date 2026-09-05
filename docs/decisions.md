@@ -40,3 +40,24 @@
 * **Consequences**: Clean UI components that mirror the Stitch design without being polluted by complex policy algorithms or gateway handling.
 * **Hinglish Rationale**:
   *UI component ka kaam sirf rendering aur user intent capture karna hai; business invariants aur execution rights service layer aur policy engine ke paas rehte hain.*
+
+---
+
+### Decision 005: Safe Failure Handling & Provider Timeout Idempotency
+* **Status**: Accepted
+* **Context**: In real-world payment gateways, 504 Gateway Timeouts or socket drops leave the transaction in an ambiguous state: the cardholder might have been debited, or the switch might have aborted. Blindly re-attempting a timed-out recovery causes double-debits and regulatory fines.
+* **Decision**: Any network or provider timeout yields `UNKNOWN_PROVIDER_STATE`. The case is transitioned to `ESCALATED` rather than `FAILED` or `RECOVERED`. Automated re-dispatch is strictly suppressed. An audit event is recorded explaining the suppression, and the case is routed to human operations review. Additionally, idempotency caching ensures that duplicate requests with the same key return the original cached result without secondary gateway dispatch.
+* **Consequences**: Zero risk of duplicate debiting during bank switch connectivity degradation. Complete operational transparency.
+* **Hinglish Rationale**:
+  *Timeout ke waqt payment state unconfirmed rehti hai. Blindly dobara retry karne se customer double-charge ho sakta hai, isliye case ko ESCALATED mark karke human reconciliation ke liye bhejte hain.*
+
+---
+
+### Decision 006: Dynamic Ledger Single Source of Truth
+* **Status**: Accepted
+* **Context**: Prototype dashboards often hardcode summary KPIs (e.g. ₹8,42,500 at risk, 37 interventions) separately from table items, creating discrepancies when transactions update.
+* **Decision**: All platform metrics (`getOverviewKPIs()`), pipeline conversion funnel counts (`getPipelineFunnel()`), exception queues, and case tables derive dynamically from the centralized `RecoveryService` case store. When a recovery action is executed, recovered revenue increments, at-risk revenue decrements, and conversion rates recalculate reactively across all views.
+* **Consequences**: Real-time ledger consistency. Zero drift between executive summary cards and granular audit records.
+* **Hinglish Rationale**:
+  *Fake static numbers ki jagah saare KPIs dynamic hain. Jaise hi koi case recover hota hai, command center ke cards aur pipeline stepper live update hote hain.*
+
