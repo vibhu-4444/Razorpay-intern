@@ -14,6 +14,7 @@ export type SimulatorOutcomeMode =
   | 'FORCE_DECLINE'
   | 'FORCE_TIMEOUT'      // Simulates network latency / gateway timeout
   | 'FORCE_PROVIDER_ERROR'
+  | 'FORCE_PROVIDER_503'  // Simulates HTTP 503 Service Unavailable
   | 'FORCE_ALREADY_RECOVERED';
 
 export class SimulatorProvider implements PaymentProvider {
@@ -120,6 +121,19 @@ export class SimulatorProvider implements PaymentProvider {
       };
       this.executedResultsByIdempotency.set(request.idempotencyKey, providerErrorResult);
       return providerErrorResult;
+    }
+
+    // Case: Force Provider 503 Service Unavailable
+    if (this.scenarioOverrideMode === 'FORCE_PROVIDER_503') {
+      const serviceUnavailableResult: ProviderRetryResult = {
+        success: false,
+        gatewayReferenceNumber: `rrn_503_${Date.now()}`,
+        statusCode: 'PROVIDER_503_UNAVAILABLE',
+        rawMessage: 'HTTP 503 Service Unavailable: Payment processor under maintenance. Automated recovery halted.',
+        executionLatencyMs: 210,
+      };
+      this.executedResultsByIdempotency.set(request.idempotencyKey, serviceUnavailableResult);
+      return serviceUnavailableResult;
     }
 
     // Case: Force Decline

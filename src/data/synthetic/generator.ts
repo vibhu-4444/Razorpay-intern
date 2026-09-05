@@ -80,9 +80,9 @@ export function generateSyntheticDataset(options: GeneratorOptions = {}): Synthe
   const scenarioDistribution: Record<ScenarioArchetype, number> = {} as Record<ScenarioArchetype, number>;
   const failureDistribution: Record<string, number> = {};
   const tierDistribution: Record<CustomerTier, number> = {
-    enterprise: 0,
-    growth: 0,
-    standard: 0,
+    ENTERPRISE: 0,
+    GROWTH: 0,
+    STANDARD: 0,
   };
 
   SCENARIO_ARCHETYPES.forEach((archetype) => {
@@ -111,16 +111,16 @@ export function generateSyntheticDataset(options: GeneratorOptions = {}): Synthe
     const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}${prng.nextInt(10, 99)}@example.com`;
 
     // Customer tier assignment
-    let tier: CustomerTier = 'standard';
+    let tier: CustomerTier = 'STANDARD';
     if (archetype === 'HIGH_VALUE_CUSTOMER') {
-      tier = 'enterprise';
+      tier = 'ENTERPRISE';
     } else if (archetype === 'LOW_VALUE_CUSTOMER') {
-      tier = 'standard';
+      tier = 'STANDARD';
     } else {
       const tierRoll = prng.next();
-      if (tierRoll < 0.20) tier = 'enterprise';
-      else if (tierRoll < 0.60) tier = 'growth';
-      else tier = 'standard';
+      if (tierRoll < 0.20) tier = 'ENTERPRISE';
+      else if (tierRoll < 0.60) tier = 'GROWTH';
+      else tier = 'STANDARD';
     }
     tierDistribution[tier] += 1;
 
@@ -396,9 +396,17 @@ export function generateSyntheticDataset(options: GeneratorOptions = {}): Synthe
       id: customerId,
       name: fullName,
       email,
-      phone: `+91 98${prng.nextInt(10000000, 99999999)}`,
+      phoneMasked: `+91 ••••• ••${prng.nextInt(100, 999)}`,
       tier,
-      lifetimeValueINR: amount * prng.nextInt(3, 15),
+      metrics: {
+        historicalClearedCount: prng.nextInt(4, 25),
+        historicalFailedCount: archetype === 'REPEATED_FAILURE' ? 3 : prng.nextInt(0, 2),
+        successRatePercentage: archetype === 'REPEATED_FAILURE' ? 65 : prng.nextInt(82, 98),
+        accountTenureMonths: prng.nextInt(3, 36),
+        avgTransactionAmount: amount,
+        recentRecoveryEvent: false,
+        hasActiveDispute: archetype === 'POLICY_BLOCKED',
+      },
       createdAt: '2024-01-15T00:00:00.000Z',
     };
 
