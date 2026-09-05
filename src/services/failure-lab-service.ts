@@ -19,7 +19,7 @@ import { PolicyEvaluationContext } from '../policy-engine/rules';
 import { Payment } from '../domain/payment';
 import { Customer } from '../domain/customer';
 import { RecoveryAction } from '../domain/recovery-action';
-import { AuditLedgerService } from './audit-ledger-service';
+import { AuditService, defaultAuditService } from './audit-service';
 
 export type FailureScenarioId =
   | 'SCENARIO_1_TIMEOUT'
@@ -90,7 +90,7 @@ export interface SafeFailureScorecard {
 }
 
 export class FailureLabService {
-  private auditLedger = new AuditLedgerService();
+  private auditLedger = new AuditService();
 
   /**
    * Runs an individual failure scenario through the live domain components.
