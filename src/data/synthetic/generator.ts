@@ -101,8 +101,8 @@ export function generateSyntheticDataset(options: GeneratorOptions = {}): Synthe
     scenarioDistribution[archetype] += 1;
 
     const caseId = `SYN-${String(i).padStart(4, '0')}`;
-    const paymentId = `pay_${prng.nextInt(100000, 999999)}_syn`;
-    const customerId = `cust_${prng.nextInt(10000, 99999)}`;
+    const paymentId = `pay_${String(i).padStart(4, '0')}_${prng.nextInt(10000, 99999)}_syn`;
+    const customerId = `cust_${String(i).padStart(4, '0')}_${prng.nextInt(1000, 9999)}`;
     const merchantId = prng.pickOne(MERCHANTS);
 
     const firstName = prng.pickOne(FIRST_NAMES);

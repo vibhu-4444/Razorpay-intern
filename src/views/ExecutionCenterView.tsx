@@ -153,7 +153,7 @@ export const ExecutionCenterView: React.FC = () => {
           <div className="p-3 bg-surface-container-low rounded-lg">
             <div className="text-on-surface-variant font-medium">AI Confidence</div>
             <div className="font-mono font-bold text-indigo-700 mt-1">
-              {Math.round((selectedCase.diagnosis?.confidence ?? 0.88) * 100)}%
+              {selectedCase.diagnosis?.confidencePercentage ?? 88}%
             </div>
           </div>
 

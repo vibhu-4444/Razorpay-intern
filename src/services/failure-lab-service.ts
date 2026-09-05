@@ -19,7 +19,6 @@ import { PolicyEvaluationContext } from '../policy-engine/rules';
 import { Payment } from '../domain/payment';
 import { Customer } from '../domain/customer';
 import { RecoveryAction } from '../domain/recovery-action';
-import { AuditService, defaultAuditService } from './audit-service';
 
 export type FailureScenarioId =
   | 'SCENARIO_1_TIMEOUT'
@@ -90,8 +89,6 @@ export interface SafeFailureScorecard {
 }
 
 export class FailureLabService {
-  private auditLedger = new AuditService();
-
   /**
    * Runs an individual failure scenario through the live domain components.
    */
@@ -232,10 +229,9 @@ export class FailureLabService {
 
     const providerResult = await provider.retryPayment({
       paymentId: payment.id,
-      amount: payment.amount,
-      currency: payment.currency,
       idempotencyKey: action.parameters.idempotencyKey,
-      customerTier: customer.tier,
+      policyCheckToken: 'POL_CHECK_TOKEN_VALIDATED',
+      merchantId: payment.merchantId,
     });
 
     // UNKNOWN_PROVIDER_STATE safe failure protocol:
@@ -342,23 +338,6 @@ export class FailureLabService {
       updatedAt: timestamp,
     };
 
-    const customer: Customer = {
-      id: 'cust_swiggy_user_02',
-      name: 'Rohan Deshmukh',
-      email: 'rohan.d@example.com',
-      phoneMasked: '+91 ••••• ••192',
-      tier: 'STANDARD',
-      metrics: {
-        historicalClearedCount: 12,
-        historicalFailedCount: 0,
-        successRatePercentage: 100,
-        accountTenureMonths: 10,
-        avgTransactionAmount: 850,
-        recentRecoveryEvent: false,
-        hasActiveDispute: false,
-      },
-      createdAt: timestamp,
-    };
 
     const action: RecoveryAction = {
       type: 'RETRY_PAYMENT',
@@ -373,10 +352,9 @@ export class FailureLabService {
 
     const providerResult = await provider.retryPayment({
       paymentId: payment.id,
-      amount: payment.amount,
-      currency: payment.currency,
       idempotencyKey: action.parameters.idempotencyKey,
-      customerTier: customer.tier,
+      policyCheckToken: 'POL_CHECK_TOKEN_VALIDATED',
+      merchantId: payment.merchantId,
     });
 
     const checks: SafetyCheck[] = [
@@ -516,19 +494,17 @@ export class FailureLabService {
     // Pre-seed the idempotency cache with an executed attempt
     await provider.retryPayment({
       paymentId: payment.id,
-      amount: payment.amount,
-      currency: payment.currency,
       idempotencyKey: duplicateKey,
-      customerTier: customer.tier,
+      policyCheckToken: 'POL_CHECK_TOKEN_VALIDATED',
+      merchantId: payment.merchantId,
     });
 
     // Replay attempt with same key
     const duplicateResult = await provider.retryPayment({
       paymentId: payment.id,
-      amount: payment.amount,
-      currency: payment.currency,
       idempotencyKey: duplicateKey,
-      customerTier: customer.tier,
+      policyCheckToken: 'POL_CHECK_TOKEN_VALIDATED',
+      merchantId: payment.merchantId,
     });
 
     const checks: SafetyCheck[] = [
@@ -803,8 +779,8 @@ export class FailureLabService {
       {
         id: 'CHK_POL_2',
         name: 'POL_INV_01_MAX_RETRIES Enforced',
-        passed: policyDecision.blockingRule === 'Max Attempt Limit Rule',
-        expected: 'Blocking rule: Max Attempt Limit Rule',
+        passed: policyDecision.blockingRule === 'Max Retries Ceiling Gate',
+        expected: 'Blocking rule: Max Retries Ceiling Gate',
         actual: policyDecision.blockingRule ?? 'Unknown rule',
         criticality: 'CRITICAL',
       },
@@ -882,23 +858,6 @@ export class FailureLabService {
       updatedAt: timestamp,
     };
 
-    const customer: Customer = {
-      id: 'cust_decline_06',
-      name: 'Vikram Mehta',
-      email: 'vikram.m@example.com',
-      phoneMasked: '+91 ••••• ••612',
-      tier: 'STANDARD',
-      metrics: {
-        historicalClearedCount: 5,
-        historicalFailedCount: 2,
-        successRatePercentage: 71,
-        accountTenureMonths: 6,
-        avgTransactionAmount: 5400,
-        recentRecoveryEvent: false,
-        hasActiveDispute: false,
-      },
-      createdAt: timestamp,
-    };
 
     const action: RecoveryAction = {
       type: 'RETRY_PAYMENT',
@@ -913,10 +872,9 @@ export class FailureLabService {
 
     const providerResult = await provider.retryPayment({
       paymentId: payment.id,
-      amount: payment.amount,
-      currency: payment.currency,
       idempotencyKey: action.parameters.idempotencyKey,
-      customerTier: customer.tier,
+      policyCheckToken: 'POL_CHECK_TOKEN_VALIDATED',
+      merchantId: payment.merchantId,
     });
 
     const checks: SafetyCheck[] = [

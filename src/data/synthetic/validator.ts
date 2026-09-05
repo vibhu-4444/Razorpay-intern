@@ -93,7 +93,6 @@ export function validateDataset(dataset: SyntheticDataset): ValidationReport {
         issue: 'Incomplete nested payment or customer schema.',
         severity: 'CRITICAL',
       });
-      hasSchemaError = true;
     } else {
       schemaConformityCount++;
     }

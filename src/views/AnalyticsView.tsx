@@ -152,7 +152,7 @@ export const AnalyticsView: React.FC = () => {
         />
         <MetricCard
           label="Active Interventions"
-          value={String(kpis.activeInterventionsCount)}
+          value={String(kpis.activeInterventions)}
           delta={{ text: 'Live', isPositive: true, subtext: 'in flight' }}
           icon="insights"
           footerText="Autonomous pipeline"

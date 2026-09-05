@@ -10,7 +10,7 @@
 import React, { useState } from 'react';
 import { defaultRecoveryService } from '../services/recovery-service';
 import { defaultAuditService } from '../services/audit-service';
-import { AuditEvent, AuditActor } from '../domain/audit';
+import { AuditEvent } from '../domain/audit';
 
 export const AuditExplorerView: React.FC = () => {
   const cases = defaultRecoveryService.getAllCases();
@@ -42,8 +42,8 @@ export const AuditExplorerView: React.FC = () => {
           paymentId: selectedCase.payment.id,
           actor: 'AI_MODEL_ENGINE',
           action: 'ROOT_CAUSE_DIAGNOSIS',
-          result: `CONFIDENCE_${Math.round((selectedCase.diagnosis?.confidence ?? 0.88) * 100)}%`,
-          payloadSummary: `Diagnosed root cause: ${selectedCase.diagnosis?.rootCause ?? 'Transient network latency'}. Signals: Healthy account history, zero default flags.`,
+          result: `CONFIDENCE_${selectedCase.diagnosis?.confidencePercentage ?? 88}%`,
+          payloadSummary: `Diagnosed root cause: ${selectedCase.diagnosis?.inferredRootCause ?? 'Transient network latency'}. Signals: Healthy account history, zero default flags.`,
           timestamp: '14:02:11.240 IST',
           hash: 'c89329482910fa89b21849102839182390192381029381029381029381029381',
         },

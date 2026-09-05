@@ -12,7 +12,7 @@
  * ki deterministic PolicyEngine ne isse intercept karke block kiya ya nahi.
  */
 
-import { SyntheticDataset, SyntheticRecoveryCase } from '../../data/synthetic/types';
+import { SyntheticDataset } from '../../data/synthetic/types';
 import {
   EvaluationRun,
   EvaluationCaseResult,
