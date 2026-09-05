@@ -9,10 +9,9 @@
  * AI ko ground truth generate karne nahi dete, warna evaluation circular ban jayega.
  */
 
-import { Payment, PaymentFailureCategory, PaymentMethodType } from '../../domain/payment';
+import { Payment, PaymentFailureCategory } from '../../domain/payment';
 import { Customer, CustomerTier } from '../../domain/customer';
 import { RecoveryActionType } from '../../domain/recovery-action';
-import { RecoveryStatus } from '../../domain/recovery-case';
 
 export type ScenarioArchetype =
   | 'INSUFFICIENT_FUNDS'

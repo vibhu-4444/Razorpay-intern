@@ -10,7 +10,7 @@
  * kyunki core business logic se contradict karne wala dataset evaluation ko invalid bana deta hai.
  */
 
-import { SyntheticDataset, SyntheticRecoveryCase } from './types';
+import { SyntheticDataset } from './types';
 
 export interface ValidationError {
   caseId: string;
@@ -47,7 +47,6 @@ export function validateDataset(dataset: SyntheticDataset): ValidationReport {
   const total = dataset.cases.length;
 
   for (const c of dataset.cases) {
-    let hasSchemaError = false;
     let hasGroundTruthError = false;
 
     // 1. Unique ID check

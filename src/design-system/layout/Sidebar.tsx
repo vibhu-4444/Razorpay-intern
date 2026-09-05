@@ -8,6 +8,13 @@ export type NavRoute =
   | 'exceptions'
   | 'analytics'
   | 'evaluation-lab'
+  | 'failure-lab'
+  | 'policies'
+  | 'audit-explorer'
+  | 'data-studio'
+  | 'execution-center'
+  | 'merchant-config'
+  | 'system-health'
   | 'settings';
 
 interface SidebarProps {
@@ -16,24 +23,51 @@ interface SidebarProps {
   exceptionCount?: number;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({
-  currentRoute,
-  onRouteChange,
-  exceptionCount = 12,
-}) => {
-  const navItems: Array<{
+interface NavSection {
+  title: string;
+  items: Array<{
     id: NavRoute;
     label: string;
     icon: string;
     badge?: number;
     badgeVariant?: 'error' | 'primary';
-  }> = [
-    { id: 'overview', label: 'Overview', icon: 'grid_view' },
-    { id: 'recovery-cases', label: 'Recovery Cases', icon: 'inbox' },
-    { id: 'exceptions', label: 'Exceptions', icon: 'error_outline', badge: exceptionCount, badgeVariant: 'error' },
-    { id: 'analytics', label: 'Analytics', icon: 'trending_up' },
-    { id: 'evaluation-lab', label: 'Evaluation Lab', icon: 'science' },
-    { id: 'settings', label: 'Settings', icon: 'settings' },
+  }>;
+}
+
+export const Sidebar: React.FC<SidebarProps> = ({
+  currentRoute,
+  onRouteChange,
+  exceptionCount = 12,
+}) => {
+  const sections: NavSection[] = [
+    {
+      title: 'Core Operations',
+      items: [
+        { id: 'overview', label: 'Command Center', icon: 'grid_view' },
+        { id: 'recovery-cases', label: 'Recovery Cases', icon: 'inbox' },
+        { id: 'exceptions', label: 'Exceptions & Review', icon: 'error_outline', badge: exceptionCount, badgeVariant: 'error' },
+        { id: 'execution-center', label: 'Execution Center', icon: 'sync_saved_locally' },
+      ],
+    },
+    {
+      title: 'Intelligence & Safety',
+      items: [
+        { id: 'analytics', label: 'Recovery Analytics', icon: 'trending_up' },
+        { id: 'evaluation-lab', label: 'Evaluation Lab', icon: 'science' },
+        { id: 'failure-lab', label: 'Failure Lab', icon: 'crisis_alert' },
+        { id: 'policies', label: 'Policies & Guardrails', icon: 'gavel' },
+        { id: 'audit-explorer', label: 'Audit Explorer', icon: 'history_edu' },
+      ],
+    },
+    {
+      title: 'Studio & Infrastructure',
+      items: [
+        { id: 'data-studio', label: 'Simulation Studio', icon: 'dataset' },
+        { id: 'merchant-config', label: 'Merchant Config', icon: 'tune' },
+        { id: 'system-health', label: 'System Health', icon: 'health_and_safety' },
+        { id: 'settings', label: 'Settings', icon: 'settings' },
+      ],
+    },
   ];
 
   return (
@@ -54,32 +88,40 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
         </div>
 
-        {/* Navigation items */}
-        <nav className="flex-1 px-space-sm py-space-base space-y-1 overflow-y-auto">
-          {navItems.map((item) => {
-            const isActive = currentRoute === item.id || (item.id === 'recovery-cases' && (currentRoute === 'case-detail' || currentRoute === 'decision-center'));
-            return (
-              <button
-                key={item.id}
-                onClick={() => onRouteChange(item.id)}
-                className={`w-full flex items-center justify-between px-space-base py-2 rounded-lg transition-colors text-sm ${
-                  isActive
-                    ? 'bg-primary-container text-on-primary-container font-medium shadow-sm'
-                    : 'text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface'
-                }`}
-              >
-                <div className="flex items-center gap-space-md">
-                  <span className="material-symbols-outlined text-[20px]">{item.icon}</span>
-                  <span>{item.label}</span>
-                </div>
-                {item.badge !== undefined && item.badge > 0 && (
-                  <span className="px-1.5 py-0.5 rounded-full text-[11px] font-semibold bg-error-container text-on-error-container">
-                    {item.badge}
-                  </span>
-                )}
-              </button>
-            );
-          })}
+        {/* Navigation items grouped by section */}
+        <nav className="flex-1 px-space-sm py-space-sm space-y-4 overflow-y-auto">
+          {sections.map((sec) => (
+            <div key={sec.title} className="space-y-1">
+              <div className="px-3 text-[10px] font-bold uppercase tracking-wider text-on-surface-variant/80">
+                {sec.title}
+              </div>
+              {sec.items.map((item) => {
+                const isActive = currentRoute === item.id || 
+                  (item.id === 'recovery-cases' && (currentRoute === 'case-detail' || currentRoute === 'decision-center'));
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => onRouteChange(item.id)}
+                    className={`w-full flex items-center justify-between px-3 py-1.5 rounded-lg transition-colors text-xs ${
+                      isActive
+                        ? 'bg-primary-container text-on-primary-container font-semibold shadow-xs'
+                        : 'text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface font-medium'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5">
+                      <span className="material-symbols-outlined text-[18px]">{item.icon}</span>
+                      <span>{item.label}</span>
+                    </div>
+                    {item.badge !== undefined && item.badge > 0 && (
+                      <span className="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-error-container text-on-error-container">
+                        {item.badge}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          ))}
         </nav>
       </div>
 
@@ -100,8 +142,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <span className="text-xs text-on-surface-variant font-mono">v2.4-ops</span>
         </div>
 
-        <div className="pt-1">
-          <p className="text-xs text-on-surface-variant truncate" title="Razorpay Direct Merchant (sandbox)">
+        <div className="pt-0.5">
+          <p className="text-[11px] text-on-surface-variant truncate" title="Razorpay Direct Merchant (sandbox)">
             Razorpay Direct Merchant <span className="text-outline">(sandbox)</span>
           </p>
         </div>
